@@ -1,0 +1,109 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 1}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[2]{%
+  \begin{tcolorbox}[colback=blue!5!white,colframe=blue!25!black,title=#1]
+    #2
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Constante de planck}
+\caja{$ \hbar  $}{
+  \begin{gather}
+    \hbar = \frac{h }{2\pi }= 1.055 \times10^{-34}Js\\
+    [\hbar ] : Energia *tiempo <-> Accion\\
+    E = hf = \hbar \omega \quad \omega : frec. angular.\\
+    [\hbar] : momentum \times longitud\\
+    N _{av} = 6 \times10^{23}
+    \label{eq:hbar }
+  \end{gather}
+  
+}
+
+\section{Ket } % (fold)
+\label{sec:Ket }
+\caja{ket }{
+  \begin{gather}
+    \ket{\alpha }-> "vector" n dim. complejo.\\
+    c \ket{\alpha} = \ket{\alpha } c\\
+    c _{\alpha} + c_\beta = \ket{\delta} \quad lineal.
+    \label{eq:Ket }
+  \end{gather}
+}
+
+Mas adelante de considerara el espacio ket como un vector no numerable e infinito cuyo espacio será llamado espacio de Hilbert.
+
+El espacio dual es la traspuesta conjugada del espacio original. 
+
+\caja{Conjugado de $ \ket{\alpha}:\bra{\alpha} $}{
+  \begin{gather}
+    \bra{\alpha} = C _{\alpha} ^ {* }\bra{\alpha}+C _{\beta} ^ {* } \bra{\beta}\\
+    \bra{\delta}\approx (\delta _{1 } ^ {* }, \delta _{2 } ^ {* }, ..., \delta _{n } ^ {* })\\
+    \bra{\alpha} \approx \begin{bmatrix}
+        \delta _{1 }  \\
+        \delta _{2 }  \\
+        ...  \\
+        \delta _{n } 
+    \end{bmatrix} 
+    \label{eq:conjugado }
+  \end{gather}
+}
+
+Este espacio dual nos sirve para definir un producto punto.
+\caja{producto punto }{
+  \begin{gather}
+    \bra{\alpha}\ket{\delta} = z = \delta _{1 } ^ {* }\alpha _1 + \delta _2 ^ {* }\alpha _{2 } + ... + \delta _{n } ^ {* }\alpha_n\\
+    \bra{\beta}\ket{\alpha}=\bra{\alpha}\ket{\beta}^ {* }\\
+    \bra{\alpha}\ket{\alpha} = \sum_{n=1 }^{N }|\alpha|^ {2} >= 0 \\
+    \ket{\bar \alpha} = \frac{\ket{\alpha}}{\sqrt{\bra{\alpha}\ket{\alpha}} } \qquad
+    \bra{\bar \alpha}\ket{\bar \alpha}=1
+    \label{eq:bracket}
+  \end{gather}
+}
+
+Si $ \bra{\alpha}\ket{\beta} = 0  $ entonces son ortogonales.
+
+\section{operadores} % (fold)
+\label{sec:operadores}
+\caja{operadores }{
+  Para representar cantidades fisicas necesitamos operadores. $ \ket{\alpha} $ es un estado.
+  \begin{gather}
+    X(\ket{\alpha}) =  X \ket{\alpha} = \ket{\beta}\\
+    \bra{\alpha}\ket{\alpha} = 1 \qquad \bra{\beta}\ket{\beta} \neq 1\\
+    X \ket{\alpha} dc \bra{\alpha}X ^ {\dag}
+    \label{eq:operadores }
+  \end{gather}
+  Si $ X = X ^ {\dag} $ entonces X es hermitico. 
+}
+
+Aquí algunas propiedades de los operadores: 
+\begin{gather}
+  XY \neq YX \qquad X(YZ) = (XY)Z = XYZ\\
+  X(Y \ket{\alpha}) = (XY)\ket{\alpha}=XY \ket{\alpha}, \qquad (\bra{\beta}X)Y = \bra{\beta} (XY) = \bra{\beta}XY
+  \label{eq:prop.operadores }
+\end{gather}
+% section operadores (end)
+
+\end{document}

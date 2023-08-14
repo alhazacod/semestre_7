@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{clase 1}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[2]{%
+  \begin{tcolorbox}[colback=blue!5!white,colframe=blue!25!black,title=#1]
+    #2
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Teoria de orbitas periodicas of genus expansions en gravedad cuantica en bajas dimensiones}
+Juan diego urbina, torsten weber, fabian haneder, camilo-alfonso moreno y klaus richter. 
+
+Caos cuantico. 
+
+- Usual AdS/CFT
+- here: "JT/RMT"
+- Teoria de orbita periodica = Universal $RMT^2$
+
+\caja{Objetivo}{
+  Teoria de orbita periodica $\leftarrow?\rightarrow$ JT-gravity
+}
+Teoria de gravedad cuantica $\leftarrow\rightarrow$ right matrix theory  --- dualidad
+\caja{Accion de la gravedad euclideana en 2d }{
+  \begin{gather}
+    S _{g } =-\frac{1}{\kappa}[\frac{1}{2}\int_{M }^{}d^2 \times \sqrt{g} R + \int_{\partial M }^{}du \sqrt{h} K]
+    \label{eq:2dactioneuclid}
+  \end{gather}
+  Primera parte, integral sobre variedad del tiempo y el espacio, tiene metrica que depende del tiempo y el espacio, curvatura de richi. De esta primera parte se puede obtener la teoria clasica, es exacta sin necesidad de que dependa de la metrica. 
+
+  El segundo temrino es de frontera. 
+}
+\caja{Gauss- bonnet}{
+  \begin{gather}
+    S _{g } =S_g=-S_0 \chi(M) 
+    \label{eq:gaussbonnet}
+  \end{gather}
+  La accion no depende de la metrica solo de la variedad. Solo en este universo 2d.
+}
+Formulacion de la cuantica de feynman. Muchos caminos se integran para obtener la probabilidad. Cuantizacion de un campo. No existe teoria cuantica de la gravedad. Pero sí existen teorias en bajas dimensiones. La teoria de cuerdas tiene teoria de gravedad en bajas dimensiones.
+
+La accion es una invariante topologica. 
+
+\section{Gravedad JT } % (fold)
+\label{sec:Gravedad JT }
+\caja{Accion JT }{
+  \begin{gather}
+    S _{JT } =-S_0\chi(M)-[\frac{1}{2}\int_{M }^{}d^2 \times \sqrt{g} \phi (R+2) + \int_{\partial M }^{ } du \sqrt{h} \phi (K-1) ] 
+    \label{eq:jtaction}
+  \end{gather}
+  Curvatura negativa constante. Esta es la mas sencilla. Existen mas como la teoria de cuerdas ue es una teoria de la gravedad en 11 dimensiones. (Ver imagen en la diapositiva para hacerse idea de la curvatura negativa)
+  
+}
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{"Pasted image.png"}
+  \end{center}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+Correlatores conectados como integrales de camino 
+\begin{gather}
+  \bra{Z(\beta_1)}...\ket{\beta_n }^ {(c) } \leftarrow\rightarrow  \int_{}^{}D _{BC } [g,\phi ]\exp{S_0 \chi(M)+... (ver diapositiva)} \\
+  = \int_{}^{} D _{BC,R=-2 } [g] \exp{S_0 \chi (M)}\exp{\int_{\partial M }^{}du \sqrt{h} \phi (K-1) }\\
+ =\sum_{g=0 }^{\inf }e ^ {S_0(2-2g-n )}\int_{}^{}D[g] _{BC,R=-2, g(M)=g } \exp{\int_{\partial M }^{}du \sqrt{h} \phi (K-1) }
+  \label{eq:correlatores }
+\end{gather}
+Ver imagenes en las diapositivas para visualizarlo. 
+
+Se está regularizando la teoria. 
+
+\subsection{La trompeta y el disco}
+\begin{enumerate}
+  \item $ \int_{\partial M }^{} \sqrt{h} \phi (K-1 )=\frac{1}{2}\int_{}^{}   $
+  \item ... 
+  \item ...
+\end{enumerate}
+\caja{Resultado final: expansion JT de jenus}{
+  \begin{gather}
+    \bra{Z(\beta_1 )}...\ket{X(\beta_n )}^ {(C) }=\sum_{g=0 }^{\inf }\frac{Z_{g,n}^ {JT }(\beta_1,...,\beta_n )}{(\exp{S_0})^ {2g+n-1 }} \\ 
+    \label{eq:jtgenusexpansion}
+  \end{gather}
+}
+
+\section{Matrix ensembles } % (fold)
+\label{sec:Matrix ensembles }
+\caja{Definicion (Promedio sobre matrices)}{
+  \begin{gather}
+    Z = \int_{E }^{}d\mu (M) =\int_{E }^{}dM \exp{-N tr(V(M))}\\
+    ...
+    \label{eq:avovermatrix}
+  \end{gather}
+}
+\caja{ejemplo de observables}{
+  \begin{gather}
+    <Z(\beta)> := <tr\quad \exp{-\beta M }\\
+    <\rho (E)>:= \sum_{i=1 }^{N }\delta(E-\lambda_i ) \quad <Z(\beta_1), ..., Z(\beta_n )>^{(c)}
+    \label{eq:observablesex}
+  \end{gather}
+}
+\caja{Expansion perturbativa }{
+  \begin{gather}
+    <Z(\beta_1),..., Z(\beta_n)>^{(c)} ....
+    \label{eq:eq1}
+  \end{gather}
+}
+\caja{funcion de 1 punto }{
+  \begin{gather}
+    <Z(\beta)> = Z ^ {d }(\beta) + \sum_{g }^{}\exp{(1-2g)S_0 }\int_{0 }^{\inf }bdb V _{g,1 } (b) Z^t(\beta,b) 
+    \label{eq:1pointfunction }
+  \end{gather}
+  \begin{itemize}
+    \item integral de camino, expansion de genus $\rightarrow $ esemble average
+    \item condiciones de frontera $\rightarrow$ operadores de seleccion
+  \end{itemize}
+}
+\begin{itemize}
+  \item \textbf{ Una pregunta fundamenta: } Podemos asignar un sistema unico (Hamiltoniano) a la integral de camino de JT? Y si es así qué significa?
+\end{itemize}
+% section Matrix ensembles  (end)
+\end{document}
+
+
+
+
