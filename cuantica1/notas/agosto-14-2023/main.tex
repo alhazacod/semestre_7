@@ -1,0 +1,155 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 2 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Espacio de bras y kets }
+\caja{black}{Repaso}{
+  "kets" $ c_\alpha \ket{\alpha} + c_\beta \ket{\beta} = \ket{\delta}$
+
+  "bras"  $c_\alpha^* \bra{\alpha}+ c_\beta^* \bra{\beta} = \bra{\delta}$
+
+  \begin{gather}
+    X(\ket{\alpha}) =  X \ket{\alpha} = \ket{\beta}\\
+    \bra{\alpha}\ket{\alpha} = 1 \qquad \bra{\beta}\ket{\beta} \neq 1
+    \label{eq:norm_ket}\\
+    X \ket{\alpha} dc \bra{\alpha}X ^ {\dag}
+    \label{eq:operadores }
+  \end{gather}
+}
+Operadores:
+\begin{gather}
+   z = \bra{\phi }X\ket{\psi} \\
+   Z^* = \bra{\psi }X^\dag \ket{\phi} 
+\end{gather}
+Si $X = X^\dag$ entonces es hermitico
+
+Si $Z = Z^* $ entonces $z$ es real. 
+
+\caja{black}{Repaso }{
+  \begin{gather}
+     X \ket{\alpha} = \ket{\beta} \\
+     \bra{\alpha}\ket{\alpha} = 1 \qquad \bra{\beta}\ket{\beta} \neq 1
+  \end{gather}
+}
+\caja{red}{Operadores }{
+  \begin{gather}
+    \bra{\beta}\ket{\beta} = \bra{\alpha}X^\dag X \ket{\alpha}>0 \qquad \text{positivo }
+    \label{eq:null}
+  \end{gather}
+  Si $ X = X^\dag \rightarrow \bra{\alpha}XX\ket{\alpha}>0 \rightarrow \bra{\alpha}X^2 \ket{\alpha}>0   $
+}
+Si tenemos $ \ket{1}, \ket{2 }, \ket{3 },..., \ket{N} \quad \ket{i} \quad i = 1,...,N $
+
+Si $ \bra{i}\ket{j} = \delta _{i,j}   $ entonces son ortonormales. 
+
+\begin{gather}
+  \underset{\text{Producto exteior?} }{\sum_{i = 1 }^{N }\ket{i }\bra{i } = \mathbb{I}}
+\end{gather}
+
+\caja{green}{Operador identidad (Completez)}{
+  \begin{gather}
+    \ket{\alpha} = \mathbb{I} \ket{\alpha}
+    = \sum_{i = 1 }^{N }\ket{i }\bra{i }\ket{\alpha}
+    = \sum_{i = 1 }^{N }\ket{i }\alpha_i
+  \end{gather}
+  Con $ \ket{\alpha} = \mathbb{I } \ket{\alpha} $
+
+  Recordar producto punto de la clase anterior.
+}
+\caja{black}{Titulo}{
+  \begin{gather}
+     \begin{bmatrix}
+         0 & i \\
+         -i  & 0
+     \end{bmatrix} ^\dag  = 
+     \begin{bmatrix}
+         0 & i \\
+         -i  & 0
+     \end{bmatrix} \qquad \text{En este caso es hermitica.}  
+  \end{gather}
+}
+
+En general al aplicar un operador a un vector obtenemos una direccion diferente a la original (no siempre pero en general sucede esto) 
+
+\caja{red}{Autovalores y autovectores }{
+  \begin{gather}
+    X \underset{autovector}{\ket{\lambda}} = \underset{autovalor}{\lambda} \ket{\lambda} 
+    \label{eq:autovector_autovalor}
+  \end{gather}
+  $ X  $ tiene varios autovectores y autovectores. 
+}
+\caja{green}{No importa la longitud}{
+  Reemplazamos $ \ket{\lambda} \rightarrow c \ket{\lambda} = \ket{\bar \lambda}  $ c es complejo, obtenemos una nueva "columba de numeros" cambiamos la longitud pero no la orientacion. Si metemos $ \ket{\bar \lambda } $ en la eq. \ref{eq:autovector_autovalor} sigue satisfaciendo la ec? Si porque c se cancela en ambos lados ya que $ X c = cX $
+}
+\begin{gather}
+   A = A ^ {\dag} \qquad \text{Hermitica }\\
+   A \ket{a} = a \ket{a}\label{eq:Aa}\\
+   A \ket{a'} = a' \ket{a'}\label{eq:Aap}\\
+   \bra{a' }A = (a')^* \bra{a' } \label{eq:aA}
+\end{gather}
+Si multiplicamos eq. \ref{eq:Aa} por $ \bra{a' } $ y le restamos eq. \ref{eq:aA} por $ \ket{a'} $ obtenemos: 
+\begin{gather}
+  (a-(a')^*)\bra{a' }\ket{a} = 0 
+  \label{eq:Aa-aA}
+\end{gather}
+Si son hermiticos esto se cumple ya que $ (a-a^*) =0 $ 
+Si los autovectores son diferentes entonces necesitamos que $ \bra{a'}\ket{a}=0   $ osea que sean ortogonales. 
+
+
+\section{Como se combina matematicas y fisica?} % (fold)
+\label{sec:Como se combina matematicas y fisica?}
+\subsection{Medicion}
+\caja{green}{Cantidades fisicas (\textbf{Observables})}{
+  Operador $O$ y la cantidad $o$. Al obtener los autovalores $ O \ket{o_i}=o_i \ket{o_i } $ tendremos que los autovalores $ o_i  $ tienen dimension y se pueden medir. Para obtener cantidades fisicas el operador debe ser hermitico ya que si no lo fueran obtendriamos autovalores complejos. Esto es a lo que llamaremos \textbf{Observables}. 
+}
+El estado $ \ket{\psi} $ luego de realizarle una medicion ya deja de ser el mismo estado y se convierte en el auto estado con su respectivo autovalor. Osea al aplicar $ O \ket{\psi} $ (analogo de medicion) obtenemos sus autovalores y autovectores $ o_i \ket{o_i} $
+
+Cuando se miden estados cuanticos debemos volver a preparar el mismo estado para medirlo. 
+\caja{black}{Nota }{
+  \begin{gather}
+    \sum_{i = 1 }^{N } P _i = \sum_{i=1 }^{N }| \bra{O_i }\ket{\psi}|^2 = \sum_{i = 1 }^{N }(\bra{O_i }\ket{\psi} )^* \bra{O_i }\ket{\psi} = \sum_{i = 1 }^{N }\bra{O_i }\ket{\psi} = \bra{\psi}\mathbb{I }\ket{\psi} = \bra{\psi}\ket{\psi}  
+  \end{gather}
+  $ P_i  $ Es la probabilidad de encontrar a $ \psi  $ en cierto estado. 
+  \begin{gather}
+    P_i = |\bra{O_i }\ket{\psi}|^2  
+    \label{eq:probabilidad_estado}
+  \end{gather}
+}
+% section Como se combina matematicas y fisica?  (end)
+\end{document}
+
+
+
+
+

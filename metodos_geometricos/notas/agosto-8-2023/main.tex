@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 1 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Coordenadas}
+Geometria euclideana $ \rightarrow $ geom. analitica o de coordenadas $ \rightarrow  $ geom. diferencial.
+
+\section{espacio cartesiano }
+$ p \rightarrow (x^i_p)  $, $ i=1,...,n $
+\subsection{transformacion de coordenadas. } % (fold)
+\begin{gather}
+P_0 = \begin{bmatrix} x_0^1  & ...  & x_0^n  \end{bmatrix} \qquad \text{conjunto abierto D}\\
+  x_0^1-x^i<\in \rightarrow  \text{Abierto }  
+  \label{eq:transf-coordenadas }
+\end{gather}
+
+En una region D:
+\begin{gather}
+  (x^i) = \begin{bmatrix} x^1  & ...  & x^n \end{bmatrix} \text{Donde }i = 1,...,n 
+\end{gather}
+En la misma region: 
+\begin{gather}
+  (z^i)= \begin{bmatrix} z^1  & ...  & z^n \end{bmatrix}
+\end{gather}
+Transformacion suave:
+\begin{gather}
+  x^i = x^i\begin{bmatrix} z^1  & ...  & z^n \end{bmatrix}
+\end{gather}
+\caja{green}{Def. }{
+  un punto $ P_0 = \begin{bmatrix} x_0^1  & ...  & x_0^n  \end{bmatrix}  $ es ordinario o no singular de z si:
+  \begin{gather}
+a_j^i = ( \frac{\partial x^i  }{\partial z_i} ) _{z^i=z_0^i} 
+  \end{gather}
+  es no singular. 
+}
+\subsection{transformada lineal:}
+$ x^i = a_j^i z^i $ Notacion de einstein.
+\caja{green}{Teorema de la funcion inversa }{
+  las coordenadas z se pueden expresar en teminos de x si la matrix $ a_j^i  $ es invertible. es decir si existe $ b_j^i  $ tal que: 
+  \begin{gather}
+     a_j^i \dot b_k^j = \delta_k^i
+  \end{gather}
+}
+ ej: esfericas
+ \begin{gather}
+    z^1 = r \qquad z^2 = \theta \qquad z^3 = \phi
+ \end{gather}
+ Transformada: $ x^1 = r \sin{\theta }\cos{\theta} \qquad x^2 = r \sin{\theta}\cos{\phi} \qquad x^3=r \cos{\phi}$
+ \begin{gather}
+   J =  det(J_j^i) = r^2 \sin{\theta} \neq 0 \qquad para \qquad r \neq 0,\theta \neq 0, \phi \neq \pi    
+ \end{gather}
+
+% subsection transformacion de coordenadas.  (end)
+
+% section espacio cartesiano $ p \rightarrow (x^i_p)  $, $ i=1,...,n $ (end)
+ \section{Espacio euclideano} % (fold)
+ \label{sec:Espacio euclideano}
+ Si la distancia entre dos puntos está dada por:
+ \begin{gather}
+  d^2 = (x^1-y^1)^2+ (x^2+y^2)^2 + (x^3+y^3)^2 
+  \label{eq:distancia_euclideana}
+ \end{gather}
+ entonces es un espacio euclideano 
+ \caja{red}{Vectores y bases en $ \mathbb{R}^3 $}{
+  \begin{gather}
+    \{ e_1\}= e_1,e_2,e_3 \rightarrow (1,0,0),(0,1,0),(0,0,1) \\
+    v = x^1 e_1 + x^2 e_2 + x^3 e_3 = x^i e_i
+    \label{eq:bases_r3}
+  \end{gather}
+ }
+ \caja{red}{Producto escalar}{
+  Sea $ v = (x^1,...,x^n) $, $ w = (y^1,...,y^n ) $
+  \begin{gather}
+    \bra{v}\ket{\omega} \equiv \displaystyle\sum_{i=1 }^{n }x^i y^j  
+    \label{eq:producto_escalar}
+  \end{gather}
+  propiedades: 
+  \begin{itemize}
+    \item conmutativo $ \bra{v}\ket{\omega}=\bra{\omega}\ket{v}   $
+    \item distributivo $ \bra{v}\ket{a\omega + b u } = a \bra{v}\ket{\omega} + b \bra{v}\ket{u }  $ 
+    \item $ \bra{v}\ket{v}>0 \qquad sii \qquad v \neq 0    $
+  \end{itemize}
+  \tcblower
+  \begin{gather}
+    |v|^2 = \bra{v}\ket{v} \qquad \qquad \cos{\alpha} = \frac{\bra{v}\ket{\omega} }{\sqrt{\bra{v}\ket{v} \bra{\omega}\ket{\omega}  }  }   
+    \label{eq:v2_y_angulo}
+  \end{gather}
+ }
+ \caja{black}{curvas}{
+  Una curva parametrica diferenciable en $ \mathbb{R}  $ es una funcion diferenciable en un intervalo $ I = (a,b) $ en $ \mathbb{R}^n, a(t) : I \rightarrow \mathbb{R}^n    $
+  \begin{gather}
+     a(t) = \begin{bmatrix} f^1(t) & ...  & f^n(t) \end{bmatrix} 
+  \end{gather}
+  Una curva es regular si $ v(t)\neq 0   $ para todo $ t\in I $
+ }
+ \caja{red}{longitud de arco }{
+  \begin{gather}
+    S = \int_{a }^{b }\sqrt{\bra{v(t)}\ket{v(t)}dt  }
+    \label{eq:long_arco_euclideo}
+  \end{gather}
+ }
+ % section Espacio euclideano (end)
+
+\end{document}
