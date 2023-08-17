@@ -1,0 +1,180 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 3 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Repaso de la clase pasada}
+\caja{green}{Representacion polar }{
+  \begin{gather}
+    z = r e ^ {i \text{Arg}(z ) } \equiv re ^ {i\theta}\\
+    \text{Arg}(z) = arg(z) +2\pi k,\qquad k = 0,\pm 1,.., \pm i,... \\
+    i ^ {n } = i ^ {mod_4n}\\
+    i ^ {25 } = i ^ {24 }*i^1 = i
+    \label{eq:null}
+  \end{gather}
+}
+
+\section{Teorema de Moirre }
+$ z = r e ^ {i\theta } , \quad n \in \mathbb{Z} \qquad z ^ {n }=(re ^ {i\theta }) ^ {n } = r ^ {n }e ^ {in \theta } $
+
+\begin{gather}
+   z ^ {n } = [r(\cos{\theta} +i \sin{\theta} )] ^ {n } = r^n [\cos{n \theta} +i \sin{n \theta} ]  ] \\
+   [\cos{\theta} +i \sin{\theta} ]^n = \cos{n \theta} +i \sin{n \theta} \\
+   [\cos{\theta}  + i \sin{\theta}  ]^5 = \cos{5 \theta} +i \sin{5 \theta}  = e ^ {i5\theta }  
+\end{gather}
+En el cuadrante de arriba el angulo de puede calcular como: $ \pi + \tan^{-1}{\frac{y}{x} } $ o $ \pi - |\tan^{-1}{\frac{y}{x} } |$
+\caja{black}{Ejercicio}{
+  \begin{gather}
+    [-1+i \sqrt{3 }  ] ^ {60}\\
+    z = 2e ^ {\frac{2\pi i }{3 } } = 2* [\cos{\frac{2\pi}{3}+i \sin{\frac{2\pi}{3} }   }  ]\\
+    z ^ {60 } = 2 ^ {60 }[\cos{\frac{120\pi}{3} } + i \sin{\frac{120\pi}{3 } }   ] = 2 ^ {60}
+  \end{gather}
+}
+\caja{black}{Identidad}{
+  \begin{gather}
+    \cos{2 \theta}  = \cos ^ {2 }{\theta }  - \sin^2{\theta}\\
+    \sin{2 \theta} = 2 \cos{\theta} \sin{\theta}    
+    \label{eq:identidad_trigonometrica }
+  \end{gather}
+}
+
+Demostrar que el polinomio $ f(x) ) [\cos{\alpha} +x \sin{\alpha} ] ^ {n }- \cos{n\alpha} -x \sin{n\alpha} $ proporcional a $ (x^2+1) $ es divisible por $ x^2+1 = (x+i)(x-i) $
+\begin{gather}
+  f(x) \text{proporcional } (x-a ) \qquad \text{si }\quad f(a) = 0   \\
+  \text{Debemos demostrar que } f(-i)=0 \quad f(i)=0 \\
+  f(-i) = [\cos{\alpha} - i \sin{\alpha}   ]^ {n }- \cos{n\alpha} + i \sin{n\alpha} \\
+  = \cos{n\alpha} -i \sin{n\alpha} - \cos{n\alpha} +i \sin{n\alpha}\text{  Q.E.D}   
+  \label{eq:demostracion_polinomio}
+\end{gather}
+\textbf{Tarea: terminar demostracion}
+
+\caja{black}{Ejercicios}{
+  \begin{itemize}
+    \item Pasar a polar $ (\frac{1+i \sqrt{3}  }{1-i } ) ^ {40 } $
+    \item Demostrar que $ f(x) = x^n \sin{\alpha} - \lambda ^ {n-1 }x \sin{n\alpha} + \lambda ^ {n } \sin{(n-1)\alpha}   $ es divisible por $ x^2-2\lambda x +\lambda^2 $
+    \item identidad $ \sin{3\phi}   $
+  \end{itemize}
+}
+
+\section{Raices de un polinomio complejo }
+\begin{gather}
+  2 = 2 e ^ {2\pi k i }\qquad \text{k entero }\\
+  \sqrt{2 }  = \sqrt{2 } e ^ {2 \pi k i /2}\\
+  = \sqrt{2 } e ^ {\pi k i }\\
+  = \sqrt{2 } - \sqrt{2 } (\sqrt{2 } -\sqrt{2 } - \underset{Repetidas}{\sqrt{2}  }   )  
+\end{gather}
+\caja{green}{Raiz polinomio complejo }{
+  \begin{gather}
+    \sqrt[n]{z}  = z ^ {1/n}\\
+    z ^ {1/n } = r ^ {1/n }[e ^ {i\alpha+2 \pi k }]^ {1/n }\\
+    =r ^ {1/n }[e ^ {i\alpha/n+2 \pi k/n }]
+    \label{eq:raiz_polinomio_complejo}
+  \end{gather}
+  n raices, n= 0, ...n=n-1.
+  \begin{gather}
+     k = 0 \qquad \sqrt[n]{z} = \sqrt[n]{r} e ^ {i \alpha/n }\\
+     ... 
+     k = n-1 \qquad = \sqrt[n]{r}e ^ {i \alpha/n +\frac{2\pi(n-1 )}{n}i }\\
+    k = n \qquad = \sqrt[n]{r}e ^ {i \alpha/n +\frac{2\pi(n )}{n}i }\\
+    \sqrt[n]{z} = \sqrt[n]{r}e ^ {i \alpha/n +\frac{2\pi k}{n}i }
+  \end{gather}
+  Las raices de los polinomios complejos son ciclicas.
+}
+
+\textbf{Ejemplo: } $ \sqrt[3]{i }   $
+\begin{gather}
+   z = 1e ^ {\frac{i\pi}{2} }\\
+   \sqrt[3]{z } = e ^ {\frac{i\pi}{6}+ \frac{2\pi k i}{3}  } \quad k = 0,1,2\\
+   k = 0 \rightarrow e ^ {\frac{i \pi }{6} } = \frac{\sqrt{3}  }{2} + i \frac{1}{2}\\
+   k = 1 \rightarrow e ^ {i \frac{\pi}{6} + \frac{2 \pi i }{3}  } = \cos{\frac{5\pi}{6} } + i \sin{5\pi/6} \\
+   k = 2 \rightarrow e ^ {i \frac{\pi}{6}+ \frac{2\pi}{3}2   } = e ^ {\frac{3i \pi}{2} } 
+\end{gather}
+Con $ \sqrt[3]{i}   $
+\begin{gather}
+   \sqrt[3]{i} \rightarrow z = e ^ {i \frac{\pi }{8 } } \rightarrow \sqrt[3]{z} =  e ^ {i \frac{\pi }{8 }  + \frac{2 \pi k i}{4} }\\
+   k = 0 \rightarrow  e ^ {i \frac{\pi }{8 } }\\
+   k = 1 \rightarrow  e ^ {i \frac{\pi }{8 }  + \frac{2 \pi  i}{4} } = e ^ {i \frac{5\pi}{8 } }\\
+   k = 2 \rightarrow  e ^ {i \frac{\pi }{8 }  + \frac{4 \pi  i}{4} } = e ^ {i \frac{9\pi}{8 } }\\
+   k = 3 \rightarrow e ^ {i \frac{\pi }{8 }  + \frac{3 \pi  i}{2} } = e ^ {i \frac{13\pi}{8 } } 
+\end{gather}
+
+\caja{black}{Ejemplo polinomio}{
+  $ z^2+(2i-3)z + 5 -i  =0  $
+
+  Tenemos que $ z = \frac{-b \pm \sqrt{b ^ {2 }-4ac }  }{2a }  $ Entonces:
+  \begin{gather}
+    z = \frac{-(2i-3 ) \pm \sqrt{(2i-3)^ {2 } - 3(5-i )}  }{2}\\
+    = \frac{3-2i\pm \sqrt{-15-8i }  }{2}   
+    \label{eq:ejemplo_polinomio_complejo}
+  \end{gather}
+  Todo se reduce a encontrar las raices de $ \sqrt{-15-8i } $:
+  \begin{gather}
+     z_1 = -15-8i \rightarrow \cos{\theta}=\frac{-15 }{17},\quad \frac{-8 }{17}     \\
+     |z_1| = \sqrt{15 ^ {2 }+8 ^ {2 }} = 17\\
+     z_1 = 17[\frac{-15 }{17 }- \frac{8 }{17}i   ] = 17e ^ {i\theta }\rightarrow \sqrt{z_1 } = \sqrt{17 } e ^ {i \frac{\theta }{2} }\\
+     k = 1 \rightarrow  \sqrt{17 } e ^ {i \frac{\theta }{2} + \frac{2\pi 1 }{2}i } = \sqrt{17 } e ^ {i \frac{\theta }{2} } \\
+     \text{Tenemos que } \Delta \theta = \frac{2\pi}{n }\\  
+     \sqrt{z_1 } = \sqrt{17 } [\cos{\frac{\theta }{2} } + i \sin{\frac{\theta }{2} }   ] \\
+     \cos{\frac{\theta }{2} } = \pm \sqrt{\frac{1+ \cos{\theta}  }{2} } = - \frac{1}{\sqrt{17 }  }\\
+     \sin{\frac{\theta }{2} } = \pm \sqrt{\frac{1-\cos{\theta}  }{2} } =  \frac{4}{\sqrt{17}  }   
+  \end{gather}
+}
+
+\caja{black}{\textbf{Tarea }}{
+   con $ z = -1-1i  $ encontrar:
+
+  $ \sqrt{z}  = \frac{2 ^ {\frac{1}{4} }}{2} [\sqrt{2-\sqrt{2}  } -i \sqrt{2+ \sqrt{2}  }   ]   $
+}
+
+\caja{red}{Propiedades del módulo }{
+  \begin{itemize}
+    \item $ |z_1| = |\bar z_1| $
+    \item $ z \bar z = |z|^2 $
+    \item $ |z_1||z_2| = |z_1z_2| $
+    \item $ |\frac{z_1 }{z_2 }| = \frac{|z_1 | }{|z_2|}   $
+    \item $ |z^n | = |z|^n  $
+    \item $|Re(z)| \leq |z| \qquad |Im(z)|\leq |z| $
+    \item $ |z_1+z_2| = |z_1|+|z_2| $
+    \item $ ||z_1|+ |z_2|| \leq |z_1-z_2| $
+  \end{itemize}
+}
+
+\end{document}
+
+
+
+
+
+
+
+
