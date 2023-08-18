@@ -1,0 +1,207 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 4}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Propiedades magnitud numeros complejos }
+\subsection{Propiedad 7}
+\begin{gather}
+  |z_1+z_2| \leq |z_1|+|z_2|\quad \text{Propiedad 7}\\
+  |z_1+_2|^ {2 } = (z_1+z_2)(\bar z_1 + \bar z_2)\\
+  = z_1 \bar z_1 +z_1\bar z_2 + z_2 \bar z_1 + z_2 \bar z_2\\
+  = |z_1|^2+|z_2|^2 + z_1\bar z_2 + \bar{z_1 \bar z_2} \\
+  = |z_1|^2+|z_2|^2 + 2 Re(z_1 \bar z_2) \\
+  \text{Entonces tenemos que: } z+ \bar z = 2 Re(z) \text{  ,  } |Re(z)| \leq |z|\\
+  (z_1+z_2)^2 \leq |z_1|^2 + |z_2|^2 + 2|z_1||z_2|\\
+   = (|z_1|+|z_1|)^2 \\
+   \text{Entonces: }\\
+   |z_1+z_2|\leq |z_1|+|z_2|
+  \label{eq:propiedad_7}
+\end{gather}
+\section{Regiones en el plano complejo }
+\caja{red}{Ejemplos }{
+  \begin{itemize}
+    \item { Qué conjunto de puntos el plano cmplejo se terminan por la condición $ Im(z^2) >2? $}
+      \begin{gather}
+        Im(z^2 ) = Im((x+y)^2 )\\
+        = Im[x^2-y^2+ 2ixy ]>2 
+        \label{eq:ej1}
+      \end{gather}
+      Tenemos que $ 2xy>2 \rightarrow xy>1  $. Por lo tanto la region es $ y>1/x $
+    \item $ -\frac{\pi }{2} \leq arg(z+1-i)  \leq \frac{3\pi }{4}   $
+      \begin{gather}
+        -pi/2 \leq arg(z) \leq \frac{3\pi }{4}  
+      \end{gather}
+    \item $ |z| + Re(z)<1  $?
+      \begin{gather}
+        \sqrt{x^2+y^2 } +x <1 \\
+        \sqrt{x^2+y^2 } < 1-x \\
+        x^2+y^2 < (1-x)^2 \\
+        x^2+y^2 < 1+x^2-2x \\
+        \text{Entonces tenemos que: }\\
+        y^2 < 1-2x \\
+        -y^2 > -1+2x \\
+        x < \frac{1-y^2 }{2 } 
+        \label{eq:ej3 }
+      \end{gather}
+  \end{itemize}
+}
+\caja{red}{Curvas en el plano complejo }{
+  Tenemos que $ z = x+iy  $ 
+  \begin{gather}
+    z-z_0 = a \text{  a tiene que ser real } \\
+    z_0  = x_0 +y_0 i \\
+    z = x+i y \\
+    \text{Con estas dos ultimas ecuaciones podemos ver que: } \\
+    |(x-x_0) + (y-y_0 )i | = a \\
+    \sqrt{(x-x_0)^2 + (y-y_0)^2 }  = a \\
+    (x-x_0)^2 +(y-y_0 ) ^2 = a^2 
+  \end{gather}
+  Esto nos forma un circulo en el plano complejo de radio $ a  $ centrado en $ z_0  $.
+}
+\caja{red}{Curvas en el plano complejo }{
+  Demostrar que la siguiente ecuacion es una elipse:
+  \begin{gather}
+     |z+c|+|z-c| = 2 a \text{   Tenemos que a y c es real y }a>0 \\
+     \text{Cuando } c=0 \rightarrow 2|z|= 2a \rightarrow |z|= a\\
+     |x+iy+c| +|x-iy-c| = 2a \\
+     \sqrt{(x+c)^2 + y^2 } + \sqrt{(x-c)^2 +y^2 } = 2a\\
+     \sqrt{(x-c)^2 + y ^ {2 }} = 2a - \sqrt{(x-x) ^ {2 } + y ^ {2 }} \\
+     (x+c)^2 + y ^ {2 } = 4 a ^ {2 }- 4a \sqrt{(x-c) ^ {2 } + y ^ {2 }} + (x-c) ^ {2 }+ y ^ {2 }\\
+     \rightarrow  2xc = 4a ^ {2 }-4a \sqrt{(x-c ) ^ {2 }+y ^ {2 }}- 2xc\\
+     \rightarrow a ^ {2 }-xc  = a \sqrt{(x-c) ^ {2 }+y ^ {2 }} \\
+     \rightarrow (a ^ {2 }-xc ) ^ {2 } = a ^ {2 }[(x-c) ^ {2 }+y ^ {2 }]\\
+     \rightarrow a^4 -2a ^ {2 }xc+x ^ {2 }c ^ {2 } = a ^ {a }x ^ {2 }-2 a ^ {2 }cx + a ^ {2 }c ^ {2} + y ^ {2 }a ^ {2 }\\
+     a ^ {4 }- a ^ {2 }c ^ {2}  = x ^ {2 }(a ^ {2 }-c ^ {2 })+2 a ^ {2 }xc - 2 a ^ {2 }xc + y ^ {2 }a ^ {2 }\\
+     a ^ {2 }(a ^ {2 } - c ^ {2 }) = (a ^ {2 }- c ^ {2 })x ^ {2 }\\
+     \frac{x ^ {2 }}{a ^ {2 }} + \frac{y ^ {2 }}{a ^ {2 }- c ^ {2 }} = 1   
+    \label{eq:ejelipse}
+  \end{gather}
+  Tenemos que $ a \equiv  $ semieje mayor, y que $ b ^ {2 } =  a ^ {2 }- c ^ {2} $ es el semieje manor. 
+}
+\caja{green}{Discos }{
+  \begin{itemize}
+    \item Disco con frontera $ |z-z_0| \leq a  $
+    \item Disco abierto $ |z-z_0| < a $
+  \end{itemize}
+}
+\caja{black}{Ejecicio en clase }{
+  Cual figura es $ Re(1/z) = 1/4 $:
+  \begin{gather}
+    Re(\frac{1}{x+iy } \frac{(x+iy)}{x-iy} )= \frac{1}{4}\\
+    Re(\frac{x-iy }{x^2+y^2 } ) = \frac{1}{4}\\
+    \frac{x }{x ^ {2 }+ y ^ {2 }}= \frac{1}{4}\\
+    4x = x^2 +y ^ {2 }\\
+    -(x ^ {2 }-4x) = y ^ {2 }\\
+    -(x-2)^ {2 } = y ^ {2 }-4 \\
+    (x-2)^2+y ^ {2 } = 4 
+    \label{eq:solucionej1 }
+  \end{gather}
+  Solucion de juan carlo: 
+  \begin{gather}
+    Re(\frac{1}{z } ) = \frac{1}{2}(\frac{1}{z}+ \frac{1}{\bar z}) = \frac{1}{2} (\frac{1}{x+yi } + \frac{1}{x-yi } ) = \frac{1}{2}(\frac{x-iy+x+iy }{x ^ {2 }+ y ^ {2 }} )\\
+    = \frac{x}{x^2+y^2 } \rightarrow \frac{x}{x^2+y^2 } = \frac{1}{4}
+    \label{eq:soljuancarlos }
+  \end{gather}
+}
+\caja{red}{Ej }{
+  \begin{gather}
+    Im(x ^ {3 }) = 2 \\
+    z^2 \bar z^2  = 1 \\
+    Re(1+z) = |z| 
+    \label{eq:ej5}
+  \end{gather}
+}
+\caja{black}{Tarea }{
+  Escribir en forma compleja:
+  \begin{itemize}
+    \item $ y=x  $
+    \item $ x ^ {2 } - y ^ {2 } = a ^ {2 } $
+  \end{itemize}
+}
+
+\section{Funciones complejas }
+\begin{gather}
+  F(z) = F(x+yi )= Re(F)+i Im(F)= U(x,y)+iV(x,y) \equiv W \\
+  \label{eq:funcion_compleja}
+\end{gather}
+Cuando nosotros tenemos una funcion compleja por ejemplo $ z ^ {3 } $tenemos una funcion que tiene representacion en 4 dimensiones, pero podemos hacer una representacion en 3 dimensiones para la parte real y otra representacion en 3 dimensiones para la parte imaginaria. 
+
+Las funciones complejas tienen un \textbf{dominio} en el plano real $ x,y  $, ya que $ z=x+iy  $, el cual va de este dominio al dominio en $ V,U  $ ya que $ F(z) = U(x,y)+i V(x,y) $ el cual se denomina \textbf{imagen}. El proceso de pasar del dominio a la imagen se le llama \textbf{mapeo}.
+
+\caja{black}{Ejemplos }{
+  \begin{itemize}
+    \item Dominio $ \mathbb{C } \rightarrow F(z) = z^3 $
+    \item Dominio $ \mathbb{C }/[-3,3]\rightarrow   g(z) = \frac{1}{z ^ {2 }-9}  $
+  \end{itemize}
+}
+\caja{red}{Traslacion del dominio}{
+  $ S = z : \qquad |z|>1  $ con la funcion $ x ^ {2 }+y ^ {2 }\leq 1  $
+
+  Este dominio lo mapeamos a la funcion $ F(z) = z+2+i $
+  \begin{gather}
+     F(z) = z+2+1 = x+iy+2+i = x+2+i(1+i)\\
+     U =x+2, \qquad V = 1+y\\
+     \text{El nuevo dominio va a estar dado por: }\\
+     x ^ {2 } y ^ {2 } = 1 \rightarrow \\
+     y = \pm \sqrt{1-x ^ {2 }} \rightarrow V = 1\pm \sqrt{1-x ^ {2 }} \\
+     x = u-2 \rightarrow V = 1\pm \sqrt{1-(u-2)^ {2 }}   \\
+     \text{Entonces tenemos que: }\\
+     V-1 = \pm \sqrt{1-(U-2) ^ {2 }} \\
+     V-1 = 1-(u-2)^ {2 }\\
+     (U-2)^ {2 }+(V-1)^ {2} = 1
+    \label{eq:Dom_ej1}
+  \end{gather}
+  Mapeamos el dominio original en los reales $ (x,y ) $ a un nuevo dominio en los complejos $ (U,V) $. En resumen $ (x,y)\rightarrow (U,V)  $ y $ \mathbb{C}\rightarrow \mathbb{C}  $.
+}
+
+\caja{red}{Traslacion }{
+  Nos dan un triangulo formado por los ejes y una recta que corta en $ (0,4) $ y $ (3,0) $. Y vamos a mapearlo con la funcion $ F(z) = z+3-1  $. 
+
+  la recta formada de 0 a 3 en x es: $ 0\leq \frac{z+\bar z }{2 }\leq 3   $; $ \frac{z-\bar z }{2i } = 0   $
+
+  La recta formada de 0 a 4 en y es: $ 0\leq y\leq 4 \rightarrow  0\leq \frac{z- \bar z }{2i }\leq 4    \rightarrow x=0 \rightarrow \frac{z+\bar z}{2} = 0   $
+
+  La recta formada de $ (0,4) $ a $(3,0)$ es $ y = -\frac{4}{3}x+4  $
+
+
+  El nuevo dominio va a estar dado por:
+  \begin{itemize}
+    \item $F(0,0) = 3-i $
+    \item $ F(0,4) = 3+3i $
+    \item $ F(3,0) = 6-i $
+  \end{itemize}
+}
+
+
+\end{document}
