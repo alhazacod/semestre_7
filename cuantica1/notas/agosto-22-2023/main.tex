@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 3}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Observables}
+\begin{gather}
+   P_i  = \left|\bra{o_i }\ket{\psi} \right|^2 \\
+   <O>|_{\text{datos exp.}} = \bra{\psi}O \ket{\psi} = \sum_{i=1 }^{N }o_i \left|\bra{o_i }\ket{\psi} \right|^2 = \sum_{i=1 }^{N }o_i P_i  
+\end{gather}
+\caja{green}{Medicion }{
+  \begin{gather}
+    <O> = \bra{\psi}O \ket{\psi} =  \sum_{i=1 }^{N }o_i P_i  
+    \label{eq:medicion }
+  \end{gather}
+  El sakurai lo nombra "expectation value".
+}
+\begin{gather}
+   \left(\bra{\psi}O \ket{\psi} \right)^ {*} = \bra{\psi}O ^ {\dag}\ket{\psi}  = \bra{\psi}O \ket{\psi} 
+\end{gather}
+$O$ es herminica
+
+\caja{green}{Analisis datos }{
+  La dispersion de los datos $D ^2$ donde $ o_i  $ representa el resultado de las mediciones singulares. Esto nos idce cuan alejados están los datos del valor esperado. Y tenemos que $ \sum_{i=1 }^{N } N_i = N_{\text{Total}} $
+  \begin{gather}
+    D ^ {2 } = \sum_{i=1 }^{N } P_i (o_i - <O> )^2\\
+    P_i \leftarrow \rightarrow \frac{N_i }{N_{\text{Total}}}
+    \label{eq:probabilidad_datos}
+  \end{gather}
+}
+\begin{gather}
+    D ^ {2 } = \sum_{i=1 }^{N } P_i (o_i - <O> )^2 = \sum_{}^{} P_i \left(o_i ^ {2 } + (<o>)^ {2 } - 2o_i<o>\right)\\
+    = \sum_{}^{} P_i o_i ^2 + (<O>)^2 - 2 <O><O> = \left(\sum_{}^{}P_i o_i ^2\right)- (<O>)^2
+\end{gather}
+\caja{green}{Dispersion }{
+  \begin{gather}
+    D _{op } ^ {2 } = (O-<O> )^2 = O ^2 + (<O>)^2 - 2 O<O>
+  \end{gather}
+  $ <O> $ es $ O  $ promedio.
+  \begin{gather}
+    <D ^2> = \bra{\psi}D _{op } ^ {2 }\ket{\psi} = \bra{\psi}O ^2\ket{\psi}  + (\bra{\psi}O \ket{\psi} )^2-2(\bra{\psi}O \ket{\psi} )^2 \label{eq:dispersion}\\
+    = \bra{\psi}O ^2 \ket{\psi}-(\bra{\psi}O \ket{\psi} )^2 
+  \end{gather}
+  Este calculo requiere que $ \bra{\psi}\ket{\psi}  = 1$, osea que esté normalizado. 
+
+  Aplicando la identidad en eq. \ref{eq:dispersion}: 
+  \begin{gather}
+    \bra{\psi}O ^2\ket{\psi}  = \bra{\psi}O ^2 \mathbb{I }\ket{\psi} = \bra{\psi}O ^2 \mathbb{I }\ket{\psi} = \sum_{i=1 }^{N }\bra{\psi}O ^2 \ket{o_i }\bra{o_i }\ket{\psi} = \sum_{}^{}o_i ^2 P_i
+  \end{gather}
+  En resumen tenemos que:
+  \begin{gather}
+    \bra{\psi}D _{op}  ^2\ket{\psi} = \left(\sum_{i=1 }^{N } o_i ^2 p_i\right) - (\bra{\psi}O \ket{\psi} )^2  
+  \end{gather}
+  De esta forma calculamos el valor esperado.
+}
+Tener una dispersion pequeña o 0 significa que tenemos una compresion complejida con una precision muy alta. (no entendí xd)
+\begin{gather}
+   \sqrt{D ^2} \approx \frac{1}{\text{presicion}} 
+\end{gather}
+
+Teniendo $ \ket{\psi} = \ket{o_3 } $ y pedimos la cantidad $ O  $ en este estado obtenemos $ o_3  $, osea $ O \ket{o_3 } = o_3 \ket{o_3 } $. En este caso tenemos $ <D ^2> = 0  $ obtenemos dispersion cero porque siempre encontramos el mismo estado. $ \bra{\psi}O \ket{\psi} = o_3   $. Haciendo el calculo de la dispersion y teniendo en cuenta que $ \bra{\psi}D _{op } ^2\ket{\psi}  =0 $:
+\begin{gather}
+   D _{op } ^2 \ket{\psi} = (O-o_3)(O-o_3)\ket{\psi} = 0
+\end{gather}
+En este caso tenemos la presicion maxima, no tenemos ninguna incertidumbre porque cuando mido obtenemos que nuestro estado es $ o_3 $. La dispersion es 0. Recordemos que $ O \ket{\psi} = o_3 \ket{\psi} $.
+
+\caja{black}{$ \bra{a_j }\ket{a_i }\text{=}\Delta _{i,j}   $ es normal y completa}{
+  \begin{gather}
+     A \ket{a_i } = a_i \ket{a_i }\\
+     \bra{a_i }A \ket{a_i } = \delta a_i \qquad \text{Diagonal} 
+  \end{gather}
+  Introducimos el operados $ B = c _{0 } + c _{2 } A ^2 + c_3 A ^{3}+ ... $
+  \begin{gather}
+     B \ket{a_i } = (c_0 +c_1 a_i ^ {2 } + c_3 a_i ^ {3 })\ket{a_i} = b_i \ket{a_i } \\
+     \bra{a_j }B \ket{a_i } = \Delta _{i,j } b_i  
+  \end{gather}
+}
+\section{Conmutador }
+Hermitico $ [A,B] = AB- BA = 0 $
+\begin{gather}
+  \bra{a_j }AB-BA \ket{a_i }= (a_j -a_i ) \bra{a_j }B \ket{a_i } = 0 \qquad (a_j-a_i)\neq 0 
+\end{gather}
+Si $ a_j \neq a_i \rightarrow \bra{a_j }B \ket{a_i } = 0   $, entonces para $ j \neq i  $ tenemos que $ \bra{a_j }B \ket{a_i } = b_i \Delta _{i,j }   $. Si una matriz de diagonal significa que los estados son autoestados por lo cual se prefiere escribir $ \ket{a_i } \rightarrow \ket{a_i ,b_i } $ para recordar que tambien son autoestados.
+
+\caja{black}{Estado y autoesado }{
+  Con qué presicion puedo medir $ \ket{a_i } $? con precision infinita ya que son autoestados. 
+
+  Con qué presicion puedo medir $ b_i  $? tambien con presicion infinita.
+
+  $ \ket{a_i, b_i } $ se les llama autoestados comunes.
+
+  Esto solo ocurre si $ A  $ y $ B  $ conmutan.
+
+  \tcblower
+
+  \textbf{En resumen: }Podemos escribir $ \ket{a_i,b_i } $ si $ A,B  $ conmutan.
+}
+
+\caja{black}{Operador antihermitico}{
+  si tenemos E y F hermiticos pero $ [E,F]=G \neq 0  $ (no conmuta) al sacar el hermitico conjugado $ (EF-FE)^ {\dag } = FE-EF = -G  $. En este caso se le llama operador antihermitico ya que $ G ^ {\dag } = -G  $.
+
+}
+
+\caja{green}{Anticonmutador }{
+  \begin{gather}
+    H = \{ E,F  \} = \underset{\text{Notar el cambio de signo}}{EF+FE} 
+  \end{gather}
+  Si $ H ^ {\dag } = H  $ es hermitico entonces $ \bra{\psi}H \ket{\psi}  $ es real.
+}
+\caja{black}{Titulo}{
+  \begin{gather}
+    EF = 1/2 [E,F] +1/2 \{E,F\} 
+    \label{eq: }
+  \end{gather}
+}
+
+\end{document}

@@ -1,0 +1,207 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 4 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Ejercicio 1 del taller (pregunta  del raisuke)}
+velocidad $ \alpha' (t) = \begin{bmatrix} 3 & 6t  & 6t ^2 \end{bmatrix} = v(t)   $.
+
+tenemos que $ \overrightarrow l = \begin{bmatrix} x & y & z \end{bmatrix} = \begin{bmatrix} z & 0 & z \end{bmatrix}   $
+\begin{gather}
+  \frac{d \overrightarrow l  }{d t } = \begin{bmatrix} 1 & 0 & 1 \end{bmatrix}  \\
+  \arccos{\frac{\bra{v}\ket{\dot l } }{\sqrt{\bra{v}\ket{v}\bra{\dot l }\ket{\dot l }  } }\theta} = 3+6t ^2\\
+  \sqrt{\dot l }  = \sqrt{2 },\qquad \sqrt{\bra{v }\ket{v} } = \sqrt{9+36t ^2+36 t ^ {4 }} = 
+\end{gather}
+
+\section{Formulas de Frenet }
+\caja{red}{Formulas de frenet }{
+  \begin{gather}
+    \frac{d v }{d l} = kn , \qquad \frac{d n }{d l} = -kv-xb, \qquad \frac{d b  }{d l } = xn  
+    \label{eq:formulas_frenet}
+  \end{gather}
+  Es un sistema de ecuaciones de primer orden. Necesitamos una solo condicion inicial. Son lineales.
+}
+\textbf{Recordemos que:}
+\begin{gather}
+  n = [b,v]
+\end{gather}
+
+Entonces:
+
+\begin{gather}
+  b = [v,n] \rightarrow \frac{d b }{d l } = [\frac{d v }{d l}, n ] + [v, \frac{d n  }{d l }]\\
+  \frac{d b }{d l} = [v, \frac{d n  }{d l }] \qquad  \qquad \frac{d n  }{d l } = \alpha v + \beta b \\
+  \frac{d b  }{d l } = [v, (\alpha v+ \beta b)] = \beta[v,b] = -\beta n \\
+  \text{Tenemos que: }\\
+  \left|\frac{d b  }{d l } \right| = -\beta n \rightarrow \chi = -\beta \rightarrow \chi  = \left|\frac{d b  }{d l }\right| \qquad \text{Torsion}
+\end{gather}
+De forma analoga:
+\begin{gather}
+ \frac{d n  }{d l } = -kv-\chi b \\
+ \frac{d n  }{d l } = [\frac{d b  }{d l }, v] + [b, \frac{d v  }{d l }] = [\chi n , v ]+ [b,kn ]\\
+ \frac{d n  }{d l } = -\chi b - kv
+\end{gather}
+\caja{green}{Representacion matricial}{
+  \begin{gather}
+     \frac{d e_i  }{d l } = b_i ^ {j }e_j \quad \text{donde } \quad b_i^j = \begin{bmatrix}
+         0 & k & 0 \\
+         -k  & 0 & -\chi  \\
+         0 & \chi  & 0
+     \end{bmatrix}  
+  \end{gather}
+  En mas dimensiones:
+  \begin{gather}
+     \begin{bmatrix}
+         0 & k_1 & ...  & 0  \\
+         -k_1  & 0 & -\chi _{i,j }  & ...  \\
+         -k_2  & ...  & 0  & ...  \\
+         0  & ..  & ...  & 0
+     \end{bmatrix}  
+  \end{gather}
+}
+
+\section{Isometrias }
+una isometria es una transformacion de coordenadas que preserva la metrica. Por ejemplo si hacemos la transformacion $ g _{i,j } ' (z) = \frac{\partial x^l  }{\partial z^i } \frac{\partial x^m  }{\partial z^j }g _{l,m } (x) = g _{i,j}  $. 
+
+\begin{gather}
+  N \rightarrow dim \qquad \qquad \rightarrow \qquad \qquad \frac{1}{2}N(N+1) \rightarrow \text{Isometricas}
+\end{gather}
+
+Por ejemplo en $ N = 2  $ podemos hacer una traslacion $ z^i = x^i+ \xi^i $ es isometrica ya que $ \frac{\partial z^i  }{\partial x^i } = \frac{\partial x^i  }{\partial x^j } = \delta_j^i \rightarrow \frac{\partial x^i  }{\partial z^i } = \delta_i^j  $, la metrica no cambia.
+
+Las rotaciones tambien nos mantienen la metrica igual.
+\begin{gather}
+   z ^ {i } = R _{k } ^ {i } x ^ {k } \qquad \qquad \qquad RR ^ {t } = 1 \\
+   \frac{\partial z^i  }{\partial x^j } = R _{j } ^ {i }\\
+   \text{Tenemos que } M = R ^ {-1 }\\
+   g' _{i,j } = M _{i } ^ {l } M _{j } ^ {m } \delta _{lm } = M _{i } ^ {m }M _{j } ^ {m } = (MM ^ {t })_{ij } = \delta _{ij } 
+\end{gather}
+
+en $ N=3  $ Tendriamos 3 traslaciones y 3 rotaciones.
+
+\caja{black}{Transformaciones isometricas en el espacio euclideano }{
+  En el espacio euclideano tenemos el grupo de transformaciones isometricas de las traslaciones y las rotaciones.
+  \tcblower 
+  en el caso miskowskiano tenemos rotaciones y boost.
+}
+
+
+\caja{green}{Teorema fundamental de la teoría local de curvas }{
+  Dadas $ k(l),\chi(l) $ diferenciables, existe una parametrización de la curva $ \alpha(l): I \rightarrow \mathbb{R}^ {3 } $ tal que $ k(l), \chi(l) $ son la curvatura y la torsión de la curva. Una curva $ \bar \alpha(l) $ con la misma curvatura y torsión solo difiere de la 1ra por una isometría.
+
+  \tcblower
+
+  En resumen solo necesitamos la curvatura y la torsion para definir una curva \textbf{en 3 dimesiones}. La demostracion se puede encontrar en el libro de do carmo.
+}
+
+\caja{blue}{Ejercicio }{
+  Muestre que la curva $ r=r(l) $ que está sobre una esfera de radio $R$ si y solo si $\chi$ y $k$ satisface:
+  \begin{gather}
+     R ^2 = \frac{1}{k ^2}\left(1+ \frac{(dk/dl) ^2}{(\chi k)^2}\right)
+  \end{gather}
+  \tcblower 
+  La solucion se encuentra en las diapositivas (pag. 51).
+}
+\caja{black}{Ejercicios relacionados}{
+  En las seccion 5.4 del taller hay mas ejercicios relacionados con la torsion.
+}
+
+\section{Geometria de superficies}
+
+La geometria diferencial compara propiedades de un objeto utilizando ecuaciones diferenciales.
+
+\hfill
+
+Tenemos $ z = f\left(x,y \right) $
+
+\hfill 
+
+Muchas veces no podemos despejar $z$ como en $ ln \left(\frac{\sin{zy }}{z}\right)+ \frac{z^2 }{y^2 }=0$, pero se puede lograr por el teorema de la funcion implicita de forma local. Esto se puede ver como una representacion parametrica $ r(u,u) = \begin{bmatrix} x(u,v) & y\left(u,v\right) & z\left(u,v\right) \end{bmatrix}  $ Esto es como tomar una region en $ u,v  $ y mapearla hacia $ x,y,z $. Se puede ver como $ r(x,y) = \begin{bmatrix} x & y & f\left(x,y\right) \end{bmatrix}  $. Va del conjunto de los parametros hacia el conjunto de la superficie.
+
+\caja{red}{Diferencial del mapeo}{
+  \begin{gather}
+    d \overrightarrow x_q \quad \rightarrow \quad \text{Diferencial }\\
+    d \overrightarrow x_q = \begin{bmatrix} \frac{\partial \overrightarrow x  }{\partial u } & \frac{\partial \overrightarrow x  }{\partial v } \end{bmatrix} 
+    \label{eq:diferencial_mapeo}
+  \end{gather}
+}
+
+Normalmente representamos las superficien en un "ambiente" de 3 dimensiones pero en realidad podemos deshacernos de esto ya que estamos llendo de 2 dimensiones a 2 dimensiones en el mapeo.
+
+\caja{green}{Definicion superficie }{
+  Un subconjunto $ S \in \mathbb{R}^ {3 } $ es una superficie regular si, para cada $ p \in S  $ existe un abierto en $ \mathbb{R}^ {3 } $ y un mapeo $ x: U \rightarrow V \cap S  $ de un abierto $ U \in \mathbb{R}^ {2 } $ en $ V \cap S \in \mathbb{R}^ {3 } $ que cumple: 
+  \begin{itemize}
+    \item $ x = \begin{bmatrix} x\left(u,v \right)= & y\left(u,v \right) & z\left(u,v \right) \end{bmatrix}  $ es diferenciable y tienen derivadas continuas de todos lo ordenes en $U$.
+    \item $x$ es un homeomorfismo. tiene una inversa $ x ^ {-1 }: V \cap S \rightarrow  U  $ continua.
+    \item Para cada $ q \in U  $ el diferencial $ d \overrightarrow x_q : \mathbb{R}^ {3 }\rightarrow \mathbb{R}^ {3 } $ es uno a uno.
+  \end{itemize}
+}
+
+\section{Representación de superficies }
+\caja{red}{Definición puntos regulares }{
+  Puntos regulares. en la superficie $ F\left(x,y,z \right)=0  $, un punto $ P = (x_0,y_0,z_0) $ es un punto regular si satisface $ F\left(x_0,y_0,z_0 \right)=0  $ y su gradiente es diferente de cero: 
+  \begin{gather}
+    \frac{\partial F }{\partial x}e_1 + \frac{\partial F }{\partial y }e_2 + \frac{\partial F }{\partial z}e_3 |_{(x_0,y_0,z_0)} \neq 0 
+    \label{eq:puntos_regulares}
+  \end{gather}
+  \tcblower 
+  \textbf{Otra definicion } En la superficie $ r(u,v) $, un punto $ P = r(u_0,v_0 ) $ es un punto regular si la matriz 
+  \begin{gather}
+    A = \begin{bmatrix}
+        \frac{\partial x}{\partial u} & \frac{\partial y}{\partial u} & \frac{\partial z}{\partial u} \\
+        \frac{\partial x}{\partial v} & \frac{\partial y}{\partial v} & \frac{\partial z}{\partial v} 
+    \end{bmatrix} _{(u_0,v_0 )} \qquad \text{Tiene rango 2 }
+    \label{eq:def2_punto_regular}
+  \end{gather}
+  
+}
+
+\caja{green}{Teorema funcion implicita }{
+  En un punto regular, si $ \frac{\partial F }{\partial z}|_{(x_0,y_0,z_0)} \neq 0$ existe una función $ z\left(x,y\right) $ que permite resolver la ecuación $ F\left(x,y,z \right)=0  $. Las derivadas de z se pueden obtener de: 
+  \begin{gather}
+    F\left(x,y,z\left(x,y\right)\right)=0 \rightarrow \frac{\partial F }{\partial x} = 0 = \frac{\partial F }{\partial z}\frac{\partial f }{\partial x}+\frac{\partial F }{\partial x}\frac{\partial x }{\partial x} = \frac{\partial F }{\partial z}\frac{\partial f }{\partial x} + ...
+    \label{eq:func_implicita}
+  \end{gather}
+  Es posible ver que las dos definiciones de puntos regulares son equivalentes, lo cual permite relacionar las 3 representaciones diferentes de una superficie vistas al inicio. 
+  \begin{gather}
+     \left|\begin{bmatrix}
+         \frac{\partial x}{\partial u} & \frac{\partial y}{\partial u} \\
+         \frac{\partial x}{\partial v} & \frac{\partial y}{\partial v}
+     \end{bmatrix} \right|_{(u_0, v_0 )} \neq 0 , \qquad \qquad \left|\begin{bmatrix}
+         \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\
+         \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
+     \end{bmatrix} \right|_{(u_0, v_0 )} \neq 0 
+  \end{gather}
+}
+
+\end{document}
