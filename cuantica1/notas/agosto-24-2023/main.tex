@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 5 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Herramientas conmutador}
+\caja{red}{Propiedades e identidades }{
+  \begin{gather}
+    [E,F]=G \qquad G ^ {\dag } = -G \\
+    E = E ^ {\dag }, \qquad F = F ^ {\dag }\\
+    \bra{\psi}F \ket{\psi} \rightarrow \text{Real }\qquad \bra{\psi}G \ket{\psi} \rightarrow \text{Imaginario }\\
+    H - {E,F } = EF+FE\\
+    H ^ {\dag } = H\\
+    EF = \frac{1}{2}[E,F] + \frac{1}{2}{E,F}\\
+    \bra{\alpha}\ket{\alpha} \bra{\beta}\ket{\beta} \geq \left|\bra{\alpha}\ket{\beta} \right|^2  
+    \label{eq:prop_conmuntador}
+  \end{gather}
+}
+
+Teniendo $ A,B  $ hermiticos y el operador $ D _{Aop } ^ {2 } = (A-\bra{\psi}A \ket{\psi} )^2  $ y $ D _{Bop } ^ {2 } = (B- \bra{\psi}B \ket{\psi} )^ {2 } $ con un $ \psi  $ cualquiera.
+
+El operador $ \Delta A = A- \bra{\psi}A \ket{\psi}  $ el cual es el mismo que $ D _{Aop }  $, en resumen $ D _{Aop } ^ {2 } = (\Delta A) ^ {2 } $. 
+
+\section{Principio de incertidumbre }
+
+\caja{black}{Principio de incertidumbre }{
+  \begin{gather}
+    \bra{\psi}D _{Aop } ^ {2 }\ket{\psi} . \bra{\psi}D _{Bop } \ket{\psi} \geq \frac{1}{4 }\left|\bra{\psi}[A,B ]\ket{\psi} \right|^ {2 }   
+    \label{eq:tesis }
+  \end{gather}
+  En el libro (1.4.53)
+}
+\caja{green}{Inecuacion de schwarz}{
+  \begin{gather}
+    \bra{\alpha}\ket{\alpha}\bra{\beta}\ket{\beta} \geq \left|\bra{\alpha}\ket{\beta} \right| ^ {2 }
+    \label{eq:schwarz_inequality}
+  \end{gather}
+}
+Tenemos que 
+\begin{gather}
+  \ket{\alpha} = \Delta A \ket{\psi}\\
+  \ket{\beta} = \Delta B \ket{\psi}
+\end{gather}
+Aplicando la desigualdad de schwarz: 
+\begin{gather}
+  \bra{\psi}D _{Aop } ^ {2 }\ket{\psi}\bra{\psi}D _{Bop } ^ {2 }\ket{\psi} \geq \left|\bra{\psi}\Delta A . \Delta B \ket{\psi} \right|^ {2} 
+\end{gather}
+Lo que nos dice está inecuacion es que no podemos disminuir la dispersion de uno sin aumentar la del otro. 
+Este principio de incertidumbre es algo mas que un problema de medicion es una condicion. Nos dice algo muy profundo sobre los estados no solo sobre las mediciones. Nos vincula los estados.
+
+La parte de la derecha lo podemos escribir como (Todo este procedimiento está en la pag. 35 del sakurai): 
+\begin{gather}
+  \bra{\psi}\Delta A . \Delta B \ket{\psi} = \frac{1}{2}\underset{Imaginario }{\bra{\psi}[\Delta A , \Delta B ]\ket{\psi}} + \frac{1}{2} \underset{Real }{\bra{\psi}\{\Delta A, \Delta B \}\ket{\psi}}    
+\end{gather}
+Recordemos que $ \left|ic + d \right|^2 = c ^2 + d ^2 $ por lo tanto la parte derecha de la inequacion nos queda: 
+\begin{gather}
+  \left|\bra{\psi}\Delta A . \Delta B \ket{\psi} \right|^ {2 } = \frac{1}{4} \left|\bra{\psi}[\Delta A,\Delta B ]\ket{\psi} \right|^ {2 } + \frac{1}{4} \left|{\Delta A, \Delta B }\right|^ {2 } 
+\end{gather}
+En el libro escriben la parte imaginaria sin delta ya que $ [\Delta A, \Delta B] = [A,B] $. Recordemos que $ \Delta A = (A- \bra{\psi}A \ket{\psi} ) \quad \text{y}\quad \Delta B = (B- \bra{\psi}B \ket{\psi} ) $ en la notacion del sakurai.
+
+\section{Espectro continuio}
+En el espacio discreto:
+\begin{gather}
+  A \ket{a } 0 a_i \ket{a_i } \qquad \bra{a_j }\ket{a_i } = \delta _{ij } \qquad \text{Con } i = 1,2,3,...,\\
+  \sum_{i = 1 }^{N } \ket{a_i }\bra{a_i } = \mathbb{I}\\
+  \ket{\psi} = \sum_{i }^{}\ket{a_i }\bra{a_i }\ket{\psi} \\
+  \sum_{i }^{}\bra{\psi}\ket{a_i }\bra{a_i }\ket{\psi } = 1  
+\end{gather}
+
+\caja{green}{En el espacio continuo }{
+  \begin{gather}
+    Q \ket{q } = q \ket{q } \qquad \bra{q'}\ket{q} = \delta(q-q')\\
+    \int_{-\infty}^{\infty} dq \delta(q'-q)f(q) = f(a') \rightarrow \int_{-\infty}^{\infty}dq \ket{q}\bra{q } = \mathbb{I}\\
+    \ket{\psi} = \int_{-\infty}^{\infty}dq \ket{q }\underset{=\psi(q)}{\bra{q}\ket{\psi}}\\
+    \int_{}^{}dq \bra{\psi}\ket{q}\bra{q}\ket{\psi} = \int_{}^{}dq \left|\bra{q}\ket{\psi} \right|^2 = 1
+  \end{gather}
+}
+\begin{gather}
+  \Delta(x) = \frac{1}{\sqrt{\pi} d }e ^ {- \frac{x ^2}{d ^2}} \\
+  \int_{-\infty}^{\infty}dx \Delta (x) = 1\\
+  \delta(ax) = \frac{1}{\left|a \right|}\delta(x)
+\end{gather}
+
+\end{document}
