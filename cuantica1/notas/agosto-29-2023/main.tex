@@ -1,0 +1,156 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 5}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Momentum }
+Pongamos que vivimos en una dimension osea vivimos en el estado $ \ket{x'} $ en el eje $ x  $. Tenemos $ \bra{x}\ket{x' }=\delta(x-x')  $ y $ x _{op } \ket{x'}=x'\ket{x'} $. En las 3 dimensiones del espacio podemos escribir $ \ket{x' }\ket{y' }\ket{z' } = \ket{r'} = \ket{x',y',z'} $ para poder escribirlo así los operadores deben conmutar osea $ [x _{op } , y _{op } ] = 0 $, $ [x _{op } , z _{op } ]=0  $, $ [y _{op } , z _{op } ] = 0  $.
+
+\caja{green}{Momentum }{
+  \begin{gather}
+    P _{op } \ket{P' } = P'\ket{P' }\\  
+    \bra{P }\ket{P' } = \delta(P-P') 
+    \label{eq:momentum }
+  \end{gather}
+  Tiene autovalores continuos.
+}
+Tenemos una particula libre de cualquier fuerza o potencial con momento $ P  $. De broglie nos dice que todos los experimentos que podemos hacer sobre una particula de momento $ P  $ los podemos interpretar como que la particula $ \lambda = \frac{2 \pi \hbar }{\left|P \right|} $ (esta es la longitud de onda de una particula). Esto se puede observar en el \textbf{experimento de Davissom y Germer}. Una onda se puede ver como una funcion oscilante en el espacio.
+
+\caja{green}{Longitud de onda de una particula (De Broglie) }{
+  \begin{gather}
+    \lambda = \frac{2 \pi \hbar }{\left|P \right|} 
+    \label{eq:de_broglie}
+  \end{gather}
+  Se trabaja el caso \textbf{no relativista}. 
+}
+
+El momentum en física es muy importante. En cuantica se estudia es el momentum. Sin fuerzas externas el momentum se conserva por ejemplo en las colisiones ($ \vec P _{aI } + \vec P _{bI } = \vec{P} _{aF } + \vec P _{bF }  $) y esto sucede tambien en la cuantica. 
+
+Para $ \lambda $ podemos construir la funcion de onda en el eje x: $ \cos{\frac{2 \pi }{\lambda }x} $ o $ \sin{\frac{2 \pi}{\lambda}x } $, en cuantica utilizamos $ e ^ {i \frac{2 \pi }{\lambda }x } =\cos{\frac{2 \pi}{\lambda}x }+i \sin{\frac{2 \pi}{\lambda}x }  $ ya que es mas facil hacer su derivada, utilizando De Broglie obtenemos $ e ^ {i \frac{2 \pi }{\lambda }x } = e ^ {i \frac{P }{\hbar }x } $
+
+\caja{green}{Onda de una particula libre }{
+  \textbf{1 Dimension }
+  \begin{gather}
+    e ^ {i \frac{2 \pi }{\lambda }x } 
+    \label{eq:1d_onda_libre}
+  \end{gather}
+  \tcblower 
+  \textbf{3 Dimensiones }
+  \begin{gather}
+    e ^ {i \frac{\vec P \vec r }{\hbar }} 
+    \label{eq:null}
+  \end{gather}
+  \begin{gather}
+    \bra{x}\ket{P} = N e ^ {i \frac{Px }{\hbar }}  
+  \end{gather}
+}
+\caja{green}{Funcion de onda }{
+  Vamos a llamar una funcion que nos representa es situacion fisica.
+  \begin{gather}
+    \bra{x}\ket{P } = N e ^ {i \frac{P x }{\hbar }}\\
+    \ket{\psi} = \ket{P }\\
+    \bra{x }\ket{\psi} = \psi (x)\\
+    \int_{}^{}dx \left|\psi \right|^ {2 } = Probabilidad \\ 
+    \bra{\vec r }\ket{\vec P } = N' e ^ {i \frac{\vec P . \vec r }{\hbar }} 
+  \end{gather}
+}
+\begin{gather}
+  \bra{x }P _{op } \ket{P } = P \bra{x }\ket{P } = P N e ^ {i \frac{Px }{\hbar }} = - i \hbar \frac{d}{dx }(\bra{x }\ket{P } ) = - i \hbar \frac{d}{dx }\psi _{P } (x)
+\end{gather}
+$ \ket{\psi} $ cualquier $ \psi(x) = \bra{x }\ket{\psi}  $
+\begin{gather}
+  \bra{x }P _{op } \ket{\psi} = \bra{x}P _{op }  \int_{}^{}dP \ket{P }\bra{P }\ket{\psi}= \int_{}^{}dP (\bra{x}\ket{P }P  )\bra{P }\ket{\psi} = \int_{}^{}dP (P\bra{x}\ket{P } ) \bra{P}\ket{\psi}  
+\end{gather}
+Podemos escribir $ (P\bra{x}\ket{P } ) $ como $ -i \hbar \frac{d}{dx }(\bra{x}\ket{P } ) $. 
+\begin{gather}
+  = -i \hbar \frac{d}{dx } \int_{}^{}dP \bra{x }\ket{P}\bra{P}\ket{\psi}   
+\end{gather}
+Como $ \int_{}^{} dP \ket{P }\bra{P } = \mathbb{I} $
+\begin{gather}
+  = -i \hbar \frac{d }{dx }\bra{x }\ket{\psi} = - i \hbar \frac{d }{dx }\psi(x)   
+\end{gather}
+\caja{red}{}{
+  \begin{gather}
+    \bra{x }P _{op } \ket{P } =  - i \hbar \frac{d }{dx }\psi(x)   \\
+    \bra{x }\ket{\psi} = \psi(x)  
+  \end{gather}
+}
+
+\subsection{Conmutacion de momento y la posicion }
+$ \bra{x}[P _{op } , x _{op } ]\ket{\psi} = \bra{x}P _{op } x _{op } - x _{op } P _{op } \ket{\psi}   $. Y tenemos que $ x _{op } \ket{\psi } = \underset{momentum }{\ket{ \phi }} $, $ \bra{x }x _{op } \ket{\psi} = \bra{x }\ket{\phi}   $ y $ x \psi (x) = \phi (x) = \bra{x}\ket{\phi}  $. Entonces: 
+\begin{gather}
+  \bra{x }P _{op } x _{op } \ket{\psi} = -i \hbar \frac{d }{dx }\phi(x) = -i \hbar \frac{d }{dx }(x \psi (x)) = -i \hbar \psi (x)- i \hbar x \frac{d}{dx }\psi (x) 
+\end{gather}
+Entonces: 
+\caja{red}{}{
+  \begin{gather}
+    \bra{x }[P _{op } , x _{op } ]\ket{\psi} = - i \hbar \psi(x) = - i \hbar \bra{x}\ket{\psi}   
+  \end{gather}
+  Por lo tanto: 
+  \begin{gather}
+    [P _{op } , x _{op } ] = -i \hbar  
+  \end{gather}
+}
+Del principio de incertidumbre
+\begin{gather}
+  [P _{op } , x _{op } ] = -i \hbar  \rightarrow \\
+  \rightarrow \bra{\psi}D _{opp} ^ {2 }\ket{\psi}\bra{\psi}D _{opx } ^ {2}\ket{\psi}\geq \frac{1}{4} \hbar ^ {2 }  
+\end{gather}
+Además tenemos que $ \Delta x = \sqrt{\bra{\psi}D _{opx } ^ {2 }\ket{\psi} }   $ y $ \Delta P = \sqrt{\bra{\psi}D _{opp } ^ {2 }\ket{\psi} }  $ Por lo tanto: 
+\caja{red}{}{
+  \begin{gather}
+    \Delta P \Delta x \geq \frac{\hbar }{2}
+  \end{gather}
+}
+Representacion matricial con notacion tensorial: 
+\begin{gather}
+  [P _{op } ^ {\alpha }, r _{op } ^ {\beta}] = -i \hbar \delta ^ {\alpha \beta}\\
+  r ^ {1 } =x, \quad r ^ {2 } = y, \quad r ^ {3 } = z 
+\end{gather}
+
+\textbf{Densidad de probabilidad }
+Tenemos que: 
+\begin{gather}
+  \bra{x }\ket{P } = N e ^ {i \frac{P x }{\hbar }} = \psi _{P } (x)\\
+  \bra{x }\ket{\psi} = \psi (x)\\
+  \bra{\psi}\ket{\psi} = 1  
+\end{gather}
+Entonces: 
+\begin{gather}
+  \int_{- \infty}^{+ \infty} dx \left|\psi (x)\right|^ {2 } = 1 \qquad \qquad \text{N no depende de }x\\
+  \left|\psi _{P } (x)\right|^ {2 } = \left|N \right|^ {2 } \rightarrow "\Delta x  = \infty"\\
+  \int_{- \infty}^{+ \infty}dx \left|\psi _P (x) \right|^ {2 } = \underset{\text{No tiene sentido }}{\infty}
+\end{gather}
+
+\end{document}
