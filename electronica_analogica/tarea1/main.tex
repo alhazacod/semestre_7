@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Capacitores, True-RMS e Inductores}
+\author{Carlos Andres Llanos Martinez}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{True rms}
+RMS es el valor eficaz y TRMS es el verdadero valor eficaz de la tension de corriente alterna. Debido a que la onda sinosuidal varia en el tiempo  por lo tanto no es igual a la tension que alcanzan sus picos, el valor eficaz de esta tension es su equivalencia en forma de tension continua y se calcula con estos metodos: 
+\begin{gather*}
+  V _{RMS } = \frac{V _{pico } }{\sqrt{2 } } \approx V _{pico } (0.707) \\
+  V _{TRMS }  = \sqrt{\frac{V_1 ^2 + V_2 ^2 + ... + V_n ^2 }{n}} 
+\end{gather*}
+Donde la TRMS podemos decir que es una medida mas fiable porque se obtiene a traves de un calculo matematico mas exacto  ya que toma varias muestras de los valores de los picos a lo largo de cada uno de los ciclos comparado con el RMS que debido a que normalmente los circuitos electricos de corriente alterna la forma de la onda nunca será totalmente perfecta generando variaciones del valor real. 
+
+\section{Medicion capacitancia }
+En un multimetro la capacitancia se mide utilizando el principio de carga y descarga del capacitor a traves de una resistencia conocida midiendo el tiempo que lleva alcanzar cierto cambio de voltaje en el capacitor. Esto se logra utilizando la relacion entre la capacitancia, la resistencia y el tiempo en un circuito RC: 
+\begin{gather*}
+  V(t) = V _{inicial } \left(1- e ^ {-\frac{t}{\tau}}\right) 
+\end{gather*}
+Donde $ V(t)  $ es el voltaje en el capacitor en un momento dado. $ V _{inicial }  $ es el voltaje en el capacitor. $ \tau  = RC $.
+
+Utilizando esta relacion el multimetro carga el capacitor aplicando un $ V _{inicial }  $ al capacitor a traves de una resistencia conocida $ R  $. Luego se mide el tiempo que tarda el voltaje en el capacitor en alcanzar el 63.2\% de $ V _{inicial }  $ el cual corresponde a $ \tau  $. Luego se calcula la capacitancia por medio de la ecuacion:
+\begin{gather*}
+  C = \frac{\tau }{R} 
+\end{gather*}
+
+\section{Medicion de inductancia }
+La mayoria de multimetros digitales se basan en el metodo de medicion de frecuencia para el calculo de la inductancia en los inductores, el cual se basa en generar una señal de prueba de corriente alterna con una frecuencia especifica que se aplica al inductor, y el multimetro mide la fase y amplitud de la señal inducida en terminos de su fase relativa y amplitud, con los valores de las mediciones de la fase y amplitud mas la frecuencia de la señal de prueba y la respuesta del inductor se utiliza para determinar la inductancia con calculos 
+
+\end{document}

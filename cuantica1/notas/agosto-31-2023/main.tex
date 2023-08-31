@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 6}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Momentum }
+Tenemos una particula con longitud de onda $ \lambda = \frac{2\pi \hbar }{|\vec P |} $ y momento $ \vec P  $. Como es oscilante podemos describir una ecuacion de onda: 
+\begin{gather}
+  \psi _{\vec P } (\vec R) = N' e ^ {i \frac{\vec P \vec r }{\hbar }} = \bra{\vec r }\ket{\vec P }\\
+  \bra{\vec r }\ket{\psi} = \psi (\vec r )  = \psi (x,y,z)\\
+  \bra{\vec r }\vec P _{op } \ket{\psi} = -i \hbar \grad \psi (\vec r)\\ 
+  \text{En una dimension : }\\
+  \psi _{P } (x) =  N e ^ {i \frac{px }{\hbar }}= \bra{x }\ket{P }= \psi (x) \\
+  \bra{x }P _{op } \ket{\psi } = - i \hbar \frac{d \psi  }{d x }
+\end{gather}
+Esta es la autofuncion del autoestado $ P $.
+Y tenemos que sus operadores conmutan como: 
+\begin{gather}
+  [P _{op } , x _{op } ] = -i \hbar \qquad \qquad [x _{op } , P _{op } ] = + i \hbar \\
+  \text{De forma mas general: }\\
+  [P _{op } ^ {\alpha}, r _{op } ^ {\beta}] = -i \hbar \delta ^ {\alpha \beta}
+\end{gather}
+Si proyectamos la autofuncion sobre $ P  $ obtenemos la distribucion de probabilidad de encontrar la particula con momento $ P  $. 
+\begin{gather}
+  \bra{P }\ket{\psi }=\psi(P) = \int_{}^{}dx \bra{P }\ket{x}\bra{x}\ket{\psi}  = \underset{\text{Transformada de fourier}}{\int_{-\infty}^{\infty}dx N ^ {* } e ^ {-i \frac{Px }{\hbar }}\psi}\\
+  \int_{}^{}dP \bra{\psi}\ket{P }\bra{P }\ket{\psi} = 1 \\
+  \int_{}^{}dP \psi ^ {* }(P)\psi(P) = 1
+\end{gather}
+Para que esto se cumpla necesitamos que $ \left|N \right|^ {2 } = \frac{1}{2\pi \hbar } $. 
+Supongamos que $ \psi  $ es un autoestado del momento: 
+\begin{gather}
+  \ket{\psi} = \ket{P' }\\
+  \bra{x }\ket{P'} = \frac{1}{\sqrt{2 \pi \hbar } }e ^ {i \frac{P' x }{\hbar }} = \psi _{P' } (x)\\
+  \bra{P }\ket{P' } = \psi _{P' } (P) = \delta (P'-P)\\
+  \psi (P) = \int_{-\infty}^{\infty}dx \frac{1}{\sqrt{2\pi \hbar } }e ^ {i \frac{Px }{\hbar }}\psi(x)\\
+  \psi _{P' } (P) = \int_{-\infty}^{\infty} dx \frac{1}{\sqrt{2\pi \hbar } } e ^ {- i \frac{Px }{\hbar }} \underset{=\psi _{P'} }{e ^ {+i \frac{1}{\sqrt{2 \pi \hbar } }}} = \frac{1}{2 \pi \hbar } \underset{\text{Delta de dirac }}{dx e ^ {i \frac{(P'-P) x }{\hbar }}}
+\end{gather} 
+
+Si tenemos $ \bra{\psi}P _{op } \ket{\psi}  $ y metemos la identidad antes de $ P _{op }  $: 
+\begin{gather}
+  \bra{\psi}P _{op } \ket{\psi} =  - i \hbar  \int_{}^{}dx \psi ^ {* }(x)\frac{d  }{d x }\psi (x)\\
+  \text{De forma analoga }\\
+  \bra{x }P _{op } \ket{\psi} = -i \hbar  \frac{d  }{d x }\psi (x) 
+\end{gather}
+recordemos que la identidad $ \mathbb{I} = \int_{}^{}dx \ket{x }\bra{x} $.
+
+Ahora con $ \bra{x}P _{op } ^ {2 }\ket{\psi}  $:
+\begin{gather}
+  \text{Recordando que } \bra{x }P _{op } \ket{\psi} = -i \hbar  \frac{d  }{d x }\psi (x) \text{ podemos decir que: }\\
+  \bra{x}P _{op } ^ {2 }\ket{\psi} = - \hbar ^2 \frac{d ^2 }{d x ^2}\psi(x) 
+\end{gather}
+
+\caja{green}{Espacio de hilbert }{
+  $ P _{op }  $ es el espacio de Hilbert. 
+  \begin{gather}
+    \bra{x }P _{op }  \ket{\psi} = - i \hbar \frac{d  }{d x }\psi (x) 
+  \end{gather}
+  No confundir con $ P_c = -i \hbar \frac{d  }{d x } $.
+}
+
+\hfill 
+
+$ \bra{x }x _{op } \ket{\psi} = x \bra{x}\ket{\psi} = x \psi(x)   $
+
+$ \bra{P }P _{op } \ket{\psi } = P \bra{P }\ket{\psi} = P \psi (P)  $
+
+$ \bra{P }x _{op } \ket{\psi } = + i \hbar \frac{d \psi (P) }{d P}  $
+
+\caja{black}{}{
+  $ f\left(\vec r \right) $ depende de la direccion. 
+
+  $ f\left(r\right) $ no depende de la direccion.
+
+  \textbf{ej. }$ \grad F\left(r\right)=\frac{d F }{d r}\vec r  \quad $  con  $\quad  \hat r = \frac{\vec r }{\left|r \right|} = \frac{(x,y,z )}{\sqrt{x ^2+ y ^2 + z ^2} } $.
+}
+
+Si tenemos el operador $ O  $ y los estados $ o ^ {m } $ entonces $ O \ket{o_i } = o_i \ket{o_i } $ y $ o ^ {m }\ket{o_i } = (o_i)^ {m }\ket{o_i }$.
+
+Si $ O  $ es una cantidad real continua. 
+
+\begin{gather}
+  F\left(O \right)=\sum_{m=0 }^{\infty}\underset{\text{Coef. taylor}}{c_m}o ^ {m }
+\end{gather}
+
+Pero $ O  $ es una operador. 
+\begin{gather}
+  F(O _{op } ) = \sum_{m=0 }^{\infty}c_m (O _{op } )^ {m }\\
+  F\left(O _{op } \right)\ket{o_i } = \sum_{m=0 }^{\infty}c_m (O _{op } ) ^ {m }\ket{o_i } = \sum_{m=0 }^{\infty}c_m (o_i )^ {m }\ket{o_i} = \underset{\text{Autovalor }}{F\left(o_i \right)}\ket{o_i }
+\end{gather}
+
+\end{document}
