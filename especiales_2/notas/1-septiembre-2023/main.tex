@@ -1,0 +1,166 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 6  }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Secuencias }
+\textbf{Secuencia: }Funcion que depende de numeros naturales 
+\begin{gather}
+  N = \{1,2,3,...\}, \qquad \{a_n\}^ {\infty}_{n=1 } \\
+  \{a_n\}^ {\infty}_{n=1 }, \qquad a _{n } = \frac{1}{n}\left[\cos{\frac{n \pi}{4 }} + i \sin{\frac{n \pi}{4 }}\right]\\
+  a _{1 }  = \frac{\sqrt{2 } }{2 }+ i \frac{\sqrt{2 } }{2} \\
+  a_2 = \frac{1}{2}\\
+  a_3  = \frac{1}{3}\left[- \frac{\sqrt{2 } }{2} + \frac{i \sqrt{2} }{2}\right]\\
+  a_4  = \frac{1}{4}\left[-1 \right] = -\frac{1}{4}\\
+  a _{5 }  = \frac{1}{5}\left[- \frac{\sqrt{2} }{2}- i \frac{\sqrt{2 } }{2}\right]\\
+  a_6  = \frac{1}{6}\left[-1 \right] = \frac{-1 }{6 }\\
+  a_7 = \frac{1}{7}\left[\frac{\sqrt{2 } }{2}- i \frac{\sqrt{2 } }{2}\right]\\
+  a_8 = \frac{1}{8}\left[1 \right] = \frac{1}{8}\\
+  a_9 = \frac{1}{9}\left[\frac{\sqrt{2} }{2} + \frac{i \sqrt{2 } }{2}\right]\\
+  a_{10} = \frac{1}{10 }\left[i \right] = \frac{i }{10 }
+\end{gather}
+
+\caja{green}{Convergencia o divergencia}{
+  Se dirá que una secuencia $ \{a_n\}_{n=1}^\infty  $converge a un número complejo $L$ (o tiene limite $L$) cuando $n$ tiende a infinito $ \underset{n \rightarrow \infty}{lim }\quad a_n = L  $. Si para cada $ \epsilon  > 0  $, existe un entero $ N>0  $ tal que: 
+  \begin{gather}
+    \left|a_n-L \right| < \epsilon, \qquad n \geq N \\
+    a_n \rightarrow L \text{(Quiere decir que }n \rightarrow \infty)\\
+    \text{Si }|a_n -L|\text{ no es un menor que } \epsilon \text{ para } N \text{ arbitrario, entonces la secuencia diverge.}
+  \end{gather}
+}
+
+\textbf{Propiedades }
+\begin{itemize}
+  \item Si el limite existe, entonces ese limite es único 
+
+    $ \underset{n \rightarrow \infty}{lim } a_n = L  $ y $ L = 0 \leftarrow \rightarrow \underset{n \rightarrow \infty}{lim } |a_n| = 0 $
+    
+    \textbf{Demostracion }
+    \begin{gather}
+      \text{Si } a_n \rightarrow L \text{ y } a_n \rightarrow L'con L \neq L' \\
+      \text{Supongamos: } \epsilon = \frac{|L-L'|}{2}>0\\
+      \text{Por lo tanto debe ser válido }\\
+      \left|a_n - L \right|<\epsilon, \qquad \qquad \left|a_n - L' \right|<\epsilon \\
+      \left|a_n - L \right| + \left|L' - a_n \right|<2\epsilon \\
+      \text{Por desigualdad triangular }\\
+      \left|(a_n - L ) + (L' - a_n )\right|<\left|a_n -L \right| + \left|L' - a_n \right|\\
+      \left|L-L' \right|< \left|a_n - L \right|+ \left|L' - a_n \right|< 2 \epsilon\\
+      2 \epsilon>\left|L-L' \right|\\
+      \epsilon > \frac{\left|L-L' \right|}{2}, \quad \rightarrow \leftarrow \quad L = L' 
+    \end{gather}
+    \textbf{Ej: } $ \{b_n \}_{n=1 } ^ {\infty} = \{\cos{\frac{n\pi}{4 }} + i \sin{\frac{n \pi}{4 }}\} $
+    \begin{gather}
+      b_1 = \frac{\sqrt{2} }{2 }+ i \frac{\sqrt{2 } }{2} \qquad  \qquad b_2 = i \\
+      b_3 = - \frac{\sqrt{2 } }{2} + i \frac{\sqrt{2 } }{2} \qquad \qquad b_4 = -1 \\
+      b_5 = - \frac{\sqrt{2 } }{2}- i \frac{\sqrt{2 } }{2 }\qquad \qquad b_6 = -i \\
+      b_7 = \frac{\sqrt{2 } }{2}- i \frac{\sqrt{2} }{2} \qquad \qquad b_8 = 1 \\
+      b_9 = \frac{\sqrt{2} }{2} + i \frac{\sqrt{2} }{2}\qquad \qquad b_{10} = i \\
+      |a_n| = \frac{|b_n|}{n }
+    \end{gather}
+\end{itemize}
+
+\caja{green}{Teorema }{
+  Supongase que $ z_n  $ lo puedo escribir como $ z_n = x_n + i y_n, \quad z = x+ iy  $, entonces $ \underset{n \rightarrow \infty}{lim }z_n = z  $ si y solo si $ \underset{n \rightarrow \infty}{lim }x_n  = x  $ y $ \underset{n \rightarrow  \infty}{lim }y_n  = y  $.
+}
+\textbf{Demostracion } en la primera direccion: 
+\begin{gather}
+  \underset{n \rightarrow  \infty}{lim } x_n = n \quad \text{ y }\quad \underset{n \rightarrow  \infty}{lim } y_n = y \quad \text{ entonces }\quad \underset{n \rightarrow  \infty}{lim }z_n = z \\
+  \left|x_n - x \right| < \frac{\epsilon}{2} \text{ si } n>n_1 \\
+  \left|y_n - n \right|<\frac{\epsilon}{2} \text{ si } n>n_2 
+\end{gather}
+Vamos a tomar la condicion $ n_0 = Max\{n_1,n_2\}  $, entonces: 
+\begin{gather}
+  \left|x_n - x \right|<\frac{\epsilon}{2} \quad \wedge \quad \left|y_n - y \right| < \frac{\epsilon}{2}, \quad n\geq n_0 \\
+  \left|(x_n + i y_n ) - (x+ i y)\right| = \left|(x_n-x) + i (y_n-y )\right|\leq \left|x_n - x \right| + \left|y_n - y \right|\\
+  \left|x_n - x \right|+ \left|y_n - y \right|<\epsilon \\
+  \text{Por lo tanto } \left|z_n - z \right|< \epsilon, \quad \underset{n \rightarrow \infty}{lim }z_n  = z
+\end{gather}
+Ahora en la otra direccion 
+\begin{gather}
+  \text{Si }\underset{n \rightarrow \infty}{lim }z_n = z \text{ entonces } \underset{n \rightarrow \infty}{lim }x_n  = x \text{ y }\underset{n \rightarrow \infty}{lim }y_n = y \\
+  \text{Entonces: }\\
+  \left|x_n - x \right|\leq \left|(x_n - x ) + i (y_n - y )\right|\\
+  \left|y_n - y \right|\leq \left|(x_n - x ) + i (y_n - y )\right|\\
+  \text{A cada uno le podemos hacer lo siguiente: }\\
+  \left|x_n - x \right|\leq \left|(x_n + i y_n )- (x-iy )\right|<\epsilon\\
+  \left|y_n - y \right|\leq \left|(x_n + i y_n) - (x+ i y)\right|<\epsilon\\
+  \text{Entonces: }\\
+  \underset{n \rightarrow \infty}{lim }x_n = x, \quad \underset{n \rightarrow \infty}{lim }y_n  = y 
+\end{gather}
+
+\caja{green}{Teorema }{
+  Si $ \{a_n \}_{n=1 } ^ {\infty} $ y $ \{b_n\}_{n=1 } ^ {\infty} $ son secuencias convergentes, entonces: 
+  \begin{itemize}
+    \item suponiendo que $ \underset{n \rightarrow \infty}{lim }a_n = 0  $ y que $ \left|b_n \right|\leq \left|a_n \right|, \quad \forall n>n_0  $ entonces $ \underset{n \rightarrow \infty}{lim }b_n = 0  $.
+    \item Si $ \underset{n \rightarrow \infty}{lim }a_n = 0, \quad \{b_n \}_{n=1 } ^ {\infty} $ es cotada, $ \underset{n \rightarrow \infty}{lim }a_n b_n  = 0  $
+    \item $ \underset{n \rightarrow  \infty}{lim }(\alpha a_n + \beta b_n ) = \alpha \underset{n \rightarrow \infty}{lim }a_n + \beta \underset{n \rightarrow \infty}{lim }b_n $.
+    \item $ \underset{n \rightarrow \infty}{lim }a_n b_n  = \left(\underset{n \rightarrow  \infty}{lim }a_n \right)\left(\underset{n \rightarrow \infty}{lim }b_n \right) $
+    \item $ \underset{n \rightarrow  \infty}{lim} \frac{a_n }{b_n } = \frac{\underset{n \rightarrow \infty}{lim }a_n }{\underset{n \rightarrow \infty}{lim }b_n} $
+    \item $ \bar{\underset{n \rightarrow \infty}{lim}a_n} = \underset{n \rightarrow \infty}{lim }\bar a_n $
+    \item $ \underset{n \rightarrow \infty}{lim }\left|a_n \right| = \left|\underset{n \rightarrow \infty}{lim }a_n \right| $
+  \end{itemize}
+}
+
+\caja{blue}{Ejercicio }{
+  Muestre que:
+  \begin{gather}
+    \underset{n \rightarrow \infty}{lim }z ^ {n } = \left\{ \begin{array}{lcc} 0 & si & |z| <1 \\ \\ 1 & si & z=1\end{array} \right. 
+  \end{gather}
+  Y diverge si $ |z| > 1, \quad |z| = 1 \wedge \neq 1 $
+  \tcblower
+  ¿Terema de moivre?
+}
+\textbf{Sol. } Recordemos:
+\begin{gather}
+  \underset{n \rightarrow \infty}{lim }r ^ {n } = \left\{ \begin{array}{lcc} 0 & si & r <1 \\ \\ 1 & si & r=1 \\ \\ \infty & si & r>1\end{array} \right. 
+\end{gather}
+
+\begin{itemize}
+  \item Si $ |z| < 1 $ entonces $ \underset{n \rightarrow \infty}{lim }|z|^ {n } = 0, \quad \underset{n \rightarrow \infty}{lim }z ^ {n } = 0  $
+  \item Es completamente equivalente al caso real si $ z = 1  $. 
+    \begin{gather}
+      \underset{n \rightarrow \infty}{lim }z ^ {n } = 1  
+    \end{gather}
+  \item $ \underset{n \rightarrow \infty}{lim }|z|^ {n } $ con $ |z|>1  $ es claramente divergente pues $ |z|\in \mathbb{R} $.
+  \item Analicemos la situacion $ |z| = 1, \quad z \neq 1  $, Vamos a probar que si la secuencia $ z ^ {n } $ converge obligatoriamente $ z = 1  $. 
+  \begin{gather}
+    \text{Si }\underset{n \rightarrow \infty}{lim}|z|^ {n } =  L \text{, entonces }|L| = | \underset{n \rightarrow \infty}{lim }z ^ {n }| = \underset{n \rightarrow \infty}{lim }z ^ {n }| = \underset{n \rightarrow \infty}{lim }|z ^ {n }| = 1 \\
+    L \neq 0 \\
+    \text{Si }z ^ {n }\rightarrow L , z ^ {n +1 }\rightarrow L \\
+    \underset{n \rightarrow \infty}{lim }z ^ {n } = \underset{n \rightarrow \infty}{lim }z ^ {n }z \\
+    L = L z \leftarrow  \rightarrow z = 1
+  \end{gather}
+\end{itemize}
+
+\end{document}

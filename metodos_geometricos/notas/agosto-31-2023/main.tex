@@ -1,0 +1,123 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 7 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Propiedades segunda forma fundamental en una superficie}
+\subsection{Invariantes de formas cuadráticas }
+Si tenemos por jemplo una matriz cuando hacemos una transformacion de coordenadas en el plano tangente esto se va a ver como una rotacion $ Q \rightarrow R Q  $. Por ejemplo la ecuacion de autovalores $ Q \vec v = \lambda G \vec v  \quad \rightarrow \quad G ^ {-1 }Q \vec v = \lambda \vec v  $, $ \lambda $ es una cantidad que no varia con el sistema de coordenadas.
+\begin{gather}
+  det[Q - \lambda G ] = 0 \qquad \qquad det[G ^ {-1 } Q - \lambda \mathbb{I }] = 0
+\end{gather}
+Para un $ \lambda $ de dos dimension tenemos $ \lambda_1 \lambda_2 \rightarrow [\xi _ {1 }, \xi _ {2 }] $. 
+\begin{gather}
+  (b _{ij }- \lambda_1 g _{ij } ) \xi _1 ^ {j } \label{eq:autovalor1}\\
+  (b _{ij } - \lambda_2 g _{ij } ) \xi _{2 } ^ {j } \label{eq:autovalor2}
+\end{gather}
+Para la eq eq. \ref{eq:autovalor1} tenemos dos ecuaciones: 
+\begin{gather}
+  i = 1 \qquad (b _{11 } - \lambda _{a  } g _{11 } )\xi _{a } ^ {1 } + (b _{12 } - \lambda_a g _{12 } )\xi _{a } ^ {2 } = 0  \\
+  i = 2 \qquad (b _{21 } - \lambda _{a  } g _{21 } )\xi _{a } ^ {1 } + (b _{22 } - \lambda_a g _{22 } )\xi _{a } ^ {2 } = 0
+\end{gather}
+\textbf{Ej? }
+\begin{gather}
+  P \vec \xi_i  = \lambda_i \vec \xi_i \\
+  P \ket{\xi_i } = \lambda_i \ket{\xi_i } \rightarrow P \ket{\xi_1} = \lambda_1 \ket{\xi_1 } \rightarrow P \ket{\xi_2 } = \lambda_2 \ket{\xi_2 }\\
+  \bra{\xi_2 }P \ket{\xi_1 } = \lambda \bra{\xi _2 }\ket{\xi_1 }\\
+  \bra{\xi_1 }P \ket{\xi _2 } = \lambda_2 \bra{\xi_1 }\ket{\xi_2 }  
+\end{gather}
+De forma matricial lo podemos ver como: 
+\begin{gather}
+  \xi_2 ^ {i }P _{ji } \xi_i ^ {i } = P _{ij } \xi _2 ^ {i } \xi _1 ^ {j }\quad \rightarrow \quad   \\
+  \xi _1 ^ {j }P _{ji } \xi_2 ^ {i } = P _{ij } \xi _2 ^ {i }\xi_1 ^ {i }
+\end{gather}
+Entonces: 
+\begin{gather}
+  \lambda_1 \bra{\xi_2 }\ket{\xi_1 } = \lambda_2 \bra{\xi_1 }\ket{\xi_2 }\\
+  (\lambda_1 - \lambda_2 )\bra{\xi_1 }\ket{\xi_2 } = 0 
+\end{gather}
+
+\subsection{Invariantes }
+\begin{gather}
+   K = \lambda_1 \lambda_2 \quad \rightarrow \quad \text{Curvatura gaussiana }\\
+   k = \lambda_1 + \lambda_2 \quad \rightarrow \quad \text{Curvatura media}
+\end{gather}
+\textbf{Ej }
+\begin{gather}
+  r\left(u,v\right)=\begin{bmatrix} x & y & f\left(x,y\right) \end{bmatrix} \rightarrow r_u = \begin{bmatrix} 1 & 0 & f_x \end{bmatrix},\quad r_v = \begin{bmatrix} 0 & 1 & f_y \end{bmatrix}\\
+  N = \frac{[r_u,r_v ]}{\left|{r_u,r_v }\right|}= \frac{(-f_x, -f_y, 1 )}{\sqrt{1+f_x ^ {2 }+ f_y ^ {2 }} }|  
+\end{gather}
+
+recordemos que la metrica es $ g _{ij } = \begin{bmatrix}
+    \bra{r_x}\ket{r_x }  & \bra{r_x }\ket{r_y }  \\
+    \bra{r_ y }\ket{r_x }  & \bra{r_y }\ket{r_y } 
+\end{bmatrix} = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix}    $. 
+
+Tambien tenemos que $ b _{ij }  = \begin{bmatrix}
+    f _{xx }  & f _{xy }  \\
+    f _{xy }  & f _{yy } 
+\end{bmatrix}   $ y $ g _{ij }  = \begin{bmatrix}
+    1  & 0  \\
+    0  & 1 
+\end{bmatrix}   $, al calcular el determinante de $ b _{ij } - g _{ij }  $:
+\begin{gather}
+  det \left[\begin{bmatrix}
+      f _{xx } - \lambda & f _{xy }  \\
+      f _{xy }  & f _{yy } - \lambda
+  \end{bmatrix}  \right] = (f _{xx } - \lambda) (f _{yy } - \lambda) - f _{xy } ^ {2 } = 0 \\
+  \lambda \pm  = \frac{1}{2}(f _{xx } + f _{yy } )\pm \frac{1}{2}\sqrt{(f _{xx } - f _{yy } )^ {2 }+ 4 f _{xy } } \\
+  K = \lambda _+ \lambda_- = f _{xx } f _{yy } - f _{xy } ^ {2 }\\
+  k = f _{xx } + f _{yy }  = \lambda_+ + \lambda_-
+\end{gather}
+En todos estos ejemplos anteriores se supuso que tenemos dos autovectores que son diferentes.
+
+\textbf{Ejemplo }Funcion explicita $ z = f(x,y) $ en un punto regular $ P_0 = (x_0,y_0,z_0) $ con $ f_x(x_0,y_0,z_0) = f_y(x_0,y_0,z_0 ) =0   $.
+\begin{gather}
+  \bra{\ddot r }\ket{N } dl ^ {2 } = \lambda_1 dx ' ^ {2 } + \lambda_2 dy'^ {2 }\\
+  \bra{\ddot r }\ket{N } = k_n = \frac{\lambda_1 dx ^2 + \lambda_2 dy ^2 }{dx ^2 + dy ^2 } = \frac{\lambda_1 \dot x ^2 + \lambda_2 \dot y ^2}{\dot x ^2 + \dot y ^2}\\
+  k_n = \lambda_1 \left(\frac{\dot x ^2}{(\dot x ^2+ \dot y ^2)}\right) + \lambda \left(\frac{\dot y ^2}{\dot x ^2 + \dot y ^2}\right)\\
+  k_n = \lambda_1 \cos{\alpha} + \lambda_2 \sin{\alpha} \text{Formula de euler}
+\end{gather}
+
+\caja{green}{Formula de euler }{
+  Curvatura de una seccion normal 
+  \begin{gather}
+    k_n = \lambda_1 \cos{\alpha} + \lambda_2 \sin{\alpha} 
+  \end{gather}
+}
+
+\end{document}
