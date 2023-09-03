@@ -1,1 +1,1 @@
-{"cmd": "\npaso = 1e-4\nx = np.arange(0,1,paso)\ncortes = []\n\nfor i in x:\n    diff = abs(reg_func(i,a,b,c) - (-maximo.fun*0.7))\n    if diff<0.0005:\n        print(f'{i*60}')\n        cortes.append(i)\nprint(cortes)", "cmd_opts": " --cell_id=dvPQV7IR8e -s", "import_complete": 1, "terminal": "kitty"}
+{"cmd": "\nx = np.log(x) \ny = A_v \n\nplt.plot(x,y)", "cmd_opts": " --cell_id=vUJBihryW2 -s", "import_complete": 1, "terminal": "kitty"}

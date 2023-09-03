@@ -7,7 +7,20 @@ from scipy.optimize import curve_fit
 from scipy.optimize import fsolve
 #Para hallar el maximo de una funcion 
 from scipy.optimize import minimize_scalar
-#|%%--%%| <bmd0FicXQm|iM1cI3Iry8>
+#|%%--%%| <bmd0FicXQm|dvPQV7IR8e>
+
+def punto_corte(corte,func):
+    paso = 1e-4
+    rango = np.arange(0,1,paso)
+    cortes = []
+
+    for i in rango:
+        diff = abs(func(i) - (corte*0.7))
+        if diff<0.0005:
+            cortes.append(i*60)
+    return cortes
+
+#|%%--%%| <dvPQV7IR8e|iM1cI3Iry8>
 
 raw_data = pd.read_csv("datos_rlc.csv")
 
@@ -42,20 +55,29 @@ plt.plot(xx*60,yy*1600,c="green")
 # Encontramos el punto maximo
 maximo = minimize_scalar(lambda x: -reg_func(x,a,b,c), method='bounded', bounds=(0, 1))
 
-plt.scatter([maximo.x*60],[-maximo.fun*1600],c="magenta", marker = '^', s=120, label = f'Punto Maximo ({maximo.x*60:.2f},{-maximo.fun*1600:.2f})')
-
 print(f'Punto Maximo ({maximo.x*60:.2f},{-maximo.fun*1600:.2f})')
 
 print(f'70%: {-maximo.fun*0.7*60}')
+print(f'130%: {-maximo.fun*1.3*60}')
 
-#|%%--%%| <2VnEcwgl43|dvPQV7IR8e>
+puntos_corte = punto_corte(-maximo.fun,lambda x: reg_func(x,a,b,c))
+print(f'Puntos de corte: {puntos_corte}')
 
-paso = 1e-4
-x = np.arange(0,1,paso)
-cortes = []
+plt.scatter([maximo.x*60],[-maximo.fun*1600],c="magenta", marker = '^', s=120, label = f'Punto Maximo ({maximo.x*60:.2f},{-maximo.fun*1600:.2f})')
+plt.vlines(x = puntos_corte, color = 'r', ymin = 0, ymax = max(y*1600),linestyles = '--', alpha = 0.4)
+#|%%--%%| <2VnEcwgl43|Tmb2Mqjh6Y>
 
-for i in x:
-    diff = abs(reg_func(i,a,b,c) - (-maximo.fun*0.7))
-    if diff<0.0005:
-        print(f'{i*60}')
-        cortes.append(i)
+#Diagrama de bode
+x = raw_data['Frecuencia (kHz)']
+y = raw_data['Voltaje (mV)']
+
+v_out = y
+v_in = 5 #[V]
+A_v = 20 * np.log10(v_out/v_in)
+
+#|%%--%%| <Tmb2Mqjh6Y|vUJBihryW2>
+
+x = np.log(x) 
+y = A_v 
+
+plt.plot(x,y)
