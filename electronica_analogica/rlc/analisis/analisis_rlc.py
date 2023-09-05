@@ -65,6 +65,8 @@ print(f'Puntos de corte: {puntos_corte}')
 
 plt.scatter([maximo.x*60],[-maximo.fun*1600],c="magenta", marker = '^', s=120, label = f'Punto Maximo ({maximo.x*60:.2f},{-maximo.fun*1600:.2f})')
 plt.vlines(x = puntos_corte, color = 'r', ymin = 0, ymax = max(y*1600),linestyles = '--', alpha = 0.4)
+plt.savefig('v_f.png')
+plt.close()
 #|%%--%%| <2VnEcwgl43|Tmb2Mqjh6Y>
 
 #Diagrama de bode
@@ -81,3 +83,4 @@ x = np.log(x)
 y = A_v 
 
 plt.plot(x,y)
+plt.savefig('dobe.png')
