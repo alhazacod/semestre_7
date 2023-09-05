@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 3 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Prof. Juan Domingo Baena}
+\textbf{Meta superfices en microondas, milimetros, y rangos infrarojos de frecuencia} Grupo de fisica aplicada. Lo que se hace es incidir con onda electormagneticas sobre una superficie y esta superficie puede polariza, difractar, etc. 
+
+\textbf{Qué es una metasuperficie? } (Selected funcitionalities of metasufaces) pared magnetica (conductor magnetico perfecto), polarizadores, focalizadores. 
+
+Para poder llamar algo metasuperficie la unidad de la superficie debe ser cercana a la longitud de onda o que tenga alguna propiedad diferente a las naturales. 
+\begin{align}
+  \hat n \cross (H ^ {tra }- H ^ {inc } - H ^ {ref }) &= - i \omega P _{st } + \grad \cross M _{sn }  \\
+                                                      &= i \omega \mu _0 M _{st } + \frac{1}{\epsilon }\grad \cross P _{sn }
+\end{align}
+\textbf{Ejemplo de publicacion } Improving $ B _{1 } ^ {+ } $ homogeneity in abdominal imaging at 3 T with light, flexible, and compact metasurface. Se busca mejorar la homogeneidad en el campo magnetico del equipo para mejorar la calidad de las imagenes. Por ejemplo una placa dielectrica para mejorar la imagen. Con una metasuperficie diseñada en el paper se logra mimetizar los resultados obtenidos con la placa dielectrica.
+
+\textbf{Ejemplo de publicacion }Optimal angular stability of reflectionless metasuface absorbers. Se busca una metasuperficie que para ciertas frecuencas las absorbe y para otras frecuencias las deja pasar. 
+
+\textbf{Self-complementary metasurfaces }
+\begin{itemize}
+  \item Continuidad de $ E _{tan } \qquad 1 + r _{x } = t _{x } ,\quad 1 + r_y =t  $
+  \item Conservacion de energia (sin perdida + polarizacion no cruzada) $ \left|r_x \right|^ {2 } + \left|t_x \right|^2 = 1, \quad \left|r_y \right|^2 + \left|t_y \right|^2 = 1  $
+  \item Principio de babinet y auto-complementariedad $ \quad t_x + t_y^c = 1, \quad t_y^c = t_y \quad \rightarrow \quad t_x + t_y = 1 $
+\end{itemize}
+
+\end{document}
