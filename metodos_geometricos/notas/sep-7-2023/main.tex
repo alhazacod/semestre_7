@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 9 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Relaciones de equivalencia y clases de equivalencia }
+\textbf{Representación geométrica }
+1) Circulo $ S ^ {1 } $, sean $ x \& y \in \mathbb{R} $. Los puntos $ x \& y  $ son equivalentes $ x \approx y  $ si existe un entero $ n\in \mathbb{Z } $ tal que $ x = y + 2 \pi n  $. Clase de equivalencia: $ [x] = \{x + 2 \pi n \forall n \in \mathbb{Z}\} $. Notar que $ 0 \approx 2 \pi  $, $ x \in [0,2\pi) $ es un representante de $ [x ] $.
+
+2) Toro $ T ^2 $. Sean $ (x_1,y_1)\&(x_2,y_2) \in \mathbb{R}^2 $. Los puntos $ (x_1,y_1)\&(x_2,y_2) $
+
+
+\section{Espacios vectoriales }
+\caja{green}{Definicion y propiedades }{
+  Un espacio lineal o espacio vectorial $ V  $ sobre un campo $ K  $ (por ejemplo $ \mathbb{R} $) es un conjunto provisto de dos operaciones: la suma entre elementos de $ V  $ y la multiplicación por los elementos de $ K  $. Los elementos de $ V  $ se llaman vectores y los elementos de $ K  $ se llaman escalares. estos elementos satisfacen las propiedades: 
+  \begin{itemize}
+    \item $ u+v = v+u \qquad \text{con }u, v\in V  $
+    \item $ (u + v) + w = u + (v + w ) \qquad u,v,w \in V  $
+    \item Existe el vector 0 tal que $ 0 + v = v + 0 = v \qquad \forall v \in V  $
+    \item $ v \in V, \exists (-v)  $ tal que $ v + (-v) = (-v) + v = 0  $
+    \item $ v( u + v ) = c u + c v ... $
+  \end{itemize}
+}
+
+\textbf{Espacios lineales } Sea $ \{V_i \} $ un conjunto $ k  $ de vectores en $ V  $, si la ecuacion: $ x_1v_1+...x_kv_k = 0  $ tiene una solución no trivial $ x_i \neq 0  $ para algún $ i  $, el conjunto se llama \textbf{linealmente dependiente}. Si por el contrario la eq anterior solo tiene la solución trivial $ x_ i  = 0  $ para todo $ i  $, el conjunto se llama \textbf{linealmente independiente}.
+Un conjunto de vectores linealmente independientes $ \{e_i \} $ Se llama \textbf{base } de $ V  $ si todo $ v \in V  $ se puede escribir como una combinación lineal única de los vectores de la base $ \{e_i \} $:
+
+$ v = v ^ {1 }e_ 1 + ... v ^ {k }e_k  $. Los numeros $ \{v ^ {i }\} \in K $ son las \textbf{Componentes } de $ v  $ en la base $ \{e_i \} $.
+
+\section{Mapeos lineales, imagen, kernel }
+Dados dos espacios lineales $ V,W  $, el mapeo $ f: V \rightarrow W  $ es llamado mapeo lineal si cumple: $ a_1 f(v_1) + a_2 f(v_ 2) $ para todo $ a_1,a_2 \in K  $ y $ v_1, v_2 \in V  $ un mapeo lineal es un homeomorfismo entre $ V \& W $ que preserva las operaciones de suma entre vectores y multiplicación por escalares. 
+
+La \textbf{Imagen } $ im \quad f  $ de $ f  $ es $ f(V) \subset W  $. 
+
+El \textbf{kernel }, es el conjunto $ ker\quad f = \{v \in V |f(v)=1 \} $. 
+
+Si $ W=K  $ entonces $ f  $ es una función lineal. 
+
+Si $ f  $ es un isomorfismo entonces $ V $ es isomorfi a $ W  $. Se denota $ V \approx W  $.
+
+\caja{green}{Teorema }{
+  Si $ f: V \rightarrow W  $ es un mapeo lineal, entonces: 
+  \begin{gather*}
+    dim V = dim(ker f) + dim(im f) 
+  \end{gather*}
+}
+
+\section{Espacio vectorial dual }
+Sea $ f: V \rightarrow K  $ una función lineal en $ V(n,K) $. Sea $ \{e_i \} $ una base en $ V  $. Para un vector arbitrario $ v = v ^ {1 }e_1 +... + v ^ {n }e _{n }  $ se cumple $ f(v) = v ^ {1 }f (e_1) + ... + v ^ {n }f(e_n ) $. Si conocemos el resultado de $ f(e_i ) $ entonces sabemos el resultado de evaluar la funcion en cualquier vector. 
+
+En $ f: V \rightarrow K    $ el conjunto de todas las funciones lineales (linearmente independientes) definidas en $ V  $ es un espacio vectorial. 
+\begin{gather*}
+  (\alpha_1 f_1 + \alpha_2 f_2 )(v) = \alpha_1 f_1 (v) + \alpha_2 f_2(v)\\
+  f(v ^ {i }e_i ) = v ^ {i }f ( e_i )
+\end{gather*}
+
+Sabemos que $ f  $ lineal es un vector de un espacio vectorial y que $ V ^ {* } $ es el espacio dual. El espacio dual es el conjunto de todas las funciones lineales sobre $ V  $ y tiene la misma dimension $ dim(V^*) = dim(V) $.
+
+Ahora vamos a generar una base de acá. a esta base de $ V ^ {* } $ la llamaremos $ \{e ^ {*i }\} \rightarrow f = f_i e ^ {*i} = f_1 e ^ {*1 } + ... + f_n e ^ {*n }$.
+
+Las funviones $ \{e ^ {i* }\} $ se especifican completamente sabiendo el valor $ e ^ {i * }(e_j) $. Las bases cumplen: 
+\begin{gather*}
+  e ^ {i * }(e_j ) = \delta _{j } ^ {i }
+\end{gather*}
+
+\caja{black}{}{
+  Recordemos que aúnque trabajemos con superficies con curvas aún necesitamos esto ya que en el espacio tangente trabajamos en un plano.
+
+}
+
+\textbf{Vector dual } $ f: V \rightarrow K  $: $ \qquad f= f_i e ^ {*i } $ la acción (o evaluación) de $ f  $ en $ v  $ se puede interpretar como un \textbf{producto interno }entre un vector fila y un vector columna 
+\begin{gather*}
+  f(v) = f_i e ^ {i* }(v ^ {j }e_j ) = f_i v ^ {j }e ^ {i * }(e_j ) = f_i v ^ {j }\delta_j ^i = f_i v ^ {i } 
+\end{gather*}
+\caja{red}{Producto interno}{
+  \begin{gather*}
+    f(v)= f_i v ^ {i } 
+  \end{gather*}
+}
+
+\textbf{Producto escalar } notacion: $ \bra{\underset{V ^ {* }}{f}}\ket{\underset{V^* }{v }}: V ^ {* } \cross V \rightarrow K $
+
+\caja{green}{Pullback }{
+  \begin{gather*}
+    f: V \rightarrow W , \qquad g: W \rightarrow k  
+  \end{gather*}
+  El primero es un mapa y el segundo una funcion. Entonces tenemos que: 
+}
+\begin{gather*}
+  g o f \text{(g compuesto f)} = h : V \rightarrow K \\
+  g[f(V)] = h\\
+  V \overset{f}{\rightarrow }W \overset{g}{\rightarrow} K\\
+\end{gather*}
+\begin{align*}
+  V ^ {* } &\leftarrow W ^ {* }\\
+  g o f &\overset{f ^ {* } }{\leftarrow } g
+\end{align*}
+
+\caja{green}{PRoducto interno y adjunto }{
+  Para $ V(n,K ) $ se puede establecer un isomorfismo usando el mapeo $ g: V \rightarrow V ^ {* } $ de la forma $ g: v ^ {j }\rightarrow g _{ij } v ^ {j } $. Se define el \textbf{producto interno } de la forma $ g(v_1,v_2) \equiv \bra{gv_1 }\ket{v_2 }  $. En componentes $ g(v_1,v_2)\equiv g _{jk } v_1 ^ {i }v_2 ^ {j } $. 
+}
+
+\begin{gather*}
+  dx ^ {2 } = \bra{r_u }\ket{r_u }du ^2 + 2 \bra{r_u }\ket{r_v }dudv + \bra{r_v}\ket{r_v }du ^2\\
+  A ^2 = \bra{r_u }\ket{r_u }\qquad B ^2 = \bra{r_u }\ket{r_v } \qquad \bra{r_u }\ket{r_ v } = 0 \\
+  \displaystyle\frac{[r_u,r_v ]}{\left|[r_u,r_v ]\right|} = M \\
+  e_1 = \displaystyle\frac{r_u }{\left|r_u \right|}, e_2  = \frac{r_v }{\left|r_v \right|}, e_3  = M = [e_1,e_2]\\
+  \vec r_u = \begin{bmatrix} \bra{r_u }\ket{e_1 }  & 0 & 0 \end{bmatrix}, \qquad \vec r_v = \begin{bmatrix} 0  & B  & 0  \end{bmatrix} \rightarrow \left|\begin{bmatrix}
+      i & j & k  \\
+      A & 0 & 0 \\
+      0 & B & 0
+  \end{bmatrix}  \right|  
+\end{gather*}
+
+\end{document}

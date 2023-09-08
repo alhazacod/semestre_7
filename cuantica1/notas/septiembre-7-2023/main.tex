@@ -1,0 +1,160 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 8 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Pregunta conmutadores}
+$ [P,H] $ 1 dimension 
+\begin{gather*}
+  H = \frac{p ^2 }{2m }+ V(x)\\
+  [P,H] = [P, V(x)]
+\end{gather*}
+Haciendo esta algebra se llega al resultado, así es como lo hacen el sakurai. 
+
+Explicacion del profesor: 
+\begin{gather*}
+  \bra{x}P,V(x)\ket{\psi} = \bra{x }pV(x)-V(x)p \ket{\psi}  \\
+  \text{Sabemos que }V(x)\ket{\psi} = \ket{\phi }\\
+  \bra{x }V(x) \ket{\psi} = \bra{x }\ket{\phi }= \phi(x) = V(x)\psi(x)\\
+  \text{Entonces tenemos que : }\\
+  \bra{x }p \underset{ = \ket{\phi }}{pV(x)\ket{\psi}} \\
+  = -i \hbar \frac{d  }{d x }[V(x)\psi(x)] = i \hbar \left(\frac{d V(x) }{d x }\psi(x) \right)- i \hbar \left(\frac{d \psi(x)  }{d x }V(x) \right)\\
+  \text{entonces al reemplazar en }  \bra{x}P,V(x)\ket{\psi} = \bra{x }pV(x)-V(x)p \ket{\psi}\\
+  = - i \hbar  \left(\frac{d V(x)  }{d x }\right)\bra{x }\ket{\psi} = -i \hbar \bra{x }x \frac{d V(x) }{d x}\ket{\psi}\\
+  \text{Por lo tanto tenemos que } [p,V(x)] = - i \hbar \frac{d V(x) }{d x }
+\end{gather*}
+
+Para mas dimensiones tenemos que $ [\vec P , V(\vec r )] = -i \hbar \vec \grad V(\vec r ) $. 
+
+\section{Continuacion clase anterior }
+\caja{green}{Derivada del operador }{
+  Teniamos que si $ H  $ no depende de t 
+  \begin{gather*}
+    \ket{\psi (t)} = e ^ { \frac{-i H t }{\hbar }}\ket{\psi(0)} 
+  \end{gather*}
+  Este operador es como un desplazamiento en el tiempo. 
+}
+
+\hfill 
+\begin{gather*}
+  \omega = \frac{E}{\hbar } 
+\end{gather*}
+\hfill
+
+Digamos que queremos tener un desplazamiento en el espacio: 
+\begin{gather*}
+  \ket{\psi(d)} = e ^ {- i \frac{p _{op} \dot d }{\hbar }}\ket{\psi} \qquad \qquad d:desplazamiento
+\end{gather*}
+
+\hfill 
+
+\hfill 
+\caja{red}{Derivada del operador }{
+  Tenemos que $ i \hbar  \frac{d  }{d t}\ket{\psi(x)} = H \ket{\psi(t) }  $.
+
+  Aunque $ H  $ dependa del tiempo esta ecuacion sigue funcionando ya ya que estamos tomando una variacion muy pequeña por lo que en este intervalo tan pequeño no se puede apreciar el efecto temporal.
+
+  Esto es muy favorable ya que es una ecuacion diferencial lo que es perfecto para la fisica. 
+}
+
+Si tenemos que $ \ket{\psi(0)} = \displaystyle\sum_{k }^{}a_k \ket{E_k }  $ y $ H \ket{E_ k } = E_k \ket{E_k } $ donde $ a_k = \bra{E_k }\ket{\psi(0)}  $
+
+Entonces podemos llegar a que: 
+\caja{red}{}{
+  \begin{gather*}
+    \ket{\psi(t) } = \displaystyle\sum_{k }^{} a_k e ^ {-i \frac{E_k t }{\hbar }}\ket{E_k } 
+  \end{gather*}
+  \textbf{Condiciones: } $ \ket{\psi(0)} = \displaystyle\sum_{k }^{}a_k \ket{E_k }  $ y $ H \ket{E_ k } = E_k \ket{E_k } $ donde $ a_k = \bra{E_k }\ket{\psi(0)} $
+
+  Esto es una \textbf{fase oscilante}
+}
+
+Por ejemplo con dos estados oscilantes: 
+\begin{gather*}
+  \ket{\psi(0)} = \frac{1}{\sqrt{2 } }\ket{E_1} - \frac{1}{\sqrt{2 } }\ket{E_2} 
+\end{gather*}
+No es un autoestado de la energia. 
+
+\subsection{Si tenemos operadores dependientes del tiempo }
+\begin{gather}
+  \frac{d  }{d t }\bra{\psi(t) }O \ket{\psi(t) } = \\
+  = \left[\frac{d  }{d t } \bra{\psi(T)}\right]O \ket{\psi(t) } + \bra{\psi(t) }O \left[\frac{d  }{d t }\ket{\psi(t) }\right]\\
+  = \frac{1}{\hbar }\bra{\psi(t) }[H,O]\ket{\psi(t)} \label{eq:derivada_t_observable}
+\end{gather}
+\caja{black}{}{
+  \textbf{Un operador que conmuta con el hamiltoniano tiene un valor esperado constante}
+}
+
+\textbf{Ejemplo con hamiltoniano } tenemos que $ H = \frac{\vec P ^2}{2m } + V(\vec r ) $. 
+
+Vamos a tomar el observable $ O = \vec P  \neq $  a 3 operadores
+
+Entonces utilizando la ecuacion eq. \ref{eq:derivada_t_observable}, obtenemos que: 
+\begin{gather*}
+  O = \vec P = -[\vec P , V(\vec r)] = i \hbar \vec \grad V(\vec r) - i \hbar \vec F(\vec r)\\
+  \frac{d  }{d t } (\bra{\psi(t) } \vec P \ket{\psi(t) }) = \bra{\psi(t)}\vec F (r)\ket{\psi(t) } \\
+  \text{Esto es el teorema de Ehrenfest}
+\end{gather*}
+
+Esta es la misma ley de newton $ \frac{d \vec P  }{d t } = \vec F  $.
+
+No es exactamente un problema de dos cuerpos. Recordar que no es un hamiltoniano fisico. 
+
+\textbf{Con la posicion }
+\begin{gather*}
+  \frac{d  }{d t } \left[\bra{\psi(t) }\vec r \ket{\psi(t) } \right]\\
+  [H, \vec r] = - \left[\vec r , \frac{\vec P ^2}{2m } \right]
+\end{gather*}
+\caja{black}{}{
+  \begin{gather*}
+    [x,F(P)]  = i \hbar \frac{d F }{d P } \text{ En 1 dim}\\
+    [\vec r, G(\vec P )] = i \hbar \vec \grad _{P } G(\vec P)
+  \end{gather*}
+
+}
+\begin{gather*}
+  [H,\vec r] = -i \hbar \vec \grad _{P } \frac{\vec P ^2}{2m } = -i \hbar \frac{\vec P }{m } 
+\end{gather*}
+En el caso no relativista tenemos que $ \vec P = m \vec v $, y nosotros encontramos que $ \vec P  = m \vec v N R $
+
+\caja{black}{Ejercicio para profundizar }{
+  En el ejemplo anterior tomamos un $ H  $ no relativista. Para el caso relativista: 
+  \begin{gather*}
+    H _{rel }  = \sqrt{(\vec P c )^2 + (m c ^2)^2}  \qquad m \text{ es la masa en reposo}\\
+    H = H _{rel }  + V(\vec r )
+  \end{gather*}
+  Realizar el mismo ejemplo anterior pero con este hamiltoniano.
+}
+
+\end{document}
