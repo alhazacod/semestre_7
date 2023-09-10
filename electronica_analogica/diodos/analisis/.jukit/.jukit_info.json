@@ -1,0 +1,1 @@
+{"cmd": "\nraw_data = pd.read_csv('1_diodo.csv')\nraw_data", "cmd_opts": " --cell_id=L4ZV5NsvOM -s", "import_complete": 1, "terminal": "kitty"}
