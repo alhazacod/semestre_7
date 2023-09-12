@@ -48,3 +48,5 @@ print('\n')
 print('Second fundamental form:')
 print_dict(surface.second_fundamental_form_coefficients())
 print('\n')
+
+print(surface.normal_vector().dot_product(calc_second_derivatives(surface)['uu']).full_simplify())

@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 11}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Espacios Lineales}
+\subsection{Producto interno }
+Es una regla de asociacion que tenemos entre los vectores $ g: V \rightarrow V ^ {* } $ y $ g _{ij } \in GL(n, \mathbb{R}) $ ($ GL  $ es el grupo de tranformaciones lineales). 
+\begin{gather*}
+  v ^ {i }\rightarrow g _{ij } v ^ {j } = v _{i } ^ {* }= v _{i} 
+\end{gather*}
+Podemos introducir la notacion e Einstein. 
+\caja{red}{}{
+  \begin{gather*}
+    g(\vec v_1,\vec v_2) = \bra{g v_1 }\ket{v_2 } = g _{ij } v_1 ^ {i } v_2 ^ {j }\\
+    \text{Esta es la definicion de producto interno.}
+  \end{gather*}
+  Toma dos vectores y los convierte en un numero. 
+  \begin{gather*}
+    g(v_1,v_2): V. V \rightarrow \mathbb{R} 
+  \end{gather*}
+}
+Si $ g _{ij }  = g _{ji }  $ y ademas $ g(v_1,v_2) \geq 0  $ (esto es una estructura metrica). 
+
+\subsubsection{Adjunto}
+\begin{gather*}
+  W(n, \mathbb{R}),\quad \{f_a \} , \quad\underset{\text{Isomorfismo}}{G}: W \rightarrow V\\
+  f: V \rightarrow W \quad \text{adjunto del mapeo }f = \hat f\\
+  G(W,fV) = g (v, \hat f W)\\
+  G(W,fV) = W ^ {\alpha} G _{\alpha\beta} f ^ {\beta}_i v ^ {i } = g _{ij } v ^ {j } \hat f_\beta^i w ^ {\beta }\\
+  w ^ {\alpha} G _{\alpha\beta} f _{i } ^ {\beta} v ^ {i } = g _{ij } v ^ {i }\hat f ^ {j }_{\alpha} w ^ {\alpha}
+\end{gather*}
+\caja{red}{}{
+  \begin{gather*}
+    G _{\alpha\beta} f _{i } ^ {\beta} = g _{ij } \hat f _{\alpha} ^ {j } 
+  \end{gather*}
+}
+Ahora veremos que $ G _{\alpha\beta} = \delta _{\alpha\beta } \qquad g _{ij } = \delta _{ij }  $, entonces: 
+\caja{red}{}{
+  \begin{gather*}
+    f _{i } ^ {\alpha} = \hat f _\alpha ^ {i }\\
+    \hat f = f ^ {T }
+  \end{gather*}
+  Condiciones: $ \quad G _{\alpha\beta} = \delta _{\alpha\beta } \quad g _{ij } = \delta _{ij } $
+}
+
+\subsection{Tensores }
+\begin{gather*}
+  f: V \rightarrow \mathbb{R}\qquad f \text{ es lineal.} \rightarrow f\in V ^ {* }\\
+  g: V \otimes V \rightarrow \mathbb{R} \qquad g \text{ es lineal.}\\
+  T: V \underset{p-copias}{\otimes ... \otimes} V \otimes V^*\underset{q-copias}{\otimes ... \otimes} V^* \rightarrow \mathbb{R}\\
+  \tau(\xi_1, ..., \xi_p, \eta_1, ..., \eta_q ) = \# \in \mathbb{R}. \quad \text{Con }\xi _i \in V \text{ y } \eta_i \in V^*\\
+  \tau(\alpha \xi_1 + \beta \xi_1', [\xi],[\eta]) = \alpha \tau(\xi_1 , [\xi],[\eta]) + \beta \tau(\xi_1', [\xi],[\eta])
+\end{gather*}
+
+\subsubsection{Operaciones entre tensores }
+\begin{itemize}
+  \item Suma: 
+    \begin{gather*}
+      \tau \in \mathcal{T}_q^p \\
+      S\in \mathcal{T} _q^p\\
+      \tau + S \in \mathcal{T}_q^p \\
+      (\tau + S)(\xi_1,...,\xi_p,\eta_1,...\eta_q) = \tau(\xi_1,...,\xi_p,\eta_1,...\eta_q) + S(\xi_1,...,\xi_p,\eta_1,...\eta_q)
+    \end{gather*}
+  \item Producto tensorial
+    \begin{gather*}
+      \tau = M \otimes V, \quad M \in J ^p_q , \quad V\in J ^ {p' }_{q' } \\
+      M(\omega_1,...,\omega_p ; u_1,...,u_q), \quad V(\xi_1,...,\xi _{p' } ; v_1,...,v _{q'} )\\
+      \tau(\omega_1,...,\omega_p,\xi_1,...,\xi _{p' } ; u_1,...,u_q,v_1,...,v _{q'} ) \in \mathcal{T} _{q+q' } ^ {p+ p' }
+    \end{gather*}
+\end{itemize}
+
+\section{Espacios topológicos }
+Sea $ X  $ y sea $ \mathcal T = \{u_i|i\in I \} $ una colección de subconjuntos de $ X  $. Para llamarlo espacio topologico necesta cumplir 3 condiciones: 
+\begin{itemize}
+  \item $ \{\emptyset, X\} \in \mathcal T $
+  \item $ \mathcal T _J = \{u_j|j \in J \} \qquad u_j \in \mathcal T _I   $ entonces tenemos que $ \underset{j \in J }{\cup } u_j \in \mathcal T_I $
+  \item $ J_k = \{u_k | k \in k \} \qquad \underset{k\in K }{\cap } u_k \in \mathcal T_I $
+\end{itemize}
+\begin{gather*}
+  (X,\mathcal T ) \rightarrow \text{Espacio topológico } 
+\end{gather*}
+
+\subsection{Métrica }
+\begin{itemize}
+  \item $ d(x,y) = d(y,x) $
+  \item $ d(x,y) \geq 0  $ Solamente $ d(x,y) = 0  $ si $ x=y $
+  \item $ d(x,y) + d(y,z) \geq d(x,z) $
+\end{itemize}
+Cuando cumpla la desigualdad triangular (2 y 3) es un espacio\textbf{ rimaniano}.
+
+\hfill
+
+\hfill
+
+Utilizando 2 y 3 podemos obtener que para el caso \textbf{pseudo-rimaniano}: 
+\begin{itemize}
+  \item $ d(x,v) = 0 \qquad \forall v \in X \rightarrow x = 0  $
+\end{itemize}
+
+\textbf{Espacio de Hausdorff } es un espacio de Hausdorff si la union de dos entornos es vacio. $ U_x \cap U _{x' } = \emptyset $
+
+\end{document}
