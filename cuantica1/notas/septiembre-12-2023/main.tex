@@ -1,0 +1,156 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 10 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Evolucion temporal de los sistemas }
+\caja{green}{Evolucion temporal }{
+  \begin{gather*}
+    \ket{\psi(t)} = e ^ {-i \frac{Ht }{\hbar }}\ket{\psi(t=0 )}\qquad \text{ Si }H \text{ no depende de t }\\
+    i \hbar \frac{d  }{d t }\ket{\psi(t) } = H \ket{\psi(t) }
+  \end{gather*}
+}
+
+Qué sucede cuando tenemos que $ H = \frac{\vec P ^2}{2m } + V(\vec r ) $?
+\begin{gather*}
+  \bra{\vec r }\ket{\psi(t) } = \psi(t, \vec r )  \\
+  \text{Tenemos que }\\
+  \bra{\vec r }\ket{\psi} = \psi(\vec r ) \\
+  \bra{\vec r }\vec P \ket{\psi } = -i \hbar \vec \grad_r \psi(\vec r )\\
+  \bra{\vec r }\vec P ^2\ket{\psi} = - \hbar ^2 \grad ^2 \psi(\vec r )\\
+  \text{Donde }\grad ^2 \text{ Es el laplaciano } \grad ^2 = \frac{\partial ^2 }{\partial x ^2} + \frac{\partial ^2 }{\partial y ^2} + \frac{\partial ^2 }{\partial z ^2  } = \vec \grad . \vec \grad \\
+  \text{Por lo tanto obtenemos que: }
+  i \hbar \frac{\partial  }{\partial t }\psi (t, \vec r ) = - \frac{\hbar ^2}{2m }\grad ^2 \psi(t, \vec r ) + V(\vec r ) \psi(t, \vec r )
+\end{gather*}
+
+\caja{red}{Ecuacion de schrodinger \textbf{dependiente} del tiempo }{
+  \begin{gather*}
+    i \hbar \frac{\partial  }{\partial t }\psi (t, \vec r ) = - \frac{\hbar ^2}{2m }\grad ^2 \psi(t, \vec r ) + V(\vec r ) \psi(t, \vec r ) 
+  \end{gather*}
+}
+
+Como es dependiente del tiempo podemos proyectar el Hamiltoniano sobre r: 
+\begin{gather*}
+  H \ket{\psi_n } = E_n \ket{\psi_n }\\
+  \bra{\vec r }\frac{\vec P ^2}{2m }\ket{\psi_n } + \bra{\vec r }V(\vec r )\ket{\psi_n } = E_n \bra{\vec r }\ket{\psi _n }\\
+  - \frac{\hbar  ^2}{2m }\grad ^2 \psi_n (\vec r ) + V(\vec r) \psi_n(\vec r ) = E_n \psi_n (\vec r )
+\end{gather*}
+
+\caja{red}{Ecuacion de Schrodinger \textbf{independiente} del tiempo }{
+  \begin{gather*}
+    - \frac{\hbar  ^2}{2m }\grad ^2 \psi_n (\vec r ) + V(\vec r) \psi_n(\vec r ) = E_n \psi_n (\vec r )
+  \end{gather*}
+  Para el caso independiente del tiempo la ecuacion se hace mucho mas facil de resolver y obtenemos que $ \psi  $ es: 
+  \begin{gather*}
+    \psi(t, \vec r ) = \displaystyle\sum_{n }^{} c_n e ^ {- \frac{i E_n t }{\hbar }}\psi_n(\vec r)  
+  \end{gather*}
+  Tener en cuenta que $ \frac{\hbar }{2m } $ es un autovalor de la energia.
+}
+\caja{black}{}{
+  El profesor quedó en enviar unas notas sobre la proyeccion en $ \vec P  $ al moodle.
+}
+Si tenemos $ V = 0 \quad \rightarrow \quad H = \frac{\vec P ^2}{2m } $ y por lo tanto $ [H,\vec P ] = 0  $.
+Un estado sin evolucion temporal es: 
+\begin{gather*}
+  \bra{\vec r }\ket{E- \frac{P ^2}{2m }, \vec P }  = \frac{1}{(2 \pi \hbar ) ^ {3/2 }} e ^ {i \frac{\vec P \vec r }{\hbar }}
+\end{gather*}
+Con evolucion temporal: 
+\begin{gather*}
+  \psi _{E, \vec P } (t, \vec r) = \bra{\vec r }\ket{E- \frac{P ^2}{2m }, \vec P, t }  = \frac{1}{(2 \pi \hbar ) ^ {3/2 }} e ^ {i \frac{\vec P \vec r }{\hbar }} e ^ {-i \frac{t }{\hbar } \frac{P ^2}{2m }}
+  = \frac{1}{(2 \pi \hbar )^ {3/2 }}e ^ {-i Et + i \frac{\vec P \vec r }{\hbar }}
+\end{gather*}
+Recordar que $ E = \frac{\vec P ^2}{2m } $.
+\caja{red}{Solucion eq. schrodinger dependiente del tiempo }{
+  \begin{gather*}
+    \psi _{E, \vec P } (t, \vec r) = \bra{\vec r }\ket{E- \frac{P ^2}{2m }, \vec P, t }  = \frac{1}{(2 \pi \hbar ) ^ {3/2 }} e ^ {i \frac{\vec P \vec r }{\hbar }} e ^ {-i \frac{t }{\hbar } \frac{P ^2}{2m }}
+    = \frac{1}{(2 \pi \hbar )^ {3/2 }}e ^ {-i Et + i \frac{\vec P \vec r }{\hbar }}
+  \end{gather*}
+}
+\caja{blue}{Ejercicio }{
+  Verificar la solucion anterior. Ver si safisface la ec. diferencial de schrodinger dependiente del tiempo.
+}
+
+\section{Campo electrico y magnetico }
+Onda electromagnetica plana
+\begin{gather*}
+  \vec A(t,\vec r ) = \vec \epsilon e ^ {i (-\omega t + \vec k . \vec r)} 
+\end{gather*}
+Donde $ \vec \epsilon $ es el vector unitario de polarizacion $ \vec \epsilon . \vec \epsilon = 1  $. Ademas tenemos que $ \lambda = \frac{2 \pi}{\left|\vec k \right|} $. Pero en la cuantica thenemos que $ \vec P = \hbar \vec k  $. Es decir una onda electormagnetica ya lleva esto y por lo tanto $ \omega = \frac{E }{\hbar } \rightarrow E = \hbar \omega $. Tambien tenemos que $ \omega = c \left|\vec k \right| \quad \rightarrow\quad \frac{E}{\hbar } = c \frac{\left|\vec P \right|}{\hbar }$. En relatividad la energia y el momento están conectados por $ E = \sqrt{(c\vec P )^2 + (mc ^2)^2} \approx m c ^2 + \frac{P ^2}{2m } + ...  $
+
+La energia de una onda electromagnetica en electromagnetismo es $ E = \int_{}^{}dr ^ {3 } (\vec E ^2 + \vec B ^2) $. El foton no intercabia energia con esta ecuacion si no con $ E = \hbar \omega $ y $ \vec P  = \hbar \vec k $.
+
+\section{Particula que oscila en una dimension (oscilador armonico)}
+\begin{gather*}
+  H = \frac{P ^2}{2m } + \frac{1}{2} k x ^2 
+\end{gather*}
+Frecuencia angular de oscilacion clasica: $ \omega = \sqrt{\frac{k }{m }}  \rightarrow k = \omega ^2 m $. 
+\begin{gather*}
+  H = \frac{P ^2 }{2m } + \frac{1}{2} m \omega ^2 x ^2
+\end{gather*}
+No existe un sistema fisico como este en la naturaleza pero se toma como ejemplo ya que es de gran utilidad para ver el formalismo matematico.
+
+Tenemos que $ [P,\lambda] = -i \hbar $.
+
+Vamos a construir el operador $ a $.
+
+\begin{gather*}
+  a = \sqrt{\frac{m \omega}{2 \hbar }} \left(x + i \frac{P }{m \omega}\right) \qquad \qquad a ^ {\dag } = \sqrt{\frac{m \omega}{2 \hbar }} \left(x - i \frac{P }{m \omega}\right)\\
+  \text{No es hermitico.}\\
+  [a, a ^ {\dag }] = \frac{m \omega}{2 \hbar } \left(- \frac{i }{m \omega }i \hbar  + \frac{i }{m \omega} (-i \hbar )\right) = 1\\
+  [a, a ^ {\dag }] = 1
+\end{gather*}
+
+Y el operador $ a ^ {\dag }a  $. Como $ (a ^ {\dag } a )^ {\dag } = a ^ {\dag }a  $ este operador es hermitico.
+\begin{gather*}
+  a ^ {\dag }a  = \frac{H }{\hbar \omega} - \frac{1}{2}
+\end{gather*}
+Por lo tanto podemos decir que: 
+\begin{gather*}
+  H = \hbar \omega \left(a ^ {\dag }a + \frac{1}{2}\right)
+\end{gather*}
+Como $ H  $ y $ a^\dag a  $ son funcion uno del otro esto nos dice que tienen autovalores comunes.
+\begin{gather*}
+  a ^ {\dag }a = N \quad(\text{Operador}) \\
+  N \ket{n } = n \ket{n }\qquad n:\text{real}\\
+  H \ket{n } = \hbar \omega (n + \frac{1}{2}) \ket{n }\\
+  \text{El conmutador }\\
+  [N, a ] = a ^ {\dag }a a - a a ^ {\dag }a = [a ^ {\dag }, a] = -a \\
+  [N, a ] = -a\\
+  [N, a ] = Na - a N  = - a \\
+  \text{Le aplicamos }\ket{n }\\
+  Na \ket{n } - a N \ket{n } = - a \ket{n }\\
+  Na \ket{n } = (n -1 )a \ket{n }
+\end{gather*}
+
+\end{document}
