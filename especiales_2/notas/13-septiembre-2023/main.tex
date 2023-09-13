@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 10}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Series}
+La clase pasada se llegó a que 
+\caja{red}{Trigonometricas }{
+  \begin{gather*}
+    \sin{z } = \frac{e ^ {i z }- e ^ {-iz }}{2i }\qquad \qquad \cos{z } = \frac{e ^ {iz } + e ^ {-iz }}{2}
+    \tan{z } = -i \frac{e ^ {i z }- e ^ {-i z }}{e ^ {i z } + e ^ {-iz }}\\
+    \sin^2{z} +\cos^2{z} = 1\qquad \qquad \cos{z_1-z_2} = \cos{z_1 }\cos{z_1 } + \sin{z_1 }\sin{z_1 }\\
+    \sin{-z } = - \sin{z } \qquad \qquad \tan{2z } = \frac{2 \tan{z}}{1-\tan^2{z}}\\
+    \cos{z+2\pi} = ?\qquad \qquad \sin{-z } = ? \qquad \qquad \cos{-z } = ?\\
+    \text{Hacer las que faltan como ejercicio.}
+  \end{gather*}
+}
+\caja{red}{Hiperbolicas }{
+  \begin{gather*}
+    \sinh{z } = \displaystyle\frac{e ^ {z }- e ^ {-z }}{2 }\qquad \qquad \cosh{z} = \displaystyle\frac{e ^ {z } + e ^ {-z }}{2 }\\
+    \sinh{iz } = \frac{e ^ {iz } - e ^ {-iz }}{2i }= i \sin{z } \qquad \qquad \cosh{iz } = \frac{e ^ {iz } + e ^ {-iz }}{2} = \cos{z }
+    \qquad \qquad \tanh{z } = i \tan{z }\\
+    \cosh^2 z - \sinh^2 z  = 1
+  \end{gather*} 
+}
+
+Ahora calculemos $ \sin{x + i y } $
+\begin{gather*}
+  \sin{x + i y } = \sin{x }\cos{iy } + \sin{iy }\cos{x } = \sin{x}\cosh{y} + i \sinh{y }\cos{x }
+\end{gather*}
+
+Y su modulo 
+\begin{gather*}
+  \left|\sin{z }\right| = \sqrt{\sin^2{x}\cosh^2{y} +  \sinh^{y }\cos^{x }} = \sqrt{\sin^2 x + \sinh^2 y}   
+\end{gather*}
+
+\hfill 
+
+\hfill 
+
+Se tiene un dominio de un rectangulo con vertices en (0,0), (0,-3), (1,-3), (1,0). Mapee este dominio con la funcion $ f\left(z\right)= \cosh{z } $.
+
+Para (0,0) $u + i v = 1 \qquad u = 1\quad v = 0  $. 
+
+Para (1,0) $ u + i v = \cosh{1 }, \qquad u = \cosh{1 } \quad v = 0 $
+
+Para (1,-3) $ u + iv = \cosh{1 - 3i } = \frac{e ^ {1 - 3i } + e ^ {-1+3i }}{2}\qquad u = \cosh{1 }\cos{3 } \quad v = -\sinh{1 }\sin{3 } $.
+
+Para (0,-3) $ \cosh{-3i } = \cos{-3 } = \cos{3 }\qquad u = \cos{3 }\quad v = 0  $.
+
+\section{Logaritmo }
+\begin{gather*}
+  f(z) = e ^ {z }\qquad \log{f} = z \\
+  \log{r e ^ {i (\theta + 2\pi k )}} = \log{r} + i (\theta + 2 \pi k)
+\end{gather*}
+
+Hay que aclarar la rama, este es el k (k=0 rama principal). Cuando tenemos $ \log_\alpha{z} $ tenemos que $ \alpha $ es la rama y por lo tanto $ \alpha<Arg(z)\leq \alpha + 2 \pi $
+
+\begin{gather*}
+  \log{i} = \log{e ^ {i(\pi/2 + 2 \pi k )}} = i (\frac{\pi}{2} + 2 \pi k) 
+\end{gather*}
+
+\textbf{Valor principal }
+\begin{gather*}
+  \log{1} = i \frac{\pi}{2} , \qquad k = 0 
+\end{gather*}
+\begin{gather*}
+  \log_0 {i} = \log_0 {e ^ {\frac{\pi }{2} + 2\pi k }}  = i \frac{\pi}{2}\\
+  \log_\frac{\pi}{2}{i } = \log_\frac{\pi}{2}{e ^ {i \frac{5 \pi}{2}}} = i \frac{5\pi}{2}
+\end{gather*}
+
+\caja{blue}{Ejercicio }{
+  \begin{gather*}
+    \log_ \frac{3\pi}{4} (1-i ) = ? 
+  \end{gather*}
+  \textbf{Sol: }
+  \begin{gather*}
+    z = \sqrt{2 } e ^ {i (-\frac{\pi}{4} + 2 \pi k )}\\
+    \alpha<Arg(z)\leq \alpha + 2\pi\\
+    \frac{2\pi}{4} < Arg(z ) \leq \frac{3\pi}{4} + 2 \pi = \frac{11\pi}{4}
+  \end{gather*}
+}
+
+
+\end{document}
