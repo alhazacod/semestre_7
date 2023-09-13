@@ -98,6 +98,7 @@ reg_func = lambda x,a,b: a*x+b
 coef,cov = curve_fit(reg_func, x,y)
 # La regresion da unos valores muy cercanos pero cambié manualmente el c para que diera mejor el ajuste
 a,b = coef
+print(cov)
 
 residuals = y- reg_func(x, a,b)
 ss_res = np.sum(residuals**2)
