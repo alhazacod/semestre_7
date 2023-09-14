@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{clase 12 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Espacios topológicos }
+De la clase pasada: 
+\begin{gather*}
+  {X, \mathcal{T }_I } \qquad \mathcal = {u_i | i \in I }\\
+  d(x,y) \quad \rightarrow \quad u_\epsilon(x) = {x' \in X |\quad \left|x-x'\right| \subset \epsilon} 
+\end{gather*}
+\textbf{Espacios de hausdorff } Si podemos encontrar dos entornos que su interseccion sea vacia. 
+\begin{gather*}
+  u_x \cap u_y = \emptyset \quad \rightarrow \quad \text{Haussdorff} 
+\end{gather*}
+De aquí en adelante vamos a trabajar solo son espacios de Haussdorff.
+
+\hfill 
+
+\hfill 
+
+Vamos a definir un conjunto cerrado. Si $ A \subset X  $ el complemento de $ A: X-A  $, $ A  $ es cerrado si $ X-A  $ es abierto.
+\begin{itemize}
+
+  \item\textbf{Cerradura } ($ \bar A  $) es el subconjunto abierto mas pequeño que incluye a $ A  $. $ A \subseteq \bar A  $.
+
+  \item\textbf{Interior: } ($ A ^ {0 } $) es el subconjunto abierto mas grande que está incluido en $ A  $. $ A ^ {0 } \subseteq A $.
+
+  \item \textbf{Borde: } $ b(A) = \bar A- A ^ {0 } $
+  \item \textbf{Cubierta (covering)}
+    \begin{gather*}
+      {A_i } \qquad A_i \subset X / \underset{i\in I }{\cup }A_i = X  
+    \end{gather*}
+    Si $ A_i  $ son abiertos $ \rightarrow  {A_i } $ cubierta abierta.
+  \item \textbf{Compacto:} Si para una cubierta $ {A_i } $ existe una subfamilia finita. 
+    \begin{gather*}
+      u_k \text{ tal que }\underset{k\in K }{\cup } u_k = X 
+    \end{gather*}
+    \textbf{Teorema: } Si $ X \subset \mathbb{R}^ {n } $, $ X  $ es compacto si está limitado, es decir, puede ser incluido en un subconjunto finito de $ \mathbb{R}^ {n } $.
+    \begin{gather*}
+      X \subset M \rightarrow \text{Finito}
+    \end{gather*}
+    \textbf{Ejemplo } $ (a,b) \rightarrow u_n : \{(a,b-\frac{1 }{n }) | n \in \mathbb{N}\} $.
+  \item  \textbf{Conexo: } Es un espacio que no se puede escribir de la forma $ X = X_1 \cup X_2  \qquad X_1 \cap X_2 = \emptyset $. Si no los podemos separar tenemos conjuntos compactos y si los podemos separar tenemos conjuntos conexos.
+  \item \textbf{Homeomorfismo: } Si tenemos dos espacios topologicos con su respectiva esturctura metrica y tenemos una funcion que nos mapea del uno al otro, esta funcion se llama homeomorfismo si $ f: X_1 \rightarrow X_2  $ y $ f ^ {-1 }: X_2 \rightarrow X_1  $ son continuas y diferenciables.
+\end{itemize}
+
+\section{Variedad diferenciable }
+Vamos a tener x elementos que vamos a describir en coordenadas. Por ejemplo $ x ^ {\alpha } $ o $ y ^ {\alpha} $. Lo que queremos es que la tranformacion entre estas dos coordenadas sean funciones continuas y suaves.
+
+$ M  $ de $ n  $ dimensiones es una variedad diferenciables si: 
+\begin{itemize}
+  \item $ M  $ es un espacio topológico 
+  \item $ u_i  \rightarrow $ abiertos. $ \rightarrow  $ le asociamos unas parejas $ (u_i,\phi_i) $, donde $ \phi_i: u_i \rightarrow \mathbb{R}^ {n } $, esta transformacion debe ser un homeomorfismo.
+  \item $ \{u_i\} $ son una cubierta: $ \underset{i \in I }{\cup }u_i = M  $.
+  \item Tomemos dos parejas $ u_i, u_j  $ que tengan interseccion $ u_i \cap u_j \neq \emptyset   $. En la variedad $ M  $ va a existir esta interseccion la cual está contenida en ambos conjuntos. La funcion que lleve esta interseccion de $ u_i  $ a $ u_j  $ debe ser diferenciable y suave. Basicamente la condicion 2 nos dice que podemos ir de la variedad diferenciable a $ \phi_i  $ y $ \phi_j  $, mientras que esta condiciones nos dice que podemos ir de $ \phi_i  $ a $ \phi_j  $. 
+\end{itemize}
+\caja{black}{}{
+  \textbf{Charts (cartas)} $ (u_i,\phi_i ) $
+
+  \textbf{Atlas } $ \{(u_i,\phi_i )\} $
+}
+
+\end{document}
