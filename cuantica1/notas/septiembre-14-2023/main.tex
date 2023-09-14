@@ -1,0 +1,157 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 11 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+\begin{gather*}
+  H = \frac{P^2 }{2m } + \frac{1}{2} m \omega^2 x^2 \\
+  E_n = (n + \frac{1}{2}) \hbar  \omega
+\end{gather*}
+Introducimos el operador $ a = \sqrt{\frac{m \omega}{2 \hbar }} (x + i \frac{P }{m\omega} ) $ y $ a ^ {\dag } = \sqrt{\frac{m \omega}{2 \hbar }} \left(x - i\frac{P }{m\omega}\right) $. Recordemos que $ [a,a ^ {\dag }] = 1  $. Y el operador $ N _{op } = a ^ {\dag }a  $, $ N _{op } ^ {\dag } = N _{op }  $. 
+
+Podemos escribir $ H  $ como: 
+\begin{gather*}
+  H = (N _{op }  + \frac{1}{2}) \hbar \omega
+\end{gather*}
+
+En la clase pasada habiamos visto que: 
+\begin{gather*}
+  N _{op } \ket{n } = n \ket{n } \qquad n:\text{Reales }\\
+  \text{Discretos } \bra{n' }\ket{n } = \delta _{n', n } \\
+  [N _{op } , a ] = - a \\
+  \text{Aplicamos un }\ket{n }\text{ cualquiera: }\\
+  N _{op } a \ket{n } = a N _{op } \ket{n } - a \ket{n }\\
+  N _{op } a \ket{n } = (n -1 ) a \ket{n }
+\end{gather*}
+Al aplicar el operador $ N _{op }  $ a $ a \ket{n } $ obtenemos un autovalor $ (n-1) $.
+
+\caja{black}{nota }{
+  \begin{gather*}
+    a \underset{\text{norm. 1 }}{\ket{n }} = c \underset{\text{norm. 1 }}{\ket{n-1 }} \qquad c: \text{ Complejo}
+  \end{gather*}
+}
+
+\textbf{Ejemplo }
+Hagamos el hermitico conjugado de lo anterior: 
+\begin{gather*}
+  \bra{n } a ^ {\dag } = c ^ {* } \bra{n-1}\\
+  \bra{n }a ^ {\dag }a \ket{n} = \left|c \right| ^ {2 } \underset{\text{norm. 1 }}{\bra{n-1 }\ket{n-1 }  }\\
+  n \bra{n }\ket{n } = \left|c \right|^ {2 } \bra{n-1 }\ket{n-1 }  \\
+  \rightarrow \left|c \right|^ {2 } = n \qquad n \text{ debe ser positivo}\\
+  \text{Podemos escribir c como: } c = e ^ {i \alpha }\sqrt{n } \\
+  a \ket{n } = e ^ {i \alpha} \sqrt{n } \ket{n-1 } 
+\end{gather*}
+De forma analoga: 
+\begin{gather*}
+  a \ket{n } = e ^ {i \alpha } \sqrt{n }  \ket{n-1 }\\
+  aa \ket{n } = e ^ {i2\alpha} \sqrt{n } \sqrt{n-1 } \ket{n-2 } \\
+  \text{Si tenemos que }n=0 \rightarrow aa \ket{0 } = 0
+\end{gather*}
+
+$ a ^ {\dag } $ nos "sube" un escalon: 
+\caja{red}{}{
+  \begin{gather*}
+    a ^ {\dag } \ket{n } = d \ket{n+1 } \qquad n = 0,1,2,... 
+  \end{gather*}
+}
+
+\begin{gather*}
+  H \ket{n } = (n + \frac{1}{2}) \hbar \omega \ket{n } 
+\end{gather*}
+
+\caja{red}{Operador de aniquilacion y creacion }{
+  $ a = \sqrt{\frac{m \omega}{2 \hbar }} (x + i \frac{P }{m\omega} ) $ y $ a ^ {\dag } = \sqrt{\frac{m \omega}{2 \hbar }} \left(x - i\frac{P }{m\omega}\right) $
+
+  $ [a,a ^ {\dag }] = 1  $
+
+  Por ejemplo para llegar al estado 3 debemos aplicar 3 veces $ a ^ {\dag } $.
+  \begin{gather*}
+    \ket{n } = \left[\frac{(a ^ {\dag })^ {n }}{\sqrt{n! } }\right]\ket{0}
+  \end{gather*}
+}
+
+\begin{gather*}
+  \bra{x}\ket{0 } = \psi_0(x) \qquad \bra{x }x \ket{0 } = x \psi_0(x)\\
+  \bra{x }a \ket{0 } = 0  
+\end{gather*}
+
+\begin{gather*}
+  \sqrt{\frac{m\omega}{2 \hbar }} \left[x \psi_0(x) + \frac{1}{m\omega}\bra{x}P \ket{0 } \right] = 0 
+\end{gather*}
+Podemos hacer: 
+\begin{gather*}
+  \bra{x }P \ket{0 } = \\
+  \bra{x }P \ket{\psi } = - i \hbar  \frac{d  }{d x }\psi(x) \\
+  \bra{x }P \ket{0 } = - i \hbar \frac{d  }{d x }\psi_0(x) 
+\end{gather*}
+
+Por lo tanto: 
+\begin{gather*}
+  \sqrt{\frac{m\omega}{2 \hbar }} \left[x \psi_0(x) + \frac{1}{m\omega}\bra{x}P \ket{0 } \right] = 0 \\
+  \rightarrow x \psi_0 (x) + \frac{\hbar }{m \omega }\frac{d  }{d x }\psi_0 (x) = 0 
+\end{gather*}
+En las unidades tenemos que $ \left[\frac{\hbar }{m \omega}\right] = Longitud^2  $. A esto se le llama $ \frac{\hbar }{m\omega} = (x_0 ) ^ {2 } = (\bar x )^2 $.
+
+\caja{red}{Oscilador armonico}{
+  \begin{gather*}
+    x\psi_0(x) - \bar x ^2 \frac{d  }{d x} \psi_0 (x) = 0
+  \end{gather*}
+  Donde $ \frac{\hbar }{m\omega} = (x_0 ) ^ {2 } = (\bar x )^2 $
+  \begin{gather*}
+    \psi_0(x) = (Const.) e ^ {- \displaystyle\frac{1}{2} \displaystyle\frac{x ^2}{\bar x ^2}} 
+  \end{gather*}
+  La constante se halla utilizando la condicion de normalizacion: 
+  \begin{gather*}
+    \int_{-\infty}^{\infty} dx \left|\psi_0(x)\right|^2 = 1
+  \end{gather*}
+  Las unidades de la constante es $ \frac{1}{\sqrt{longitud} } $.
+}
+
+Si queremos conocer $ \psi_2  $ aplicamos $ a ^ {\dag } $: 
+\begin{gather*}
+  \ket{1 } = a ^ {\dag }\ket{0 }\\
+  \psi_1(x) = \bra{x}\ket{1 } = \bra{x }a ^ {\dag }\ket{0 }= \sqrt{\frac{m \omega}{\hbar }}  \bra{x }x - i \frac{P }{m \omega}\ket{0 }\\
+  = \sqrt{\frac{m \omega }{\hbar }} \left[x \psi_0(x) - \frac{\hbar }{m \omega} \frac{d  }{d x }\psi_0(x)\right]
+\end{gather*}
+
+\caja{red}{}{
+  \begin{gather*}
+    \psi_n (x) = c_m P_m(\frac{x }{\bar x }) e ^ {- \frac{1}{2} \frac{x ^2}{\bar x ^2}}
+  \end{gather*}
+  Polinomios de hermit (buscar polinomios ortogonales).
+}
+
+
+\end{document}
