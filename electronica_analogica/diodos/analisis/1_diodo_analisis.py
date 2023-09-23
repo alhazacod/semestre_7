@@ -8,12 +8,13 @@ from scipy.optimize import curve_fit
 
 raw_data = pd.read_csv('1_diodo.csv')
 raw_data
+
 #|%%--%%| <L4ZV5NsvOM|pG1ifQWwyd>
 
 I_D = raw_data['I_D']
 V_D = raw_data['V_D']
 
-#|%%--%%| <pG1ifQWwyd|JXNE6eQZQO>
+#|%%--%%| <pG1ifQWwyd|PaOU9xssBN>
 
 y = I_D.copy()#/max(I_D)
 x = V_D.copy()#/max(V_D)
@@ -28,7 +29,7 @@ plt.grid()
 reg_func = lambda x,a,b: a*x+b
 coef,cov = curve_fit(reg_func, x[19:],y[19:])
 a,b = coef
-print(coef)
+print(f'coef. lineal: {coef}')
 
 xx = np.linspace(0.685,0.75,50)
 yy = reg_func(xx,a,b)
@@ -50,6 +51,7 @@ print(f'R_D = {R_D:.2f}')
 
 
 
+
 #Corriente inversa de saturacion 
 x = x.copy()/max(x)
 y = y.copy()/max(y)
@@ -57,10 +59,9 @@ y = y.copy()/max(y)
 reg_func = lambda x,a,b: a*(np.exp(b*x)-1)
 coef,cov = curve_fit(reg_func, x,y)
 a,b = coef
-print(coef)
+print(f'coef. exponencial: {coef}')
 
 I_0 = a*max(I_D)
-print(a)
 
 print(f'I_0 = {I_0: .2e} ')
 
@@ -69,7 +70,13 @@ yy = reg_func(xx,a,b)
 plt.plot(xx*max(V_D),yy*max(I_D),c="purple",label = f'$I_0 = {I_0: .2e}$')
 
 #Constante de boltzman 
+q = 1.6e-19 
+eta = 1 
+T = 294 
+k_B = q/(eta*b*T)*max(V_D)
+print(f'k_B = {k_B}')
 
 #Voltaje termico 
 
 #Punto Q 
+
