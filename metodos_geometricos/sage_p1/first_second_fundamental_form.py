@@ -38,7 +38,10 @@ print('Second derivatives:')
 print_dict(calc_second_derivatives(surface))
 print('\n')
 
-print(f'Vector normal: {surface.normal_vector()} ')
+normal = surface.normal_vector()
+normal_normalized = normal.normalized()
+print(f'Vector normal: {normal} ')
+print(f'Vector normal normalizado: {normal_normalized}')
 print('\n')
 
 print('First fundamental form:')
@@ -49,4 +52,5 @@ print('Second fundamental form:')
 print_dict(surface.second_fundamental_form_coefficients())
 print('\n')
 
-print(surface.normal_vector().dot_product(calc_second_derivatives(surface)['uu']).full_simplify())
+for k in calc_second_derivatives(surface):
+    print(f'Ñ dot {k}: {normal_normalized.dot_product(calc_second_derivatives(surface)[k]).full_simplify()}')
