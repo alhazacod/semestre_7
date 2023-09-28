@@ -27,15 +27,11 @@ print(transformation.inverse().display())
 print(g.display(XPM.frame()))
 print(g[XPM.frame(),:])
 
-# Coordenadas conformes
-psi,zeta = var('psi zeta')
-U = M.chart('psi zeta', names=('psi', 'zeta',)); (psi, zeta,) = U._first_ngens(2)
-
 ##############################################
 psi,zeta = var('psi zeta')
 PZ = M.chart('psi zeta', names=('psi', 'zeta',)); (psi, zeta,) = PZ._first_ngens(2)
 transformation_pz_pm = PZ.transition_map(XPM, [tan(_sage_const_1 /_sage_const_2 *(psi+zeta)), tan(_sage_const_1 /_sage_const_2 *(psi-zeta))])
 transformation_pz_pm.set_inverse(atan(xplus) + atan(xminus), atan(xplus) - atan(xminus))
 print(transformation_pz_pm.inverse().display())
-print(latex( -g[U.frame(),_sage_const_0 ,_sage_const_0 ].expr().substitute(arctan(xp)==_sage_const_1 /_sage_const_2 *(psi+zeta),arctan(xm)==_sage_const_1 /_sage_const_2 *(psi-zeta)).factor()))
+print(latex( -g[PZ.frame(),_sage_const_0 ,_sage_const_0 ].expr().substitute(arctan(xp)==_sage_const_1 /_sage_const_2 *(psi+zeta),arctan(xm)==_sage_const_1 /_sage_const_2 *(psi-zeta)).factor()))
 

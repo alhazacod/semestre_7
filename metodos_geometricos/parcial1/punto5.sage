@@ -21,14 +21,10 @@ print(transformation.inverse().display())
 print(g.display(XPM.frame()))
 print(g[XPM.frame(),:])
 
-# Coordenadas conformes
-psi,zeta = var('psi zeta')
-U.<psi,zeta> = M.chart('psi zeta')
-
 ##############################################
 psi,zeta = var('psi zeta')
 PZ.<psi,zeta> = M.chart('psi zeta')
 transformation_pz_pm = PZ.transition_map(XPM, [tan(1/2*(psi+zeta)), tan(1/2*(psi-zeta))])
 transformation_pz_pm.set_inverse(atan(xplus) + atan(xminus), atan(xplus) - atan(xminus))
 print(transformation_pz_pm.inverse().display())
-print(latex( -g[U.frame(),0,0].expr().substitute(arctan(xp)==1/2*(psi+zeta),arctan(xm)==1/2*(psi-zeta)).factor()))
+print(latex( -g[PZ.frame(),0,0].expr().substitute(arctan(xp)==1/2*(psi+zeta),arctan(xm)==1/2*(psi-zeta)).factor()))
