@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 14 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Limites }
+Otra forma de demostrar un limite sin hacerlo lo $ \epsilon $ y $ \delta $ es mostrar que por cualquier camino por el que nos vayamos llegamos al mismo valor.
+
+\subsection{Propiedades de los límites en funciones complejas}
+Sea $ f  $ y $ g  $ funciones complejas definidas en $ S  $ del plano complejo, y $ z_0  $ sea un punto de acumulacion de $ S  $. Si $ \underset{z \rightarrow z_0 }{lim }f(z)  \land \underset{z \rightarrow z_0 }{lim }g(z)   $ existen y las constantes $ c_1,c_2  $ son complejas, entonces: 
+\begin{itemize}
+  \item $ \underset{z \rightarrow z_0 }{lim }\left[c_1 f(z) + c_2 g(z) \right] = c_1 \underset{z \rightarrow z_0 }{lim }f(z) + c_2 \underset{z \rightarrow z_0 }{lim }g(z)  $.
+  \item $ \underset{z  \rightarrow z_0 }{lim}f(x)g(x) = \underset{z \rightarrow z_0 }{lim}f(x) \underset{z  \rightarrow z_0 }{lim}g(z)  $
+  \item $ \underset{z  \rightarrow z_0 }{lim}\frac{f(z) }{g(z) } = \displaystyle\frac{\underset{z  \rightarrow z_0 }{lim}f(z) }{\underset{z  \rightarrow z_0 }{lim}g(x)} \qquad$ si $ \underset{z  \rightarrow z_0 }{lim}g(z) \neq 0  $.
+\end{itemize}
+
+\textbf{Limites iterados }: Ejemplo: Encuentre que $ \underset{z  \rightarrow 0 }{lim}\displaystyle\frac{z }{\left|z \right|} $ no tiene limite.
+\begin{align*}
+  \underset{z  \rightarrow 0 }{lim}\displaystyle\frac{z }{\left|z \right|} &= \underset{\underset{y \rightarrow 0 }{x \rightarrow 0 }}{lim}\frac{x + i y }{\sqrt{x ^2 + y ^2} } \\
+                                                                           &= \underset{\underset{y \rightarrow 0 }{x \rightarrow 0 }}{lim} \frac{x }{\sqrt{x ^2 + y ^2} } + i \underset{\underset{y \rightarrow 0 }{x \rightarrow 0 }}{lim} \frac{y }{\sqrt{x ^2+ y ^2} }\\
+                                                                           &= i\\
+\end{align*}
+\begin{gather*}
+                                                                           \text{Por otro lado: }\\
+                                                                           \underset{z  \rightarrow 0 }{lim}\frac{z }{\left|z \right|} = \underset{\underset{x \rightarrow 0 }{y \rightarrow 0 }}{lim} \frac{x + i y }{\sqrt{x^2+y^2 } } = \underset{\underset{x \rightarrow 0 }{y \rightarrow 0 }}{lim} \frac{x }{\sqrt{x^2+y^2 } } + i \underset{\underset{x \rightarrow 0 }{y \rightarrow 0 }}{lim} \frac{y }{\sqrt{x^2+y^2 } } = 1
+\end{gather*}
+
+Ejemplo: Analizar la funcion $ f(z) = \left(\frac{z }{\bar z }\right)^2 $ cuando $ z \rightarrow 0  $.
+\begin{align*}
+  \left(\frac{x + i y }{x - i y }\right) ^2 &= \frac{(x ^2 - y ^2 + 2 ixy ) ^2}{(x ^2+ y ^2) ^2 + 4 x ^2 y ^2 }\\ 
+    &= \frac{(x ^2- y ^2) ^2 + 4 ixy(x ^2- y ^2) - 4 x ^2y ^2}{(x ^2 - y ^2)^2 + 4 x ^2 y ^2 }\\
+    &= \frac{(x ^2- y ^2)^2 - 4 x ^2y ^2 }{(x ^2 - y ^2)^2 + 4 x ^2 y ^2 } + i \frac{4xy(x ^2 - y ^2 )}{(x ^2 - y ^2)^2 + 4 x^2 y ^2}
+\end{align*}
+
+Desde $x$ el limite nos da 1 y desde $y$ nos da 1 pero esto no es suficiente para demostrar que el limite es 1. Ahora vamos a hacer $ y = mx  $ (porque nos acercamos al origen).
+
+\subsection{Limites que involucran el infinito}
+Para proceder al calculo se debe tener presente que $ z \rightarrow \infty $ en el contexto de los numeros complejos es equivalente a $ \left|z \right| \rightarrow  \infty $ y tambien $ f(z) \rightarrow \infty $ es $ \left|f(z) \right| \rightarrow \infty $. De esta forma: 
+\begin{gather*}
+  \underset{z  \rightarrow z_0 }{lim}f(z) = \infty \leftrightarrow \underset{z  \rightarrow z_0 }{lim}\left|f(z) \right| = \infty \\
+  \underset{z  \rightarrow \infty}{lim}f(z) =L \leftrightarrow \underset{\left|z \right| \rightarrow \infty}{lim}\left|f(z)- L \right| = 0 \\
+  \underset{z  \rightarrow \infty}{lim}f(z) = \infty \leftrightarrow \underset{\left|z \right| \rightarrow \infty}{lim}\left|f(z) \right| = 0 
+\end{gather*}
+
+Una propiedad importante similar al caso real: 
+\begin{gather*}
+  \underset{z  \rightarrow \infty}{lim}f(z) = L \leftrightarrow \underset{z  \rightarrow  0 }{lim}f(\frac{1}{z }) = L 
+\end{gather*}
+Ejemplo 1: 
+\begin{gather*}
+  \underset{z  \rightarrow \infty}{lim}\frac{1}{z } = \underset{z  \rightarrow 0 }{lim}\frac{1}{\frac{1}{z }} = \underset{z  \rightarrow 0 }{lim}z = 0  
+\end{gather*}
+Ejemplo 2: 
+\begin{gather*}
+  \underset{z  \rightarrow \infty}{lim}\frac{az + b }{cz + d } = \underset{z  \rightarrow \infty}{lim}\frac{a + \frac{b }{z }}{c + \frac{d }{z }} = \frac{a }{c } 
+\end{gather*}
+Ejemplo 3: 
+\begin{align*}
+  \underset{z  \rightarrow \infty}{lim}\quad e ^ {-z } &= \underset{z  \rightarrow 0 }{lim}\quad e ^ {- \frac{1}{x + i y }}\\ 
+  &= \underset{z  \rightarrow 0 }{lim}\quad e ^ {- \frac{x + i y }{x ^2+ y ^2}}\\
+  & = \underset{z  \rightarrow 0 }{lim}\quad e ^ {- \frac{x }{x ^2 + y ^2}} e ^ { \frac{i y }{x ^2 + y ^2 }}
+\end{align*}
+Al hacer el limite obtenemo sun valor diferente que al hacerlo por la derecha por lo que el limite no existe.
+
+\end{document}
