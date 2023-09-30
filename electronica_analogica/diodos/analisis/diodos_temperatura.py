@@ -11,8 +11,8 @@ raw_data
 
 #|%%--%%| <JjmSpeBIYl|ztSHaC62GZ>
 
-x = raw_data['T']
-y = raw_data['V_u']
+x = raw_data['temperatura (K)']
+y = raw_data['V umbral(V)']
 
 plt.scatter(x,y)
 plt.xlabel(f'$T (K)$', color = "black")
@@ -34,7 +34,7 @@ ss_res = np.sum(residuals**2)
 ss_tot = np.sum((y - np.mean(y))**2)
 r_squared = 1 - (ss_res / ss_tot)
 
-plt.plot(xx,yy,c="green", label = f"$V_u = ({a:.3f}±{0.003:.3f})*T + ({b:.3f}±{0.005:.3f}), R^2 = {r_squared:.2f}$")
+plt.plot(xx,yy,c="green", label = f"$V_u = ({a:.3f}±{0.003:.3f})*T + ({b:.2f}±{0.02:.3f}), R^2 = {r_squared:.2f}$")
 
 plt.legend()
 

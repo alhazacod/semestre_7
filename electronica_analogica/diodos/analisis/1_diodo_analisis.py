@@ -4,9 +4,19 @@ import matplotlib.pyplot as plt
 #imports para la regresion 
 from scipy.optimize import curve_fit
 #para hallar el punto de interseccion 
-#|%%--%%| <S7D56Q76gG|L4ZV5NsvOM>
+#|%%--%%| <S7D56Q76gG|q366fMaDZF>
 
-raw_data = pd.read_csv('1_diodo.csv')
+def latex_float(f):
+    float_str = "{0:.2g}".format(f)
+    if "e" in float_str:
+        base, exponent = float_str.split("e")
+        return r"{0} \times 10^{{{1}}}".format(base, int(exponent))
+    else:
+        return float_str
+
+#|%%--%%| <q366fMaDZF|L4ZV5NsvOM>
+name = '2_diodos_serie'
+raw_data = pd.read_csv(f'{name}.csv')
 raw_data
 
 #|%%--%%| <L4ZV5NsvOM|pG1ifQWwyd>
@@ -27,20 +37,20 @@ plt.grid()
 
 #Voltaje umbral 
 reg_func = lambda x,a,b: a*x+b
-coef,cov = curve_fit(reg_func, x[19:],y[19:])
+coef,cov = curve_fit(reg_func, x[15:],y[15:])
 a,b = coef
 print(f'coef. lineal: {coef}')
 
-xx = np.linspace(0.685,0.75,50)
+xx = np.linspace(1.2,1.44,50)
 yy = reg_func(xx,a,b)
 
-plt.plot(xx,yy,c="green")
+plt.plot(xx,yy,c="green",label = f'$({a: .2f}\pm 0.02)*V_0 + ({b:.2f}\pm 0.02)$')
 
 reg_func_inv = lambda y,a,b: (y-b)/a
 V_U = reg_func_inv(0,a,b)
 print(f'V_U = {V_U:.2f}')
 
-plt.scatter([V_U],[0],c='magenta', label = f'$V_U = ({V_U:.2f}\pm 0.2) V$')
+plt.scatter([V_U],[0],c='magenta', label = f'$V_U = ({V_U:.2f}\pm 0.05) [V]$')
 
 #Resistencia Dinamica 
 # Es la inversa de la pendiente 
@@ -48,8 +58,9 @@ R_D = 1/a
 print(f'R_D = {R_D:.2f}')
 
 #Resistencia estatica 
-
-
+R = 100 #ohm
+R_e = R_D+R
+print(f'R_e = {R_e:.2f}')
 
 
 #Corriente inversa de saturacion 
@@ -67,7 +78,7 @@ print(f'I_0 = {I_0: .2e} ')
 
 xx = np.linspace(0,1,50)
 yy = reg_func(xx,a,b)
-plt.plot(xx*max(V_D),yy*max(I_D),c="purple",label = f'$I_0 = {I_0: .2e}$')
+plt.plot(xx*max(V_D),yy*max(I_D),c="purple",label = f'$({latex_float(a)}\pm 0.3)*[e^{{({b:.1f}\pm 0.7)}}-1]$')
 
 #Constante de boltzman 
 q = 1.6e-19 
@@ -76,7 +87,21 @@ T = 294
 k_B = q/(eta*b*T)*max(V_D)
 print(f'k_B = {k_B}')
 
-#Voltaje termico 
-
 #Punto Q 
+V_S = 1.9
+V_SR = V_S/R
+plt.scatter([V_S,0],[0,V_SR],label = '$(V_S,V_S/R_S)$')
 
+reg_func = lambda x,a,b: a*x+b
+coef,cov = curve_fit(reg_func, [V_S,0],[0,V_SR])
+a,b = coef
+print(f'coef. exponencial: {coef}')
+
+xx = np.linspace(0,1.9,50)
+yy = reg_func(xx,a,b)
+
+plt.plot(xx,yy)
+
+plt.legend()
+plt.rcParams['axes.facecolor'] = 'white'
+plt.savefig(f'{name}.jpg')
