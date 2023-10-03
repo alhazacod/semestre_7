@@ -1,0 +1,129 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 13}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Oscilador armonico}
+\begin{gather*}
+  - \frac{\hbar }{2m }\frac{d ^2 \psi  }{d x ^2} + \frac{1}{2}m \omega ^2 x ^2 \psi  = E \psi
+\end{gather*}
+Tenemos que sus autovalores están dadas por:  
+\begin{gather*}
+  \psi_0(x),\quad E_0 = \frac{1}{2}\hbar  \omega \qquad \qquad \psi_1(x), \quad E_1 = \frac{3}{2} \hbar \omega\qquad \qquad \psi_m (x), \quad E_m = \left(n + \frac{1}{2}\right) \hbar \omega
+\end{gather*}
+
+Si nosotros tenemos el estado $ \ket{\psi_A } = \frac{\sqrt{3 } }{2} \ket{0 } + \frac{1}{2} \ket{1 } $. Al realizar la medicion luego de preparar el estado vamos a encontrar que podemos obtener la siguientes energias: 
+\begin{gather*}
+   E_0 = \frac{1}{2}\hbar  \omega \qquad \qquad \quad E_1 = \frac{3}{2} \hbar \omega
+\end{gather*}
+Y la probabilidad de encontrar el estado $ E_0  $ o $ E_1  $ están dadas por el cuadrado de la amplitud de cada estado. Probabilidad estado $ \ket{0 } = \frac{3}{4} $, probabilidad estado $ \ket{1 } = \frac{1}{4}$.
+
+Con la evolucion temporal: 
+\begin{gather*}
+  t\neq 0 \qquad \ket{\psi_A (t) } = e ^ {- i \frac{H t }{\hbar }}\ket{\psi_A } = \frac{\sqrt{3 } }{2} e ^ {- i \frac{1}{2}\omega t }\ket{0 } + \frac{1}{2} e ^ {-i \frac{3}{2} \omega t }\ket{1 } 
+\end{gather*}
+
+Si tenemos un estado $ \ket{\psi_B } = \ket{3 } $ en $ t = 0  $ su energia $ E_B = \frac{7 }{2} \hbar \omega $ con probabilidad 1. Al realizar la evolucion temporal: 
+\begin{gather*}
+  t\neq 0 \qquad \ket{\psi_B(t)} = e ^ {- i \frac{7 }{2} \omega t } \ket{3 } 
+\end{gather*}
+Nosotros podemos obtener el valor esperado: 
+\begin{gather*}
+  \bra{\psi_B (t) }O \ket{\psi_B } = e ^ {- i \frac{7 }{2} \omega t }\bra{3 }O \ket{3 }e ^ { i \frac{7}{2} \omega t } = \bra{3 }O \ket{3 }    
+\end{gather*}
+Ya no depende del tiempo.
+
+\hfill 
+
+\hfill
+
+Tenemos el autovalor $ E = \frac{7 }{2} \hbar  \omega $:
+\begin{gather*}
+  H \ket{\psi_{0A }} = \frac{7 }{2} \hbar \omega \ket{\psi _{0 A } }\\
+  \qquad \qquad m = 3 \qquad \qquad \ket{\psi _{0 A } } = \ket{3 } 
+\end{gather*}
+Como será el estado $ \psi_3 (x) = \bra{x }\ket{3 }  $?
+\begin{gather*}
+  \psi_3 (x) = \bra{x }\ket{3 }  = c P_{m = 3}\left(\frac{x }{\bar x}\right) e ^ {- \frac{x ^2}{2 \bar x ^2}}
+\end{gather*}
+$ P_m  $ es un polinomio de Hermit. Demonos cuenta que la funcion debe ser impar por lo tanto el polinomio de Hermit solo va a tener la potencia 1 y 3 ya que todas las potencias deben ser impares.
+
+\textbf{Problema tridimensional: }
+\begin{gather*}
+  H = \frac{\vec p ^2}{2m } + \frac{1}{2} m \omega ^2 \vec r ^2\\
+  \vec p ^2 = p_x ^2 + p _{y } ^2 + p _{z }  ^2\qquad \qquad \vec r ^2 = x ^2 + y ^2 + z ^2
+\end{gather*}
+Para este caso podemos usar la misma solucion de una dimension ya que: 
+\begin{gather*}
+  H = H_x + H_y + H_z \\
+  H \ket{\psi} = E \ket{\psi}\\
+  \ket{\psi} 0 \ket{n_x }\ket{n_y }\ket{n_z } = \ket{n_x,n_y,n_z }\\
+  E = (n_x + \frac{1}{2}) \hbar  \omega + (n_y + \frac{1}{2}) \hbar  \omega + (n_z + \frac{1}{2}) \hbar \omega = \left(n_x + n_y + n_z + \frac{3 }{2}\right) \hbar \omega
+\end{gather*}
+Ejemplo: si tenemos el estado 0,0,0: 
+\begin{align*}
+  \bra{x,y,z }\ket{0,0,0 } &= \bra{x }\ket{0 }\bra{y }\ket{0 }\bra{z }\ket{0 }     \\
+                           &= c_0P_0 \left(\frac{x }{\bar x }\right)e ^ {- \frac{1 }{2} \frac{x ^2 }{\bar x ^2 }} c_0 P_0\left(\frac{y ^2 }{\bar y ^2 }\right) e ^ {- \frac{1}{2} \frac{y ^2 }{\bar y ^2 }} c_0 P_0 \left(\frac{z ^2 }{\bar z ^2 } \right) e ^ {- \frac{1}{2}\frac{z ^2 }{\bar z ^2 }}
+\end{align*}
+Como $ \bar x = \bar y = \bar z = \sqrt{\frac{\hbar }{m \omega}} = d  $: 
+\begin{gather*}
+  = c_0^3 P_0 \left(\frac{x }{d }\right)P_0 \left(\frac{y }{d }\right)P_0 \left(\frac{z }{d }\right) e ^ {- \frac{1}{2} \frac{\vec r ^2}{d ^2}} 
+\end{gather*}
+Si tenemos 0,1,0:
+\begin{gather*}
+  \psi _{0,1,0 } (\vec r ) = c_0 c_1 c_0 P_0 \left(\frac{x }{d }\right)P_1 \left(\frac{y }{d }\right)P_0 \left(\frac{z }{d }\right) e ^ {- \frac{1}{2} \frac{\vec r ^2}{d ^2}}
+\end{gather*}
+
+\hfill 
+
+\hfill 
+
+\hfill 
+
+\subsection{Particula libre}
+
+Si tenemos una particula libre unidimensional: 
+\begin{gather*}
+  \psi = N e ^ {i \frac{px }{\hbar }} = \bra{x}\ket{p }   \qquad [\hbar ] = \text{Energia }\cdot \text{tiempo }
+\end{gather*}
+\begin{gather*}
+  \bra{x }H \ket{p } = - \frac{\hbar }{2m }\frac{d ^2 }{d x ^2} \psi(x) \rightarrow \frac{p ^2}{2m }\psi(x) = \frac{p ^2}{2m } N e ^ {i \frac{px }{\hbar }} \qquad \qquad E =  \frac{p ^2}{2m }  
+\end{gather*}
+Medimos $ E  $: 
+\begin{gather*}
+  p = \pm\sqrt{2m E} \quad \rightarrow \quad \psi _{+p } = N e ^ { + i \frac{\sqrt{2mE } x }{\hbar }}; \quad \psi _{-p } = N e ^ {-i \frac{\sqrt{2mE } x }{\hbar }}
+\end{gather*}
+Tenemos dos estados diferentes para un valor de la energia.
+
+\end{document}
