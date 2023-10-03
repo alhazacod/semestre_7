@@ -1,0 +1,128 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 13}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Vectores en variedades}
+\begin{gather*}
+  X = X ^ {i } \frac{\partial  }{\partial x ^ {i }} \qquad \qquad X(f) = \left. X ^ {i } \frac{\partial  }{\partial x ^ {i }}f \right|
+\end{gather*}
+$ X ^ {i } $ son las componentes de $ X  $, $ \{\frac{\partial  }{\partial x ^ {i }}\}  = \{e_i \} \quad \rightarrow $ Bases de $ T_p M  $.
+
+$ X \quad \rightarrow \quad  $operador en $ T_p M  $. 
+\begin{gather*}
+  (r,\theta ) = (1, \frac{\pi}{4 })\qquad \qquad (x,y) = \left(\frac{\sqrt{2 } }{2}, \frac{\sqrt{2 } }{2 }\right) 
+\end{gather*}
+Nosotros podemos expresar unas coordenadas en terminos de las otras: 
+\begin{gather*}
+  V = V ^ {i } \frac{\partial  }{\partial x ^ {i }} = \bar V ^ {i } \frac{\partial  }{\partial y ^ {i }}  
+   = \hat V ^ {i } \frac{\partial x ^ {k } }{\partial y ^ {i }} \frac{\partial  }{\partial x ^ {k }} \quad \rightarrow \quad V ^ {k } = \hat V ^ {i } \frac{\partial x ^ {k } }{\partial y ^ {i }}
+\end{gather*}
+
+\section{Covectores, vectores duales o 1-formas y espacio cotangente $ T_p^*M  $}
+\textbf{1-forma } $ \omega: T_pM \quad \rightarrow \quad \mathbb{R} $, vamos a definirlo ahora como un producto escalar: 
+\begin{gather*}
+  \bra{\omega}\ket{V }: T_p M \quad \rightarrow \quad \mathbb{R}  
+\end{gather*}
+El diferencial de una función actual linealmente en $ T_p^*  $. El diferencial d euna función $ f  $ es una 1-forma definida en la variedad: $ \bra{df }\ket{V } \equiv V[f] = V ^ {i } \frac{\partial f  }{\partial x ^ {i }}\in \mathbb{R} $.
+
+Vamos a definir el diferencial en coordenadas $ x  $: $ df = \frac{\partial f  }{\partial x ^ {i }}dx ^ {i } = f_i dx ^ {i }$. Vamos a llamar $ f_i  $ las componentes de $ df  $ y a $ \{dx ^ {i }\} $ las bases de $ T_p ^ {* }M  $.
+
+Utilizando las definiciones anteriores obtenermos la siguiente identidad: 
+\begin{gather*}
+  \bra{dx ^ {j }}\ket{\frac{\partial  }{\partial x ^ {i }}} = \frac{\partial x ^ {j } }{\partial x ^ {i }} = \delta _{i } ^ {j }
+\end{gather*}
+ya que $ V ^ {j } \frac{\partial f  }{\partial x ^ {i }} \underset{ = \delta _{j } ^ {i }}{\bra{d x ^ {i }}\ket{\frac{\partial  }{\partial x ^ {i }}}} = V ^ {k } \frac{d  }{d x ^ {k }}f   $.
+
+En resumen las 1-formas son objetos que tienen el indice abajo y que al operarse con los objetos de la variedad obtenemos un escalar.
+
+\textbf{1-forma arbitraria: }
+\begin{gather*}
+  \omega = \omega_i dx ^ {i }
+\end{gather*}
+$ \omega_i  $ son las componentes de $ \omega  $ en la base $ dx ^ {i } $.
+Producto interno: 
+\begin{gather*}
+  \bra{\omega }\ket{V } = \omega_i V ^ {j } \bra{dx ^ {i }}\ket{\frac{\partial  }{\partial x ^ {j }}} = \omega_i V ^ {i }: \quad T_p ^ {* }M \otimes T_p M \quad \rightarrow \quad \mathbb{R}
+\end{gather*}
+\begin{gather*}
+  \bra{\omega}\ket{V } = \bra{\omega_i dx ^ {i }}\ket{V ^ {k } \frac{\partial  }{\partial x ^ {k }}}\\
+  = \omega_i V ^ {k }\bra{dx ^ {i }}\ket{\frac{\partial  }{\partial x ^ {k }}} = \omega_i V ^ {i }\\
+  \bra{\omega}\ket{V } = \omega_i V^i  
+\end{gather*}
+Y tenemos que: 
+\begin{gather*}
+  \bra{\omega_1 + \omega_2 }\ket{V } = \bra{\omega_1 }\ket{V }+ \bra{\omega_0 }\ket{V }\\
+  \bra{\omega }\ket{V_1V_2 } = \bra{\omega}\ket{V_1 } + \bra{\omega}\ket{V_2 }   
+\end{gather*}
+
+\hfill
+
+\hfill 
+
+\hfill 
+
+\begin{gather*}
+  \omega = \omega_i dx ^ {i } = \hat \omega_i dy ^ {i }
+  = \hat \omega_i \frac{\partial y ^ {i } }{\partial x ^ {k }}dx ^ {k } = \hat \omega_j \frac{\partial y ^ {i } }{\partial x ^ {i }} dx ^ {i }\\ 
+  \omega_i = \hat \omega_j \frac{\partial y ^ {j } }{\partial x ^ {i }} \quad \rightarrow \quad \hat \omega_j = \omega_i \frac{\partial x ^ {i } }{\partial y ^ {j }}
+\end{gather*}
+
+\section{Tensores en los productos de los espacios tangente sy cotangentes }
+Tensor tipo $ (q,r ) $
+\begin{gather*}
+  T = T ^ {\mu_1, \mu_2...\mu_q} _{v_1,v_2,...v_e } \frac{\partial  }{\partial x ^ {\mu_1 }} \otimes ... \otimes \frac{\partial  }{\partial x ^ {\mu_q }}\otimes dx ^ {\nu_1 } \otimes ... \otimes dx ^ {\nu _r }
+\end{gather*}
+Funcion multilineal: $ \otimes ^ {q } T_p M \otimes ^ {r }T _p ^ {* }M \quad \rightarrow \quad \mathbb{R} $.
+Accion de un tensor sobre los vectores $ V_a  $ y las formas $ \omega_b  $:
+\begin{gather*}
+  T(\omega_2, \cdots, \omega_r; V_1, \cdots, V_q) = T ^ {\mu_1,...\mu_r} _{\nu_1,...\nu_q } \omega_{1}_{\mu_1} \cdots \omega _{r}_{\mu_r}  V_1 ^ {\nu_1,...,\nu_q }_{q } \cdots V_p ^ {\nu_r}
+\end{gather*}
+\subsubsection{Comportamiento de tensores ante mapeos }
+Sea $ f  $ un mapa entre $ M  $ y $ N  $. Vamos a comar los espacios tangentes y un punto en este espacio tangente en cada variedad y tenemos una funcion $ f  $ que va de uno a otro. $ T_p M \rightarrow T _{f(p)} N  \underset{g }{\rightarrow  }\mathbb{R}$. 
+\begin{gather*}
+  f: M \rightarrow N \rightarrow f_* : T_p M \rightarrow T _{f (p) } N  
+\end{gather*}
+$ f_*  $ es el mapeo diferencial.
+
+\hfill 
+
+\hfill 
+
+$ V \in T_p M \rightarrow f_* V \in T _{f(p)} N  $.
+\begin{gather*}
+  (f_* V )[g] \equiv V[g \circ f]\qquad \qquad g\circ f \in \mathcal F (M) 
+\end{gather*}
+
+\end{document}
