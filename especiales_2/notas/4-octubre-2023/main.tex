@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 15 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Continuidad de una funcion compleja en variable compleja }
+\begin{itemize}
+  \item $ z \in S , \qquad \left|z - z_0 \right|<\delta \quad \rightarrow \quad \left|f(z) - f(z_0 )\right|< \epsilon  $, "limite". 
+  \item Continuidad, $ \underset{z \rightarrow z_0 }{lim }f(z) = f(z_0)  $
+\end{itemize}
+\textbf{Propiedades } Sean $ f  $ y $ g   $ continuas en $ z_0  $
+\begin{itemize}
+  \item $ Re\{f \} $ y $ Im\{f \} $ son continuas en $ z_0  $
+  \item $ c_1 f + c_2 g  $ es continua. 
+  \item $ \frac{f}{g } $ es cotinua 
+  \item Si $ h  $ está definida en un conjunto que contiene a $ f(z_0 ) $ y es continua en $ f(z_0 ) $ entonces la composición $ h \circ  g $ es continua en $ z_0  $
+
+    Sea $ \omega \in f(S)  $: 
+    \begin{gather*}
+      \left|\omega - f (z_0 )\right|< \delta \quad \rightarrow \quad \left|h(\omega) - h (f(z_0 ))\right|<\epsilon \qquad \text{"hipotesis "} 
+    \end{gather*}
+    Como $ f(z)  $ es continua en $ z - z_0  $, entonces 
+    \begin{gather*}
+      \left|z-z_0 \right|< \nu \quad \rightarrow \quad \left|h(f(z)) - h(f(z_0 ))\right|<\epsilon  
+    \end{gather*}
+\end{itemize}
+
+\caja{red}{Ejercicio }{
+  \begin{itemize}
+    \item Demostrar que la funcion $ arg\{z \} $ no es continua en el origen. 
+    \item analizar la continuidad de $ f(z)  = \frac{z ^3 - 1 }{z + \frac{1}{2} - i \frac{\sqrt{3 } }{2}}, \quad f(z) = \hat z  $.
+    \item Analizar $ f(z) = \log{z } $ (valor principal). ¿Cual es el dominio d ela continuidad?
+  \end{itemize}
+}
+
+\section{Funciones analíticas }
+\begin{gather*}
+  f'(z) = \underset{\Delta z \rightarrow 0 }{lim}\frac{f(z+\Delta z )- f(z) }{\Delta z } \\
+  \text{ó }\\
+  f'(z) = \underset{z \rightarrow z_0 }{lim }\frac{f(z) - f(z_0 )}{z - z_0 }
+\end{gather*}
+\textbf{Ejemplo: }
+\begin{gather*}
+  f(z) = 4 + 5 i \\
+  f'(z) = \underset{\Delta z \rightarrow 0 }{lim }\frac{(4 + 5 i )- (4 + 5i )}{\Delta z } = 0 
+\end{gather*}
+\begin{gather*}
+  f(z) = 8 z ^2\\
+  f'(z) = \underset{\Delta \rightarrow  0 }{lim }\frac{8 (z + \Delta z ) ^2 - 8 z ^2 }{\Delta z } = \underset{\Delta \rightarrow 0 }{lim } \frac{8 z ^2 + 16 z \Delta z + 8 \Delta z ^2 - 8 z ^2 }{\Delta} \\
+  = \frac{8 \Delta z }{\Delta z } \underset{\Delta z }{0 }(2z + \Delta z ) = 16 z 
+\end{gather*}
+
+\subsection{Propiedades }
+\begin{itemize}
+  \item $ (c_1 f + c_2 g )' = c_1 f ' + c_2 g'  $.
+  \item $ (f g )' (z) = f g' + f' g  $.
+  \item $ \left(\frac{f }{g }\right)' = \frac{g f ' - f g' }{g ^2 }, \quad g(z) \neq 0 $.
+  \item $ f(z) = a z ^ {n }, \quad f'(z) = a n z ^ {n - 1 } $.
+\end{itemize}
+
+\end{document}
