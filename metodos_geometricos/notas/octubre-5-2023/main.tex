@@ -1,0 +1,130 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 14}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Tensores en variedades}
+\begin{gather*}
+  T = t ^ {\mu_1,...,\mu_q } _{\nu_1,... \nu_r} \frac{\partial  }{\partial x ^ {\mu_1 }} \otimes ... \otimes \frac{\partial  }{\partial x ^ {\mu_q }} \otimes dx ^ {\nu _1 } \otimes ...\otimes dx ^ {\nu_r }
+\end{gather*}
+Tensor tipo $ (q,r ) $ 
+\begin{gather*}
+  T(\omega_1,...,\omega_q; V_1,..., V_r )
+  (2,3) \rightarrow T(\omega_1 , \omega_2; V_1,V_2,V_3)\\
+  (0,1) \rightarrow \omega (V) = \bra{\omega }\ket{V } = \omega_\mu V ^ {\mu} 
+\end{gather*}
+
+\subsection{Ejemplos de tensores en fisica}
+
+\textbf{Vector velocidad} $ (1,0 ) $
+\begin{gather*}
+  v = v ^ {i } e _i, \qquad v ^ {i } = \frac{d x ^ {i } }{d t }
+\end{gather*}
+
+\textbf{Metrica } $ (0,2 ) $
+\begin{gather*}
+  ds ^2 = g _{ij } dx ^ {i } dx ^ {j } 
+\end{gather*}
+
+\subsection{Comportamiento de tensores ante mapeos }
+Sea $ f  $ un mapa entre $ M  $ y $ N  $.
+\begin{gather*}
+  (f_* V) = W \in T _{f(p)} N\\
+  W ^ {\alpha } = V ^ {\beta } \frac{\partial y ^ {\alpha } }{\partial x ^ {\beta}} \rightarrow \underset{(f_* V) \text{ "Restriccion"}}{\text{Mapeo de } V \text{ sobre }f}\\
+\end{gather*}
+
+\textbf{Ejemplo 1: } Vamos a mapear $ f: M \rightarrow N  $ el vector $ V = V^1  \frac{\partial  }{\partial x' } + V ^2 \frac{\partial  }{\partial x ^2} $ con $ V^1,V^2  $ constantes. Vamos a usar las $ x  $ para $ M  $ y $ y  $ para $  N  $.
+\begin{gather*}
+  f: ( x ^ {1 } , x ^ {2 }) \quad \rightarrow \quad (y ^ {1 }, y ^ {2 }, y ^ {3 }) = (x ^ {1 }, x ^ { 2 }, h(x ^ {1 }, x ^ {2 }))\\
+  (f_* V ) = W ^ {\alpha } \frac{\partial  }{\partial y ^ {\alpha }} = V ^ {i } \frac{\partial y ^ {\alpha} }{\partial x ^ {i }}\frac{\partial  }{\partial y ^ {\alpha }}\\
+  \left(V ^ {1 } \frac{\partial y ^ {\alpha } }{\partial x ^ {1 }} + v ^ {2 } \frac{\partial y ^ {\alpha } }{\partial x ^ {2 }}\right) \frac{\partial  }{\partial y ^ { \alpha }} = \left(V ^ {1 } \frac{\partial y ^ {1 }}{\partial x ^ {1 } }\frac{\partial  }{\partial y ^ {1 }} + V ^ { 1 } \frac{\partial y ^ {2 } }{\partial  x ^ {1 }} \frac{\partial  }{\partial y ^2} + V ^ {1 } \frac{\partial y ^ {3 } }{\partial x ^ {1 } }\frac{\partial  }{\partial y ^ {3 }}\right) \\
+  + \left(V ^ {2 } \frac{\partial y ^ {1 }}{\partial x ^ {2 } }\frac{\partial  }{\partial y ^ {2 }} + V ^ { 1 } \frac{\partial y ^ {2 } }{\partial  x ^ {2 }} \frac{\partial  }{\partial y ^2} + V ^ {1 } \frac{\partial y ^ {3 } }{\partial x ^ {2 } }\frac{\partial  }{\partial y ^ {3 }}\right) = V ^ {1 } ( \frac{\partial  }{\partial y ^ {1 }} + \frac{\partial h  }{\partial x^1}\frac{\partial  }{\partial y ^2}) + V ^ {2 } ( \frac{\partial  }{\partial y ^ {2 }} + \frac{\partial h  }{\partial x^2}\frac{\partial  }{\partial y ^3}) 
+\end{gather*}
+Comportamiento de T ante mapeos 
+\begin{gather*}
+  W = V^1 \frac{\partial  }{\partial y ^ {1 }} + V^2 \frac{\partial  }{\partial y ^2 } + \left(V ^ {1 } \frac{\partial h  }{\partial x ^ {1 }} + V ^2 \frac{\partial h  }{\partial x cub}\right) \frac{\partial  }{\partial y ^ {3 }}\\
+  h = (1 - (x ^1)^2 - (x ^2)^2)^ {\frac{1}{2}}\\
+  \frac{\partial h  }{\partial x ^1 } = \frac{1}{2} \frac{1}{h}(-2x^1) = - \frac{x^1 }{h } = - \frac{y^1 }{y^3 } \qquad \qquad \frac{\partial h  }{\partial x ^2} = - \frac{y ^2}{y ^ {3 }}\\
+  W = V^1 \frac{\partial  }{\partial y^1 } + V^2 \frac{\partial  }{\partial y ^2} - \frac{1}{y ^3 } \left(V^1 y^1 + V^2 y^2 \right)\frac{\partial  }{\partial y ^3 }\\
+  W = \frac{\partial  }{\partial y ^1 } + \frac{\partial  }{\partial y ^2 } - \frac{1}{y^3 } (y^1 + y^2) \frac{\partial  }{\partial x^3 }\\
+  x _{(1)}  = (0,\frac{1}{2}) \quad \rightarrow \quad W _{(1) } = \frac{\partial  }{\partial y ^ {1 }} + \frac{\partial  }{\partial y ^ {2 }} - \frac{1}{\sqrt{3/4 } }\left(\frac{1}{2}\right)\frac{\partial  }{\partial y ^ {3 }}\\
+  x _{(2) } = (\frac{1}{2}, 0 ) \quad \rightarrow \quad W _{(2) } = \frac{\partial  }{\partial y ^ {1 }} + \frac{\partial  }{\partial y ^ {2 }} - \frac{1}{\sqrt{3/4 } }\left(\frac{1}{2}\right)\frac{\partial  }{\partial y ^3 }
+\end{gather*}
+Podemos ver que $ W _{(1) } = W _{(2) }  $.
+
+Ahora en el sentido contrario $ f: M \rightarrow n  \qquad f ^* : T^* _{f(P)} N \quad \rightarrow \quad T^*_p M   $. A esto se le llama \textbf{pullback}.
+\begin{gather*}
+  \underset{\text{Definido en }M }{\bra{f^* \omega }\ket{V } } = \underset{\text{Definido en }N }{\bra{\omega}\ket{f_* V } } 
+\end{gather*}
+Componentes: 
+\begin{gather*}
+  \omega = \omega _{\alpha }  dy ^ {\alpha } \in  T^* _{f(P)} N\\
+  (f^* \omega ) = \bar \omega _k dx ^ {k } \qquad \qquad \bar \omega =? \\
+  \text{Segun la definicion: }\\
+  \bra{\bar \omega_k dx ^ {k} }\ket{V ^ {i } \frac{\partial  }{\partial x ^ {i }}} = \bra{\omega_\alpha dy ^ {\alpha}}\ket{V ^ {\beta} \frac{\partial y ^ {\sigma } }{\partial x ^ {\beta}} \frac{\partial  }{\partial y ^ {\sigma}}}  \\
+  \bar \omega _k V^i \delta _i^k = \omega _\alpha V ^\beta \frac{\partial y ^ {\sigma} }{\partial x ^ {\beta}} \delta_\sigma^\alpha = \bar \omega_k V^k = \omega_\alpha V^\beta \frac{\partial y ^\alpha }{\partial x ^\beta }\\
+  \text{De la ec. anterior podemos deducir que: }\\
+  \bar \omega_k = \omega_\alpha \frac{\partial y ^ {\alpha } }{\partial x ^ {k }} \quad \rightarrow \quad \xi_k = \omega_\alpha \frac{\partial y ^ {\alpha } }{\partial x ^ {k }}
+\end{gather*}
+
+\textbf{Ejemplo } $ g _{ij } \rightarrow \mathbb{R}^3 \qquad g _{ij}  = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1  & 0 \\
+    0 & 0 & 1
+\end{bmatrix}  $. 
+\begin{gather*}
+  f: (\theta, \phi ) \quad \rightarrow \quad (\sin{\theta} \cos{\phi }, \sin{\theta}\sin{\phi }, \cos{\theta}) 
+\end{gather*}
+estamos en la variedad de la esfera y vamos a ir hacia $ \mathbb{R}^2  $. 
+\begin{gather*}
+  \bar g _{V_1,V_2 } (\theta, \phi ) = g _{ij } \frac{\partial x ^i  }{\partial y^\mu }\frac{\partial x^j  }{\partial y^\nu }  \qquad \qquad (y^1,y^2 ) = (\theta, \phi )\\
+  \bar g _{11} = g _{ij } \frac{\partial x^i  }{\partial \theta }\frac{\partial x^j  }{\partial \theta } = \left(\frac{\partial x^1  }{\partial \theta}\right)^2 + \left(\frac{\partial x^2  }{\partial \theta}\right)^2 + \left(\frac{\partial x^3  }{\partial \theta}\right)^2 = 1\\
+  \bar g _{12 }  = g _{ij } \frac{\partial x^i  }{\partial \theta } \frac{\partial x^j  }{\partial \phi } = \frac{\partial x^1  }{\partial \theta }\frac{\partial x^1  }{\partial \phi } + \frac{\partial x^2  }{\partial \theta }\frac{\partial x^2  }{\partial \phi } + \frac{\partial x^3  }{\partial \theta }\frac{\partial x^3  }{\partial \phi } = 0 \\
+  g _{22 }  = \left(\frac{\partial x^1  }{\partial \phi}\right)^2 + \left(\frac{\partial x^2  }{\partial \phi}\right)^2 = \sin^2{\theta }
+\end{gather*}
+
+\subsection{Tensores $ (0,k)  $ totalmente antisimetricos }
+\begin{gather*}
+  T _{\sigma } (v_1,...v_k) = sign(\sigma) T _{v_1,...,v_k } \qquad \underset{\sigma(v_1,...,v_k ) \text{ Permutaciones de }v_1,...v_k}{ sing(\sigma) =
+     \begin{cases}
+       +1 &\quad \sigma \text{ es par }\\
+       -1  &\quad \sigma \text{ es impar}
+   \end{cases}}\\
+  T = T _{v_1,...,v_k  }  dx^1 \otimes ... \otimes dx^k\\
+  T(V^1,...V^k)\\
+  T _{v_1v_2} \rightarrow T _{v2v1}  
+\end{gather*}
+
+
+\end{document}
