@@ -5,24 +5,13 @@ from sage.all_cmdline import *   # import sage library
 
 _sage_const_0 = Integer(0); _sage_const_1 = Integer(1); _sage_const_2 = Integer(2)
 from sage.all import *
-from sage.symbolic.integration.integral import definite_integral
-from sage.calculus.calculus import symbolic_sum
-from sympy import fourier_transform
 
-x, p, w = var('x p w', domain = 'real')
+x, x_0, w = var('x x_0 w', domain = 'real')
 assume(w>_sage_const_0 )
-assume(p>_sage_const_0 )
-N = _sage_const_1   
-hbar = var('hbar')
+hbar,xbar = var('hbar xbar', domain = 'real')
 assume(hbar>_sage_const_0 )
-#psi_p_x(x) = N * exp(I * (p * x / hbar))
-__tmp__=var("x"); psi_p_x = symbolic_expression(N*(cos(p*x/hbar) + I*sin(p*x/hbar))).function(x)
 
-trans1 = integral(N*(cos(p*x/hbar)*exp(-_sage_const_2 *pi*I*x*w)), (x,-oo,oo))
-print(f'transf1 {trans1}')
-trans2 = integral(N*(I*sin(p*x/hbar)*exp(-_sage_const_2 *pi*I*x*w)), (x,-oo,oo))
-print(f'transf2 {trans2}')
+psi_x = (_sage_const_1 /(x_0*sqrt(pi)))**(_sage_const_1 /_sage_const_2 )*exp(-_sage_const_1 /_sage_const_2 *(x/xbar)**_sage_const_2 )
 
-__tmp__=var("w"); transformada = symbolic_expression(integral((psi_p_x(x)*exp(-_sage_const_2 *pi*I*x*w)),(x,-oo,oo))).function(w)
-print(transformada)
+transformada = integral(psi_x*exp(-_sage_const_2 *pi*I*x*w)),(x,-oo,oo))
 
