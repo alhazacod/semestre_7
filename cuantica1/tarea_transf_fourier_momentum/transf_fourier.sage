@@ -2,9 +2,10 @@ from sage.all import *
 
 x, x_0, w = var('x x_0 w', domain = 'real')
 assume(w>0)
-hbar,xbar = var('hbar xbar', domain = 'real')
+hbar, N = var('hbar N', domain = 'real')
 assume(hbar>0)
 
-psi_x = (1/(x_0*sqrt(pi)))**(1/2)*exp(-1/2*(x/xbar)**2)
+psi_x = N*exp(-x^2/2)
 
-transformada = integral(psi_x*exp(-2*pi*I*x*w)),(x,-oo,oo))
+transformada = 1/sqrt(2*pi)*integral(psi_x*exp(-I*w*x),(x,-oo,oo))
+print(latex(transformada))
