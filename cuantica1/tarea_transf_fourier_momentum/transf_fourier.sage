@@ -1,21 +1,10 @@
 from sage.all import *
-from sage.symbolic.integration.integral import definite_integral
-from sage.calculus.calculus import symbolic_sum
-from sympy import fourier_transform
 
-x, p, w = var('x p w', domain = 'real')
+x, x_0, w = var('x x_0 w', domain = 'real')
 assume(w>0)
-assume(p>0)
-N = 1  
-hbar = var('hbar')
+hbar,xbar = var('hbar xbar', domain = 'real')
 assume(hbar>0)
-#psi_p_x(x) = N * exp(I * (p * x / hbar))
-psi_p_x(x) = N*(cos(p*x/hbar) + I*sin(p*x/hbar))
 
-trans1 = integral(N*(cos(p*x/hbar)*exp(-2*pi*I*x*w)), (x,-oo,oo))
-print(f'transf1 {trans1}')
-trans2 = integral(N*(I*sin(p*x/hbar)*exp(-2*pi*I*x*w)), (x,-oo,oo))
-print(f'transf2 {trans2}')
+psi_x = (1/(x_0*sqrt(pi)))**(1/2)*exp(-1/2*(x/xbar)**2)
 
-transformada(w) = integral((psi_p_x(x)*exp(-2*pi*I*x*w)),(x,-oo,oo))
-print(transformada)
+transformada = integral(psi_x*exp(-2*pi*I*x*w)),(x,-oo,oo))
