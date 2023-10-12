@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Taller \#1}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+Se introducen dos estados $ \ket{1 }, \quad \ket{2 } $, ortonormales: 
+\begin{gather}
+  \bra{1}\ket{1} = \bra{2}\ket{2} = 1 ,\qquad \qquad \bra{1}\ket{2 } = 0 
+\end{gather}
+Y el estado: 
+\begin{gather}
+  \ket{\psi } = \frac{1}{\sqrt{3 } }\ket{1 } + \frac{\sqrt{2 } }{\sqrt{3 } }\ket{2 }
+\end{gather}
+Considerar ahora el estado 
+\begin{gather}
+  \ket{\phi } = a \ket{1 } + b \ket{2 }
+\end{gather}
+
+Con $ a  $ real y positivo y $ b  $ real. 
+
+Determinar $ a  $ y $ b  $ de manera que $ \ket{\phi } $ sea ortogonal a $ \ket{\psi } $, es decir 
+\begin{gather}
+  \bra{\psi }\ket{\phi  } = 0  
+\end{gather}
+y tmabien normalizado a 1, es decir 
+\begin{gather}
+  \bra{\phi }\ket{\phi } = 1  
+\end{gather}
+
+
+
+
+\end{document}
