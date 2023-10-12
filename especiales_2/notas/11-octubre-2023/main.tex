@@ -1,0 +1,89 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 16}
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Ec. de Cauchy-Riemann }
+\caja{red}{Cauchy-Riemann }{
+  \begin{gather*}
+    \frac{\partial u  }{\partial x } = \frac{\partial v  }{\partial y }\qquad \qquad \frac{\partial u  }{\partial y } = - \frac{\partial v  }{\partial x }\\
+    \text{En polares: }\\
+    u_r = \frac{1}{r } v _{\theta } \qquad \qquad v_r = - \frac{1}{r} u_\theta 
+  \end{gather*}
+}
+
+\textbf{Ejercicio: }$ f(z) = \frac{iz^2 + 3 }{z^3 + i }, \quad z = r e ^ {i \theta } $.
+\begin{align*}
+  f(r e ^ {i\theta }) &= \frac{i r ^2 e ^ { 2 i \theta } + 3 }{r^3 e ^ {3 i \theta } + i }  = \frac{i r ^2(\cos{2\theta } + i \sin{2 \theta }) + 3 }{r^3 (\cos{3\theta } + \sin{3\theta }) + i }\\
+  &= \frac{[3 - r ^2 \sin{2 \theta } + i r ^2 \cos{2\theta }](r^3 \cos{3 \theta } - i (1 + r^3 \sin{3\theta }))}{(r^3 i\cos{3\theta })^2 + (1 + r^3 \sin{3\theta })^2   }\\
+  &= \frac{(3 - r ^2 \sin{2 \theta })r^5 \cos{3 \theta } - i 1 + r^3 \sin{3\theta }(3 - r^2 \sin{2\theta }) + i r^2 \cos{2\theta }r^3 \cos{3\theta } + (1 + r^3 \sin{3\theta })r ^2 \cos{2\theta }}{(r^3 \cos{2\theta })^2 + (1 + r^3 \sin{3\theta })^2   }
+\end{align*}
+
+\textbf{Derivada en polares: }tenemos que $ f'(z) = u_x + i v_x  $
+\begin{gather*}
+  r ^2 = x ^2 + y ^2 \qquad \qquad \theta = \tan^{-1} \frac{y }{x }\\
+  f'(z) = \left[\frac{\partial u  }{\partial r } \cdot \frac{\partial r  }{\partial x } + \frac{\partial u  }{\partial \theta } \cdot \frac{\partial \theta  }{\partial x }\right] + i \left[\frac{\partial v  }{\partial r }\cdot \frac{\partial r  }{\partial x } + \frac{\partial v  }{\partial \theta }\cdot \frac{\partial \theta  }{\partial x }\right]\\
+  = \left[u_r \cos{\theta - u _\theta \frac{\sin{\theta }}{r }}\right] + i \left[v_r \cos{\theta} - v_\theta \frac{\sin{\theta}}{r }\right]
+\end{gather*}
+\caja{red}{derivada en polares }{
+  \begin{gather*}
+    f' = \left[u_r \cos{\theta - u _\theta \frac{\sin{\theta }}{r }}\right] + i \left[v_r \cos{\theta} - v_\theta \frac{\sin{\theta}}{r }\right]
+  \end{gather*}
+}
+
+\caja{green}{Definicion }{
+  \begin{gather*}
+    \epsilon(x) = -f'(x)  + \frac{f(x) - f(x_0)}{x-x_0 } 
+  \end{gather*}
+  Esta será consecuente con que $ \epsilon(x) \rightarrow 0  $cuando $ x_0 \rightarrow x  $.
+  \begin{gather*}
+    f(x) = f(x_0 ) + \epsilon(x)(x-x_0) + f' (x) (x - x_0)\\
+    f(x) = f(x_0 ) + \iota_1(x) \left|x-x_0 \right| + f'(x) (x- x_0 )\\
+    \epsilon_1(x) = \frac{e(x) (x- x_0 )}{\left|x - x_0 \right|}
+  \end{gather*}
+}
+
+\section{Condiciones de suficiencia de las ecuaciones de Cauchy-Riemann}
+\caja{green}{Teorema }{
+  Sea $  u  $ y $ v  $ funciones reales definidas en la vecindad del punto $ (x_0,y_0 ) \in \mathbb{R}^2  $ 
+
+  Si: 
+  \begin{itemize}
+    \item $ u_x(x_0,y_0) $ y $ u_y(x_0,y_0) $ existen 
+    \item $ u_x(x_0,y_0) $ y $ u_x(x_0,y_0) $ son continuas en $ (x_0,y_0 ) $.
+  \end{itemize}
+  Entonces $ u  $ es diferenciables en $ (x_0,y_0 ) $.
+}
+
+\end{document}
