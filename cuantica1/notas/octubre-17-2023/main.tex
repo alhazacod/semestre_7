@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 17 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Momento angular}
+En clasica tenemos que:
+\begin{gather*}
+  \vec L = \vec r \cross \vec p \qquad \qquad L ^ {\alpha} = \underset{\text{Levi-Civita}}{\epsilon ^ {\alpha\beta\gamma}} r ^ {\beta} p ^ {\gamma}\\
+  L ^ {x } = y p ^ {z } - z p ^ {y } \qquad \qquad L ^ {y } = z p ^ {x } - x p ^ {z } \qquad \qquad L ^ {z } = x p ^ {y } - y p ^ {x }
+\end{gather*}
+En cuantica tenemos que $ \vec r = (x,y,z ) $ y $ \vec p  = (p ^ {x }, p ^ {y }, p ^ {z }) $ son operadores pero en la ecuacion anterior nos podemos dar cuenta que hay un problema con la conmutacion ya que el operador de posicion no conmuta con el operador de momento. Podemos ver que $ [p ^ {\alpha}, r ^ {\beta}] = i \hbar \delta^{
+\alpha\beta$
+
+\end{document}

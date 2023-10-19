@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 18 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+\textbf{Recordemos que: }Se puede parametrizar un segmento de linea recta, con: 
+\begin{gather*}
+  \gamma(t) = (1-t)z_1 + tz_2, \quad t \in [0,1] 
+\end{gather*}
+Con $ z_1  $ y $ z_2  $ extremos del segmento. 
+
+\textbf{Ejemplo } Parametricemos el segmento de línea recta entra $ z_1  = 1 + 2 i  $ y $ z_2 = 3 - i  $
+\begin{gather*}
+  \gamma (t) = (1-t) (1 + 2 i ) + t(2-i ) \qquad t = 0, t_1 \\
+  x(t) + i y(t) = 1 + 2 i - t-2it+3t-it\\
+  x(T) + i y(t) = (1-t+3t) + i (2 -2t - t) = (1 + 2t) + i (2-3t)\\
+  \text{Entonces: }\\
+  x = 1+ 2t \qquad t = \frac{x -1 }{ 2 } \\
+  y = 2 - 3t \qquad t = \frac{2 - y }{3 }
+\end{gather*}
+
+\hfill 
+
+\hfill 
+
+Comprobemos la validez del teorema del valor medio diferencial. Este nos dice que: Si $ f  $ es una funcion real, continua en $ [a,b] $ y diferenciable en $ (a,b) $ es posible siempre escribir: 
+\begin{gather*}
+  f(b) - f(a) = f'(c)(b-a) 
+\end{gather*}
+
+¿Será esta valido en el cálculo coplejo? 
+
+Consideremos la función $ f\left(x\right)=e ^ {i x } $ con $ x \in [0,2\pi ] $, su derivada $ f'(x) = i e ^ {i x } $ en $ x \in (0,2\pi ) $
+\begin{gather*}
+  f(2\pi ) - f \left(0 \right) = 1 -1 = 0 \\
+  \left|f'(x) \right| = \left|i e ^ {ix }\right| = 1
+\end{gather*}
+\textbf{NO SE CUMPLE EL TEOREMA DEL VALOR MEDIO DIFERENCIAL}
+
+\section{Trayectos o contornos }
+La idea de curva que implica el concepto de continuidad. Ahora requeriremos la idea de analiticidad (diferenciabilidad). Un mapa continuo $ f  $ que va $ [a,b] \rightarrow \mathbb{C} $ se reconocerá como "continuamente diferenciable" si es diferenciable en $ [a,b] $ y la derivada $ f'  $ es $ a  $ y $ b  $ esta definida por los límites laterales: 
+\begin{gather*}
+  f'(a) = \underset{t \rightarrow a ^+ }{lim } \frac{f(t) - f(a) }{t -a } \qquad \text{y } \qquad f'(b) = \underset{t \rightarrow b^- }{lim}\frac{f(t) - f(b) }{t-b } 
+\end{gather*}
+y $ f' $ es continua en $ [a,b] $.
+
+\caja{green}{Definicion 1 }{
+  Una función de evaluacion compleja, definida en el intervalo $ [a,b] $, se llamará \textit{diferenciable continuamente a tramos} si existen puntos denotados como $ a_1<a_2<a_3...<a _{n-1 }  $ en $ (a,b) $ tales que $ f'  $ es continua diferenciable en cada intervalo $ [a_j, a _{j+1 } ] $ para $ j = 0,1,2,...,m+1  $, donde $ a_0 =a  $, $ a_m = b  $. 
+
+  \hfill
+
+  Si se cumple que: 
+  \begin{enumerate}
+    \item $ f'(t) $ existe para todo $t$ en $ a_j, a _{j+1 }  $ y en los puntos $ a_j  $ y $ a _{j+1 }  $ como un limite lineal.
+    \item $ f'(t) $ es continua en cada intervalor $ [a _{j -1 } , a _j ] $ para $ j = 1,2, ..., m  $
+  \end{enumerate}
+  Notese que si $ f'  $ esta definida en $ [a,b ] $, eventualmente puede tener saltos discotinuos en algún $ a_j  $.
+}
+
+\caja{green}{Definicion 2 }{
+  Un trayecto o contorno en una curva $ \gamma $ definida en un intervalo cerrado $ [a,b ] $, continuamente diferenciable o continuamente diferenciable a tramos, tal que $ \gamma(a) = \gamma(b)  $.
+}
+
+\caja{green}{Definicion 3 }{
+  Dados los puntos $ a_0 < a_1 < a_2 < ... < a_m  $ y los trayectos $ \gamma_j  $ en $ [a _{j - 1 } , a_j ] $ con $ j = 1, ..., m  $ tales que: 
+  \begin{gather*}
+    \gamma_j (a_j )= \gamma _{j + 1 } (a_j ) \qquad \text{Para todo }j = 1, ..., m-1 
+  \end{gather*}
+  El trayecto toal se forma con la combinacion: 
+  \begin{gather*}
+    \Gamma = [\gamma_1, \gamma_2, \gamma_3,...\gamma_m ] \qquad \text{Que está definido en }[a_0,a_m ]\\
+    \Gamma (t) = \gamma_j (t) \qquad \text{Para } t \in [a _{j-1 } , a_j ], \quad j = 1, ..., m
+  \end{gather*}
+}
+
+\hfill 
+
+\hfill
+
+\textbf{Ejemplo: } Considere el trayecto: $ \gamma = [\gamma_1,\gamma_2,\gamma_3 ] $
+\begin{gather*}
+  \gamma(t) = \begin{cases}
+        t & \text{si } -2\leq t \leq -1 \\
+        e ^ {i \frac{\pi }{2}(1-t )} & \text{si } -1\leq t \leq 1 \\
+        t & \text{si } 1\leq t \leq 2 \\
+    \end{cases} 
+\end{gather*}
+
+
+\hfill 
+
+\hfill
+
+\textbf{Ejemplo: }Tenemos un triangulo formado por los vectices $ (0), (-1+i ), (1+i ) $. 
+
+Primera parametrizacion: 
+
+Para construiir el contorno $ \Gamma  $ parametrizado $ 0\leq t\leq 1  $, debemos reescalar el problema en forma global
+\begin{gather*}
+  \gamma_1(t') = (1+i) \alpha t', \qquad 0 \leq t'\leq \frac{1}{\alpha}\\
+  \gamma_2 = (t'') = (1 + i ) - 2 \alpha[t'' - \frac{1}{\alpha}],\qquad \frac{1}{\alpha} \leq t'' \leq \frac{2 }{\alpha}\\
+  \gamma_3(t''') = \left(1 - \alpha \left[t''' - \frac{2 }{\alpha}\right]\right)(-1+i), \qquad \frac{2 }{\alpha} \leq t''' \leq \frac{3 }{\alpha}\\
+  \frac{3}{\alpha} = 1 , \qquad \alpha = 3 
+\end{gather*}
+Entonces nos queda que: 
+\begin{gather*}
+  \gamma_1(t) = 2 (1 + i )t \\
+  \gamma_2(t) = (1+i ) - 2 (3) \left[t - \frac{1}{3}\right]\\
+  \gamma_3(t) = \left(1 - 3 \left[t - \frac{2 }{3 }\right]\right)(t + i ) \\
+  \frac{2 }{3 } \leq t \leq 1 \\
+  \Gamma = \{\gamma_1(t), \gamma_2(t), \gamma_3(t) \}, t\in [0,1]
+\end{gather*}
+
+\end{document}
