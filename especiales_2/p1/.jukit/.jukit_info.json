@@ -1,0 +1,1 @@
+{"cmd": "z = var('z', domain='complex')\n\nf(z) == z\n", "cmd_opts": " --cell_id=nyDIneucvV -s", "import_complete": 1, "terminal": "kitty"}
