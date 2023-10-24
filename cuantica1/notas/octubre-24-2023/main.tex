@@ -1,0 +1,111 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 18 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Momento Angular}
+\begin{gather*}
+  [J ^ {\alpha}, J ^ {\beta}] = i \hbar  \epsilon ^ {\alpha\beta\gamma} J ^ {\gamma} \qquad \qquad \qquad [J ^ {x }, J ^ {y }] = i \hbar J ^ {z } \text{ etc. }\\
+  \vec J ^2 = (J ^ {x })^2 + (J^y)^2 + (J^z )^2 \\
+  [J^z, \vec J^2] = 0 
+\end{gather*}
+Notacion provisional: 
+\begin{gather*}
+  \vec J ^2 \ket{a,b } = a \ket{a,b }\qquad \qquad J^2 \ket{a, b } = b \ket{a,b } 
+\end{gather*}
+Operador $ J _{\pm }  $
+\begin{gather*}
+  J _{\pm } = J _x \pm i J _y  \\
+  [\vec J^2, J _{\pm } ] = 0
+\end{gather*}
+\caja{red}{}{
+  \begin{gather*}
+    [J^z, J _{\pm } ] = \pm \hbar J _{\pm }
+  \end{gather*}
+}
+
+Si tenemos el estado $ J _{\pm } \ket{a,b } = \ket{\beta _{\pm } } $, qué propiedades tiene? Utilizando que $[\vec J^2, J _{\pm } ] = 0$
+\begin{gather*}
+  \vec J^2 \ket{\beta _{\pm } } = a \ket{\beta _{\pm} } 
+\end{gather*}
+Y con $ [J^z, J _{\pm } ] = \pm \hbar J _{\pm } $
+\begin{gather*}
+  J^z \ket{\beta _{\pm } } = (b\pm \hbar ) \ket{\beta _{\pm } } 
+\end{gather*}
+Entonces podemos escribir: 
+\begin{gather*}
+  J ^ {z } J _{+ } \ket{a, b } = ( J_+ J ^z - [J ^ {z }, J _{\pm } ]) \ket{a, b }\\
+  = (J_+ J_z + \hbar J _{+ } ) \ket{a, b } = (b + \hbar )  \underset{\ket{\beta_+ }}{J _{+ }\ket{a, b }}
+\end{gather*}
+Dado a qué limites tiene b? 
+\begin{gather*}
+  \vec J^2 - (J^z)^2 = (J^x)^2 + (J^y)^2 \\
+  \underset{= a- b^2 }{\bra{a, b } \vec J^2 - (J^z)^2 \ket{a,b }} = \bra{a, b } (J^x)^2 + (J^y)^2 \ket{a,b } \geq 0 \\
+  a - b^2 \geq 0 \qquad \rightarrow \qquad a \geq b^2 
+\end{gather*}
+Tenemos que : 
+\begin{gather*}
+  J _{+ } \ket{a, b _{max }  } = 0  \\
+  J _{-  } J _{+ }  \ket{a, b _{min } } = 0 
+\end{gather*}
+
+\begin{align*}
+  J _{-  } J _{+ } &= (J^x - iJ^y )(J^x + i J^y )\\
+              &= (J^x)^2 + (J^2)^2 + i [J^x, J^y ] = \vec J^2 - (J^z)^2 - \hbar J^z - \hbar J^z
+\end{align*}
+
+Tenemos que: 
+\begin{gather*}
+  b _{max } = \frac{m \hbar }{2} \qquad \qquad n = 0,1,2,3,...\\
+  b _{max } = \hbar  J \quad \rightarrow \quad J = \frac{b _{max } }{\hbar } = \frac{m}{2}\\
+  a = \hbar  ^2 J(J+1)\\
+\end{gather*}
+
+\begin{gather*}
+  J^z \ket{J,m } = \hbar  m \ket{J,m } \qquad m: -J,-J+1,...,+J\\
+  \vec J ^2 \ket{J, m } = \hbar ^2 J(J+1) \ket{J, m }
+\end{gather*}
+
+\begin{gather*}
+  J = 0 \qquad \rightarrow \qquad \ket{0,0 }\\
+  J = \frac{1}{2} \quad \rightarrow \quad \ket{ \frac{1}{2}, - \frac{1}{2}}; \quad \ket{\frac{1 }{2}, + \frac{1}{2}}\\
+  J = 1 \quad \rightarrow \quad \ket{1,-1 }, \quad \ket{1, 0 }, \quad \ket{1, 1 }
+\end{gather*}
+
+Momento angular \textbf{Orbital }
+\begin{gather*}
+  \vec L = \vec r \cross \vec p \quad \rightarrow \quad \bra{\vec r } \vec L \ket{\psi} = - i \hbar \vec r \cross \vec \grad \psi(\vec r )
+\end{gather*}
+
+\end{document}
