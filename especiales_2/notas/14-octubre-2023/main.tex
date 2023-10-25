@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 18 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Teorema de Stokes }
+Sea $ \omega \in \Omega ^ {r-1}(M) $ y $ c \in C_r(M)  $, entonces: 
+\caja{red}{}{
+  \begin{gather*}
+    \displaystyle\int_{c }^{} d \omega \equiv \displaystyle\int_{\partial c }^{} \omega 
+  \end{gather*}
+}
+
+\textbf{Metrica rimaniana: }
+$ g  $ en una variedad $ M  $ es un tensor de tipo $ (0,2 ) $.
+\begin{itemize}
+  \item $g_p(U,V) = g_p(V,U)$
+  \item $ g_p(U,U) \geq 0  $ donde la igualdad solo se cumple para $ U = 0  $
+\end{itemize}
+\textbf{Metrica pseudo-Riemanniana}
+\begin{itemize}
+  \item cumple la condicion 1 de la Riemanniana 
+  \item Si $ g_p(U,V) = 0 \forall V \in T_p M  $ entonces $ U= 0  $
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 19 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+\textbf{Propiedades: }
+\begin{itemize}
+  \item $ \displaystyle\int_{a }^{b } (f(t) \pm g(t) )dt = \displaystyle\int_{a }^{b }f(t) dt \pm \displaystyle\int_{a }^{b }g(t)  $
+  \item $ \displaystyle\int_{a }^{b } \beta f(t) dt = \beta \displaystyle\int_{a }^{b } f(t) dt  $
+  \item Si $ c \in (a,b) $ entonces $ \displaystyle\int_{a }^{b }f(t)dt = \displaystyle\int_{a }^{c }f(t) dt + \displaystyle\int_{c }^{b }f(t) dt  $
+  \item $\left|\displaystyle\int_{a }^{ b }f(t) dt \right|\leq \displaystyle\int_{a }^{b }\left|f(t) \right|dt $
+\end{itemize}
+
+\textbf{Antiderivadas de funciones de valores }
+En este caso podremos construir siempre una antiderivada continua, haciendo uso de traslaciones globales para cada tramo
+
+\textbf{Ejemplo }
+\begin{gather*}
+  f(t) = \begin{cases}
+    (1+i)t, \qquad &0 \leq t \leq 1 \\
+    it^2, \qquad &1 \leq t \leq 2 
+  \end{cases} \\
+  \Longrightarrow F(t) = \begin{cases}
+    (1+i)\frac{t^2 }{2}, \qquad &0 \leq t \leq 1 \\
+    i \frac{t^3 }{3 }+c, \qquad &1 \leq t \leq 2 
+  \end{cases}
+\end{gather*}
+En este caso $ F  $ no es continua, $ t= 1  \rightarrow \frac{1+i }{2}$ y tambien $ i /3  $.
+\begin{gather*}
+  t = 1 \\
+  \frac{1+i }{2 } = \frac{i }{3 } + c \\
+  c =  \frac{1}{2} + \frac{i }{2} - \frac{i }{3 } = \frac{1}{2} + \frac{1}{6 }i \\
+  \Longrightarrow F(t) = \begin{cases}
+    (1+i)\frac{t^2 }{2}, \qquad &0 \leq t \leq 1 \\
+    i \frac{t^3 }{3 }+\frac{1}{2} + \frac{1}{6 }i, \qquad &1 \leq t \leq 2 
+  \end{cases}
+\end{gather*}
+
+\caja{green}{Teorema fundamental del calculo }{
+  \begin{gather*}
+    \displaystyle\int_{a }^{b }f(x) dx = F(b) - F(a)  
+  \end{gather*}
+}
+
+\textbf{Integral de contorno }
+Supongase que $ \gamma $ es un camino sobre el intervalo $ [a,b ] $. Y que $ f  $ es una función de valores complejos, continua definida en $ \gamma $.
+
+La integral de contorno será: 
+\caja{red}{}{
+  \begin{gather*}
+    \displaystyle\int_{\gamma}^{}f(z)dz = \displaystyle\int_{a }^{b }f(\gamma(t))\gamma'(t) dt 
+  \end{gather*}
+}
+\textbf{Ejemplo: } Mostrar la integral de contorno 
+\begin{gather*}
+  \displaystyle\int_{C_R(z_0 )}^{}\frac{1}{z-z_0 }dz = 2\pi i, \quad\text{ Si el contorno no contiene a }z_0 \text{, esta integral valdrá }0
+\end{gather*}
+Prueba: Tenemos que $ C_R(z_0 ) = \gamma(t) = z_0 + R e ^ {it }, \quad 0 \leq t \leq 2 \pi  $ y $ \gamma'(t) = iR e ^ {it } $, reemplazando: 
+\begin{gather*}
+   \displaystyle\int_{C_R(z_0 )}^{}\frac{1}{z-z_0 }dz = \displaystyle\int_{0 }^{2\pi } \frac{1}{Re ^ {it }}i R e ^ {it }dt = 2\pi i , \quad \text{Para }R\neq 0 
+\end{gather*}
+
+\textbf{Ejemplo: }Demostra que: 
+\begin{gather*}
+  \displaystyle\int_{C_R(z_0)}^{} \frac{1}{(z-z_0 )^n }dz = 0  
+\end{gather*}
+Prueba: 
+\begin{align*}
+  \displaystyle\int_{C_R(z_0 )}^{}\frac{1}{(z-z_0)^n }dz &= \displaystyle\int_{0 }^{2\pi } \frac{1}{R^n e ^ {int }}i R e ^ {it }dt = \frac{1}{R ^ {n-1 }}\displaystyle\int_{0 }^{2\pi } i e ^ {it(1-n )} dt = \left. \frac{1}{R ^ {n-1 }}\frac{1}{i(1-n) } e ^ {it(1-n)}\right| _{0 } ^ {2\pi } = 0 
+\end{align*}
+
+\textbf{Ejemplos: }
+\begin{itemize}
+  \item $ \displaystyle\int_{C_1(0)}^{}\frac{1}{z }dz = 2\pi i  $
+  \item $ \displaystyle\int_{C_1(0)}^{}zdz = 0  $
+  \item $ \displaystyle\int_{C_1(0)}^{} \bar z dz = 2\pi i  $
+  \item $ \displaystyle\int_{C_1(0)}^{} \frac{1}{\bar z }dz = 0  $
+\end{itemize}
+
+\section{Teorema de Stokes }
+\caja{green}{}{
+  \begin{gather*}
+    \displaystyle\oint_{r }^{}\vec F \cdot d\vec r = \displaystyle\int_{s }^{} (\vec \grad \cross \vec F )\cdot d\vec s  
+  \end{gather*}
+}
+\textbf{Ejemplo: } $ \vec F = (M,N,0 ) $
+\begin{gather*}
+  \displaystyle\oint_{r }^{} (Mdx + Ndy) = \displaystyle\int_{s }^{}\left(\frac{\partial N  }{\partial x } - \frac{\partial M  }{\partial y}\right)dxdy 
+\end{gather*}
+
+\textbf{Curva simple:} Es aquella que no se corta a sí misma. Solo puede ocurrir que en sus extremos coincida y en este caso diremos que es una curva simple cerrada.
+\begin{align*}
+  \displaystyle\oint_{\gamma}^{}f(z)dz &= \displaystyle\oint_{\gamma}^{} (u+iv)(dx+idy)\\
+  &= \displaystyle\oint_{\gamma}^{} (udx-vdy)+ i (udy+vdx)\\
+  &= \displaystyle\int_{q }^{}(-\partial_x v - \partial_y u )dxdy + i \displaystyle\int_{s_\gamma}^{}(\partial_x v - \partial_y u )dxdy \\
+  \text{Por Cauchy-Rieman}\\
+  &=0
+\end{align*}
+
+\end{document}
