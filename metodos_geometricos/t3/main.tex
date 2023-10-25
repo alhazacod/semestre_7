@@ -1,0 +1,104 @@
+\documentclass{article}
+
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+
+\begin{document}
+
+\section{ejercicio 5.13 }
+\[
+\begin{aligned}
+  & x = r\cos{\theta} \\ 
+  & y = r\sin{\theta}
+\end{aligned} \quad \quad \quad \begin{aligned} & r = \sqrt{ x^2 + y^2 } \\ & \theta = \arctan{ \left( \frac{y}{x} \right) } \end{aligned}
+\]
+
+\[
+\begin{gathered}
+  \begin{aligned}
+    & \partial_r x = c_{\theta} \\ 
+    & \partial_r y = s_{\theta} 
+  \end{aligned} \quad \quad \begin{aligned}
+    & \partial_{\theta} x = -rs_{\theta} \\ 
+    & \partial_{\theta} y = rc_{\theta}
+\end{aligned} \quad \quad \begin{aligned}
+    \partial_x r = \frac{x}{r} \quad \quad \partial_y r = \frac{y}{r} \\
+    \begin{aligned}
+      & \partial_x \theta = \frac{ \frac{-y}{x^2} }{ 1 + \frac{y^2}{x^2} } = \frac{-y}{ x^2 + y^2 } \\
+      & \partial_y \theta = \frac{x}{ x^2 + y^2 }
+\end{aligned}
+\end{aligned} \\
+\begin{aligned}
+  dx \wedge dy = (c_{\theta} dr + - rs_{\theta} d\theta ) \wedge (s_{\theta}dr + rc_{\theta} d\theta ) = rc_{\theta}^2 dr \wedge d\theta + rs_{\theta}^2 dr \wedge d\theta = rdr \wedge d\theta
+\end{aligned}
+\end{gathered}
+\]
+
+
+\section{Ejercicio 5.9}
+Dado $X = X^{\mu} \frac{ \partial }{ \partial x^{\mu }}$ y $Y = Y^{\mu} \frac{ \partial }{ \partial x^{\mu }}$
+
+Los brackets de lie:  $[X,Y]f = X[Y[f]] - Y[X[f]]$.  
+
+\[
+\begin{gathered}
+  [X,Y] f = \left[ X^{\nu} \frac{ \partial Y^{\mu}}{ \partial x^{\nu }} - Y^{\nu} \frac{ \partial X^{\mu} }{ \partial x^{\nu }} \right] \frac{ \partial f }{ \partial x^{\mu }} \\ 
+   [X,Y] = \left[ X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu} } \right] \frac{ \partial }{ \partial x^{\nu }} 
+\end{gathered}
+\]
+Tiene la forma de los backets de lie.
+
+\section{Ejercicio 5.10 }
+\begin{enumerate}
+\item[(a)] bilinearidad
+
+Necesitamos: $\begin{aligned}
+  & [X, c_1 Y_1 + c_2 Y_2 ] = c_1[X,Y_1] + c_2 [ X,Y_2 ] \\ 
+  & [c_1 X_1 + c_2 X_2, Y ] = c_1 [X_1, Y] + c_2 [ X_2, Y ] 
+  \end{aligned}$
+
+\[
+
+\begin{aligned}
+ [X, c_1 Y_1 + c_2 Y_2 ] & = X^{\mu} \frac{ \partial}{ \partial x^{\mu} } ( c_1 Y_1 + c_2 Y_2)^{\nu} - ( c_1 Y_1 + c_2 Y_2)^{\mu}  \frac{ \partial X^{\nu} }{ \partial x^{\mu} } = \\
+   & = c_1 \left( X^{\mu} \frac{ \partial Y_1^{\nu} }{ \partial x^{\mu}  } - Y_1^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu }} \right) + c_2 \left( X^{\mu} \frac{ \partial Y_2^{\nu} }{  \partial x^{\mu} } - Y_2^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu} } \right) = c_1 [ X,Y_1] + c_2[ X,Y_2]  \\
+   [c_1 X_1 + c_2 X_2, Y ] & = (c_1 X_1 + c_2 X_2)^{\mu} \frac{ \partial Y^{\nu}}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial }{ \partial x^{\mu} }( c_1 X_1 + c_2 X_2)^{\nu} = \\
+   & = c_1 \left( X_1^{\mu} \frac{ \partial Y^{\nu}}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X_1^{\nu}}{ \partial x^{\mu }} \right) + c_2 \left( X_2^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu }} - Y^{\mu} \frac{ \partial X_2^{\nu }}{ \partial x^{\mu}} \right) = c_1 [X_1, Y] + c_2 [ X_2, Y ] 
+\end{aligned}
+\]
+\item[(b)] \[
+[Y,X] = Y^{\mu} \frac{ \partial X^{\nu}}{ \partial x^{\mu} } - X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu }} = - \left( X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X^{\nu}}{ \partial x^{\mu }} \right) = - [ X,Y]
+\]
+\item[(c)] Necesitamos probar que: 
+\[
+[[X,Y],Z] + [[Z,X],Y] + [[Y,Z], X] = 0 
+\]
+Entonces:
+\[
+\begin{gathered}
+  [[X,Y],Z] \\
+  [X,Y]^{\mu} \frac{ \partial Z^{\nu}}{ \partial x^{\mu }} - Z^{\mu} \frac{ \partial}{ \partial x^{\mu}} [X,Y]^{\nu} = (X^a \partial_a Y^{\mu} - Y^a \partial_a X^{\mu} ) \partial_{\mu}Z^{\nu} - Z^{\mu} ( \partial_{\mu}X^a \partial_a  Y^{\nu} + X^a \partial^2_{\mu a} Y^{\nu} - \partial_{\mu} Y^a\partial_a X^{\nu} - Y^a \partial^2_{\mu a} X^{\nu} ) = \\
+  = X^a \partial_a Y^{\mu} \partial_{\mu} Z^{\nu} - Y^a \partial_a X^{\mu} \partial_{\mu} Z^{\nu} - Z^{\mu} \partial_{\mu} X^a \partial_a Y^{\nu} -Z^{\mu}X^a \partial^2_{\mu a} Y^{\nu} + Z^{\mu} \partial_{\mu} Y^a \partial_a X^{\nu} + Z^{\mu} Y^a \partial^2_{\mu a} X^{\nu} 
+\end{gathered}
+\]
+De forma analoga:
+\[
+\begin{gathered}
+%  \begin{gathered}
+    [[Z,X],Y]^{\nu}    = Z^a \partial_a X^{\mu} \partial_{\mu} Y^{\nu} - X^a \partial_a Z^{\mu} \partial_{\mu} Y^{\nu} - Y^{\mu} \partial_{\mu} Z^a \partial_a X^{\nu} - Y^{\mu} Z^a \partial^2_{\mu a} X^{\nu} + Y^{\mu} \partial_{\mu} X^a \partial_a Z^{\nu} + Y^{\mu} X^a \partial^2_{\mu a} Z^{\nu} \\
+%\end{gathered}
+    [[Y,Z],X]^{\nu}    = Y^a \partial_a Z^{\mu} \partial_{\mu} X^{\nu} - Z^a \partial_a Y^{\mu} \partial_{\mu} X^{\nu} - X^{\mu} \partial_{\mu} Y^a \partial_a Z^{\nu} - X^{\mu} Y^a \partial^2_{\mu a} Z^{\nu} + X^{\mu} \partial_{\mu} Z^a \partial_a Y^{\nu} + X^{\mu} Z^a \partial^2_{\mu a} Y^{\nu} 
+\end{gathered}
+\]
+Todos los terminos se cancelan.
+
+\end{enumerate}
+
+\end{document}
