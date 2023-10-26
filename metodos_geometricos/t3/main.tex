@@ -12,6 +12,11 @@
 
 \begin{document}
 
+\textbf{Integrantes: }Manuel Garcia, Carlos Llanos, Angel Almonacid.
+
+\hfill
+
+
 \section{ejercicio 5.13 }
 \[
 \begin{aligned}
@@ -42,63 +47,71 @@
 \]
 
 
-\section{Ejercicio 5.9}
-Dado $X = X^{\mu} \frac{ \partial }{ \partial x^{\mu }}$ y $Y = Y^{\mu} \frac{ \partial }{ \partial x^{\mu }}$
+\section{Ejercicio 5.15}
+\begin{gather*}
+  \xi \in \Omega ^ {q }(M) \qquad \qquad \omega\in \Omega ^ {r }\\
+  \xi \land \omega = \xi _{i_1, \cdots, i_q }\omega _{j_1, \cdots, j_r } dx ^ {i_1 } \land \cdots \land dx ^ {i_q }\land dx ^ {j_1}\land \cdots \land dx ^ {j_r }\\
+  d(\xi \land \omega) = \frac{1}{(q+r)!} \frac{\partial (\xi _{i_1, \cdots, i_q } \omega _{j_i,\cdots,J_r )} }{x ^ {v }} dx ^ {v }\land dx ^ {i _1}\land \cdots \land dx ^ {i_q }\land dx ^ {j_1 }\land \cdots \land dx ^ {j_r }\\
+  = \frac{1}{q! } \frac{\partial \xi _{i_1, \cdots, i_q }  }{\partial x ^ {v }}dx ^ {v } \land dx ^ {i_1 }\land \cdots \land dx ^ {i_q }\land \omega_{j_1 , \cdots j_r  } dx ^ {j_1 }\land \cdots \land dx ^ {i_r }
+\end{gather*}
 
-Los brackets de lie:  $[X,Y]f = X[Y[f]] - Y[X[f]]$.  
+\begin{gather*}
+  \xi = f dx_{i_1}\land \cdots \land dx _{i_q } = f dx _{I }  \qquad \qquad \omega = g dx _{J } 
+\end{gather*}
 
-\[
-\begin{gathered}
-  [X,Y] f = \left[ X^{\nu} \frac{ \partial Y^{\mu}}{ \partial x^{\nu }} - Y^{\nu} \frac{ \partial X^{\mu} }{ \partial x^{\nu }} \right] \frac{ \partial f }{ \partial x^{\mu }} \\ 
-   [X,Y] = \left[ X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu} } \right] \frac{ \partial }{ \partial x^{\nu }} 
-\end{gathered}
-\]
-Tiene la forma de los backets de lie.
+\begin{gather*}
+  d(\xi \land \omega ) = d(f dx_I \land g dx_J ) = d\xi \land \omega + \xi \land d\omega 
+\end{gather*}
 
-\section{Ejercicio 5.10 }
+\begin{gather*}
+  X[\omega(Y)] - Y[\omega(X)] - \omega([X,Y]) = \frac{\partial \omega_\mu  }{\partial x^v } (X^vY^\mu- X^\mu Y^v )\\
+\end{gather*}
+
+\begin{gather*}
+  \omega([X,Y]) = \omega_v(X^\mu \partial_\mu Y^v - Y^\mu \partial_\mu X^v )\\
+  X[\omega(Y)] = X^\mu \partial_\mu \omega_v Y^v + Y^\mu \omega_v \partial_\mu X^v\\
+  Y[\omega(X)] = Y^\mu \partial_\mu \omega_v X^v + Y^\mu \omega_v \partial_\mu X^v\\
+\end{gather*}
+
+\begin{align*}
+  X[\omega(Y)] - Y[\omega(X)] - \omega([X,Y]) &= X^\mu \partial_\mu \omega_v Y^v - Y^\mu \partial_\mu \omega_v X^v = \partial_\mu \omega_v (X^\mu Y^v - Y^\mu X^v )\\
+  &= \partial_\mu \omega_v (X^\mu Y^v - Y^\mu X^v )
+\end{align*}
+
+\begin{gather*}
+  d\omega (X_1, \cdots X _{p+1 } ) = \displaystyle\sum_{i=1 }^{r }(-1) ^ {i + 1 } X_i \omega (X_1, \cdots \hat X_i \cdots X _{i+1 } ) + \displaystyle\sum_{i<j }^{} (-1)^ {i + 1 } \omega ([x_i, X_j], X_1, \cdots \hat X_i, \cdots \hat X_j \cdots X _{i + 1} ) 
+\end{gather*}
+
+r-forma $ \omega \in \Omega^r(M) $ 
+\begin{gather*}
+  \omega = \frac{1}{r! } \omega_{\mu_1 \cdots \mu_r } dx ^ {\mu_1 }\land \cdots \land dx ^ {\mu_r }\\
+  d\omega = \frac{1}{r! }\left(\frac{\partial  }{\partial x^v }\omega _{\mu_1 \cdots \mu_r } \right) dx ^ {v }\land dx ^ {\mu_1 } \land \cdots \land dx ^ {\mu_r }
+\end{gather*}
+
+
+
+
+\section{Ejercicio 5.19 }
 \begin{enumerate}
-\item[(a)] bilinearidad
+\item[(a)] $\mathbb{R}^+ = \lbrace x \in \mathbb{R} | x > 0 \rbrace$ \quad \quad \, $\frac{ \partial }{ \partial x} x^{-1} = -x^{-2} \neq 0 $ \, 
 
-Necesitamos: $\begin{aligned}
-  & [X, c_1 Y_1 + c_2 Y_2 ] = c_1[X,Y_1] + c_2 [ X,Y_2 ] \\ 
-  & [c_1 X_1 + c_2 X_2, Y ] = c_1 [X_1, Y] + c_2 [ X_2, Y ] 
-  \end{aligned}$
-
-\[
-
-\begin{aligned}
- [X, c_1 Y_1 + c_2 Y_2 ] & = X^{\mu} \frac{ \partial}{ \partial x^{\mu} } ( c_1 Y_1 + c_2 Y_2)^{\nu} - ( c_1 Y_1 + c_2 Y_2)^{\mu}  \frac{ \partial X^{\nu} }{ \partial x^{\mu} } = \\
-   & = c_1 \left( X^{\mu} \frac{ \partial Y_1^{\nu} }{ \partial x^{\mu}  } - Y_1^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu }} \right) + c_2 \left( X^{\mu} \frac{ \partial Y_2^{\nu} }{  \partial x^{\mu} } - Y_2^{\mu} \frac{ \partial X^{\nu }}{ \partial x^{\mu} } \right) = c_1 [ X,Y_1] + c_2[ X,Y_2]  \\
-   [c_1 X_1 + c_2 X_2, Y ] & = (c_1 X_1 + c_2 X_2)^{\mu} \frac{ \partial Y^{\nu}}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial }{ \partial x^{\mu} }( c_1 X_1 + c_2 X_2)^{\nu} = \\
-   & = c_1 \left( X_1^{\mu} \frac{ \partial Y^{\nu}}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X_1^{\nu}}{ \partial x^{\mu }} \right) + c_2 \left( X_2^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu }} - Y^{\mu} \frac{ \partial X_2^{\nu }}{ \partial x^{\mu}} \right) = c_1 [X_1, Y] + c_2 [ X_2, Y ] 
-\end{aligned}
-\]
-\item[(b)] \[
-[Y,X] = Y^{\mu} \frac{ \partial X^{\nu}}{ \partial x^{\mu} } - X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu }} = - \left( X^{\mu} \frac{ \partial Y^{\nu }}{ \partial x^{\mu} } - Y^{\mu} \frac{ \partial X^{\nu}}{ \partial x^{\mu }} \right) = - [ X,Y]
-\]
-\item[(c)] Necesitamos probar que: 
-\[
-[[X,Y],Z] + [[Z,X],Y] + [[Y,Z], X] = 0 
-\]
-Entonces:
+\item[(b)] 
 \[
 \begin{gathered}
-  [[X,Y],Z] \\
-  [X,Y]^{\mu} \frac{ \partial Z^{\nu}}{ \partial x^{\mu }} - Z^{\mu} \frac{ \partial}{ \partial x^{\mu}} [X,Y]^{\nu} = (X^a \partial_a Y^{\mu} - Y^a \partial_a X^{\mu} ) \partial_{\mu}Z^{\nu} - Z^{\mu} ( \partial_{\mu}X^a \partial_a  Y^{\nu} + X^a \partial^2_{\mu a} Y^{\nu} - \partial_{\mu} Y^a\partial_a X^{\nu} - Y^a \partial^2_{\mu a} X^{\nu} ) = \\
-  = X^a \partial_a Y^{\mu} \partial_{\mu} Z^{\nu} - Y^a \partial_a X^{\mu} \partial_{\mu} Z^{\nu} - Z^{\mu} \partial_{\mu} X^a \partial_a Y^{\nu} -Z^{\mu}X^a \partial^2_{\mu a} Y^{\nu} + Z^{\mu} \partial_{\mu} Y^a \partial_a X^{\nu} + Z^{\mu} Y^a \partial^2_{\mu a} X^{\nu} 
+\partial_x z  = \partial_x ( x+y)  = 1   \\
+\partial_x( x^{-1} ) = \partial_x (-x) = -1 
 \end{gathered}
-\]
-De forma analoga:
-\[
+\] \quad 
+\item[(c)] \[
 \begin{gathered}
-%  \begin{gathered}
-    [[Z,X],Y]^{\nu}    = Z^a \partial_a X^{\mu} \partial_{\mu} Y^{\nu} - X^a \partial_a Z^{\mu} \partial_{\mu} Y^{\nu} - Y^{\mu} \partial_{\mu} Z^a \partial_a X^{\nu} - Y^{\mu} Z^a \partial^2_{\mu a} X^{\nu} + Y^{\mu} \partial_{\mu} X^a \partial_a Z^{\nu} + Y^{\mu} X^a \partial^2_{\mu a} Z^{\nu} \\
-%\end{gathered}
-    [[Y,Z],X]^{\nu}    = Y^a \partial_a Z^{\mu} \partial_{\mu} X^{\nu} - Z^a \partial_a Y^{\mu} \partial_{\mu} X^{\nu} - X^{\mu} \partial_{\mu} Y^a \partial_a Z^{\nu} - X^{\mu} Y^a \partial^2_{\mu a} Z^{\nu} + X^{\mu} \partial_{\mu} Z^a \partial_a Y^{\nu} + X^{\mu} Z^a \partial^2_{\mu a} Y^{\nu} 
+  (a,b) + (x,y) = (a+x, b+y) \quad \quad \, Dg =Dg(x) = \left[ \begin{matrix} a & \\ & b \end{matrix} \right] \\
+  (x,y)^{-1} = (-x, -y) \quad \quad \, D(x,y)^{-1} = \left[ \begin{matrix} -1 & \\ & -1 \end{matrix} \right]
 \end{gathered}
 \]
-Todos los terminos se cancelan.
-
 \end{enumerate}
 
+Grupo de Lorentz
+\[
+O(1,3) = \lbrace M \in GL(4,\mathbb{R}) | M \eta M^T = \eta \rbrace  \quad \quad \eta = \text{diag}{ ( -1, 1, 1, 1 ) }
+\]
 \end{document}
