@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 20 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Integral compleja }
+¿Cuando dos parametrizaciones son equivalentes? PAra hacer esto necesitamos definir un mapa continuamente diferenciables de $ [a,b ] $ a $ \mathbb{R} $, continuamente diferenciables quiere decir, continuo $ [a,b ] $ y que tiene derivada continua en $ (a,b) $. 
+
+\caja{green}{Definicion }{
+  
+  Decimos que dos trayectos $ \gamma_1(t), \quad a \leq t \leq b  $ y $ \gamma_2(s), \quad c \leq s \leq d$ tenen parametrizaciones equivalente si existe una función "estrictamente creciente" y "continuamente diferenciable" $ \phi  $ de $ [c,d]  $ en $ [a,b] $ tal que $ \phi(c) = a , \quad \phi (d) = b  $ y $ \gamma_(s) = \gamma_1  \circ \phi(s), \quad \phi_1(t) = \phi_2 \circ \phi^{-1}(t) $
+}
+
+\textbf{Ejemplo: }El circulo unitario, $ C_1(0) $ puede ser parametrizado 
+\begin{align*}
+  &\gamma_1(b) = e ^ {i s } \quad 0 \leq s \leq 2 \pi  \text{ ó } \gamma_2(t) = e ^ {2i\pi t }, \quad 0 \leq t \leq 1 \\
+  &\displaystyle\int_{0 }^{1 } f(e ^ {2i\pi t }) 2\pi i e ^ {2i\pi t }dt, \qquad s = 2 \pi t, \quad ds = 2\pi dt \\
+  &= \displaystyle\int_{0 }^{2\pi}f(e ^ {s })i e ^ {is }dx \\
+  &= \displaystyle\int_{\gamma_1 }^{}f(z)dz 
+\end{align*}
+
+\end{document}
