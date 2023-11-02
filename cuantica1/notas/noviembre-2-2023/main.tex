@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 20 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+\begin{gather*}
+  H =  \frac{\vec p ^2 }{2m } - \frac{e^2 }{r }\\
+  [\vec L , H] = 0 \\
+  \rightarrow [L_z, H] = 0 \\
+  [\vec L^2 , H ] = 0 
+\end{gather*}
+
+Nos dividiremos el spin: 
+\begin{gather*}
+  H \ket{\psi} = E \ket{\psi} \\
+  \ket{\psi} = \ket{E;l,m_e }\\
+  H \ket{E;l,m_e } = E \ket{E;l,m_e }\\
+  \vec L^2 \ket{E;l,m_e} = \hbar ^2 e(e+1)\ket{E;l,m_e }\\
+  L_z \ket{E;l,m_e } = \hbar m_e \ket{E;l,m_e }
+\end{gather*}
+
+Queremos hacer la proyeccion: 
+\begin{gather*}
+  \bra{\underset{= \vec r }{R,\theta, \phi }}\ket{E;l,m_e } =  f(r,\theta,\phi)\\
+  L _{ZA } f(r,\theta,\phi) = ?\\
+  L _{ZA } = - i \hbar \frac{\partial  }{\partial \phi }
+\end{gather*}
+Para esto debemos tener en cuenta el momentum angular orbital: 
+\begin{gather*}
+  \bra{\theta,\phi }\ket{l,m_e } = Y _{l,m_e } (\theta,\phi )  
+\end{gather*}
+Entonces: 
+\begin{gather*}
+  L_{ZA}  Y _{l,m_e } (\theta,\phi ) = \hbar  m_e Y _{l,m_e } (\theta,\phi ) \\
+  \vec L_A ^2Y _{l,m_e }(\theta,\phi) = \hbar ^2 e(e+1) Y _{l,m_e }(\theta,\phi)\\
+  \vec L_A f _{..l,m_e } (r,\theta,\phi) = \hbar ^2 e(e+1) f _{..l,m_e } (r,\theta,\phi)\\
+  f _{..l,m_e } (r,\theta,\phi) = \underset{\text{Func. radial}}{R(r)}Y _{l,m_e } (\theta, \phi )
+\end{gather*}
+
+\section{Atomo de Hidrogeno } 
+\begin{gather*}
+  V(r) = -\frac{e^2 }{r } 
+\end{gather*}
+Su hamiltoniano: 
+\begin{gather*}
+  H = \frac{\vec p_1 ^2}{2m_e } + \frac{\vec p _2}{2m_p} + V(r) \qquad \qquad \vec r = \vec r_1 - \vec r_2 \qquad r = \left|\vec r \right|
+\end{gather*}
+Tenemos $ \vec p_1, \vec p_2, \vec r_1, \vec r_2  $
+\begin{gather*}
+  [p_1^\alpha, r_1^\beta] = -i \hbar  \delta ^ {\alpha \beta }\\
+  [p_2^\alpha, r_2^\beta] = -i \hbar  \delta ^ {\alpha \beta }\\
+  [p_1^\alpha, r_2^\beta] = 0 \\
+  [p_2^\alpha, r_1^\beta] = 0 
+\end{gather*}
+
+Posicion y momentum 
+\begin{gather*}
+  \vec P = \vec p _1 + \vec p _2\qquad  
+  \vec R = \frac{m_1 \vec r_1 + m_2 \vec r_2 }{M } 
+\end{gather*}
+\begin{gather*}
+  [p ^ {\alpha }, r ^ {\beta }] = -i \hbar \delta ^ {\alpha, \beta }\\
+  \vec p = \frac{m_2 }{M } \vec p _1 - \frac{m_1 }{M } \vec p _2  
+\end{gather*}
+\begin{gather*}
+  [P ^ {\alpha }, R ^ {\beta }] = - i \hbar  \delta ^ {\alpha\beta} \underset{=1 }{\left(\frac{m_1 }{M } + \frac{m_2 }{M }\right) }\\
+  [p ^ {\alpha}, r ^ {\beta}] = - i \hbar \delta ^ {\alpha\beta}\\
+  [p ^ {\alpha }, R ^ {\beta }] = 0 \\
+  [P ^ {\alpha}, r ^ {\beta}] = 0 
+\end{gather*}
+
+\hfill 
+
+\begin{gather*}
+  H = \frac{\vec p_1 ^ {2 }}{2m_1 }  + \frac{\vec p_2 ^2 }{2m_2 } + V(r)\\
+  \text{Reemplazamos: }\qquad 
+  \vec p_1 = \vec p + \frac{m_1 }{M }\vec P \qquad 
+  \vec p_2 = -\vec p + \frac{m_2 }{M } \vec P \\
+  H = \frac{\vec P ^2}{2M } + \frac{\vec p ^2}{2m _{rad } } + V(r) \qquad \text{ con: }\quad \frac{1}{m _{rad } } = \frac{1}{m_1 } + \frac{1}{m_2 }
+\end{gather*}
+
+\begin{gather*}
+  \bra{\vec R }\ket{\vec P } = \frac{1}{(2\pi \hbar ) ^ {3/2 }} e ^ {i \frac{\vec P \cdot \vec R }{\hbar }} = \psi _{\vec P } (\vec R ) 
+\end{gather*}
+
+\begin{gather*}
+  H \ket{\vec P ; E_I  }  = \left(\frac{\vec P ^2}{2M } + E_I \right)\ket{\vec P;E_I }
+\end{gather*}
+
+\end{document}
