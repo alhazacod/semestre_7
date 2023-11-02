@@ -3,6 +3,11 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+# Coordenadas del punto específico (cambia estas coordenadas)
+#x, y = 1660, 1330
+#x, y = 1530, 1145
+x,y = 1900,1630
+
 def colores(name):
     # Abre la imagen DNG
     with rawpy.imread(f"{name}") as raw:
@@ -13,10 +18,6 @@ def colores(name):
     red_channel = raw_array[:, :, 0]
     green_channel = raw_array[:, :, 1]
     blue_channel = raw_array[:, :, 2]
-
-    # Coordenadas del punto específico (cambia estas coordenadas)
-    x, y = 1660, 1330
-    #x, y = 1530, 1145
 
     # Tamaño del cuadrado para el promedio
     square_size = 30
@@ -54,7 +55,6 @@ for filename in os.listdir(current_directory):
 
 # Ordena los archivos por fecha de modificación (el más antiguo primero)
 dng_files.sort(key=lambda x: os.path.getmtime(x))
-print(dng_files)
 degree = 0
 
 # RGB por grado
@@ -65,38 +65,39 @@ b_list = {}
 # Procesa cada imagen
 for dng_file in dng_files:
     image_path = os.path.join(current_directory, dng_file)
-    print(f'{degree}: \n')
+    print(f'{degree}º (img: {dng_file}): \n')
     r,g,b = colores(image_path)  # Llama a tu función colores con la imagen
     r_list[degree] = r
     g_list[degree] = g
     b_list[degree] = b
     degree +=10
     print('\n')
-print(r_list)
+
+
+# Crear un gráfico polar
+plt.figure(figsize=(8, 8))
+ax = plt.subplot(111, polar=True)
 
 def plotear(data,color,n):
     # Convertir los ángulos de grados a radianes
     angles = np.deg2rad(list(data.keys()))
     radii = list(data.values())
 
-    # Crear un gráfico polar
-    plt.figure(figsize=(8, 8))
-    ax = plt.subplot(111, polar=True)
-
     # Dibuja los datos en el gráfico polar
     ax.plot(angles, radii, marker='o',c = color)
 
-    # Asegura que el gráfico abarque de 0 a 360 grados y de 0 a 255 en los radios
-    ax.set_thetamin(0)
-    ax.set_thetamax(360)
-    ax.set_ylim(0, 255)
-
-    # Título
-    plt.title(f"{n}")
-
-    # Mostrar el gráfico
-    plt.show()
 
 plotear(r_list,'red','Rojo')
 plotear(g_list,'green','Verde')
 plotear(b_list,'blue','Azul')
+
+# Asegura que el gráfico abarque de 0 a 360 grados y de 0 a 255 en los radios
+ax.set_thetamin(0)
+ax.set_thetamax(360)
+ax.set_ylim(0, 255)
+
+# Título
+plt.title(f"Grafica polar de RGB en el punto {x},{y}")
+
+# Mostrar el gráfico
+plt.show()
