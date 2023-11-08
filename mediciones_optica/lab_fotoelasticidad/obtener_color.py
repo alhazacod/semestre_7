@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 # Coordenadas del punto específico (cambia estas coordenadas)
 #x, y = 1660, 1330
 #x, y = 1530, 1145
-x,y = 1900,1630
+#x,y = 1900,1630
+x,y = 1542,810
 
 def colores(name):
     # Abre la imagen DNG
