@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 22 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Conexión de levi-civita }
+Compatible con $ g: \quad \grad _{\alpha } g _{\mu\nu} = 0 \qquad \qquad \Gamma _{\mu\nu} ^ {\alpha} = \Gamma _{\nu\mu} ^ {\alpha} \rightarrow \text{Simetrica } $.
+
+\begin{gather*}
+  \bar \Gamma _{\mu\nu} ^ {\alpha} = \begin{bmatrix}
+      \alpha \\
+      \mu\nu 
+  \end{bmatrix} + K _{\mu\nu} ^ {\alpha}\\
+  \Delta \Gamma _{\mu\nu} ^ {\alpha} = t _{\mu\nu} ^ {\alpha} \quad \rightarrow \quad \Gamma _{\mu\nu} ^ {\alpha} = \hat \Gamma _{\mu\nu} ^ {\alpha} + t _{\mu\nu} ^ {\alpha}\\
+  t _{\mu\nu} ^ {\alpha} = -K ^ {\alpha} _{\mu\nu}  \quad \rightarrow \quad 
+  \Gamma _{\mu\nu} ^ {\alpha} = \begin{bmatrix}
+      \alpha \\
+      \mu\nu 
+  \end{bmatrix} 
+\end{gather*}
+
+\section{Componentes independientes del tensor de Riemann }
+Podemos determinar la cantidad de componentes independientes del tensor de Riemann en una variedad $ M  $, $ dim(M )= m $, teniendo en cuenta sus simetrías: 
+\begin{align*}
+  \text{(1)}\quad R _{\sigma\rho\mu\nu} = - R _{\sigma\rho\nu\mu}  \qquad \qquad  &\text{(2)} \quad R _{\sigma\rho\mu\nu} = - R _{\rho\rho\mu\nu} \\
+\text{(3)}\quad R _{\sigma\rho\mu\nu} =  R _{\mu\nu\sigma\rho}  \qquad \qquad  &\underset{Identidad de Bianchi }{\text{(4)} \quad R _{\alpha \mu\nu\sigma}  + R _{\alpha\nu\sigma\mu} + R _{\alpha\sigma\mu\nu} = 0 }
+\end{align*}
+Solo vale para la conexion de levi-civita.
+
+\hfill 
+\hfill 
+
+\hfill 
+
+\begin{gather*}
+  R _{\mu\alpha\nu} ^ {\alpha} = R _{\mu\nu}  \quad \rightarrow \quad G _{\mu\nu} = \frac{8 \pi G }{c ^ {4 }}T _{\mu\nu}  
+\end{gather*}
+
+\subsection{Ecuaciones de campo relatividad general }
+\begin{gather*}
+  \grad ^\mu R _{\mu\nu} = \kappa \grad ^ {\mu} T _{\mu\nu}  =0 \quad \rightarrow \quad  \\
+  R _{\mu\nu} - \frac{1}{2}g _{\mu\nu} R = \kappa T _{\mu\nu} \quad \rightarrow  \quad \text{Ec. de campo Einstein} 
+\end{gather*}
+
+\begin{gather*}
+  \mathbb{L} = \sqrt{-g } R, \quad \rightarrow \quad S _{EH } = \displaystyle\int_{}^{} \sqrt{-g }R d ^ {4 }x \quad \rightarrow \quad \text{Accion de Einstein-Hilbert}   
+\end{gather*}
+
+¿Por qué este lagrangiano? Hasta en la teoria mas basica tenemos $ g _{\mu\nu} , \quad \Gamma _{\mu\nu} ^ {\alpha} = g(\partial g ) $. Podemos obtener $ R _{\mu\nu\sigma} ^ {\alpha} $. Con los objetos $ R _{\alpha\mu\nu\sigma} , \quad g _{\mu\nu}  $ debemos construir un escalar. Escalar de ricci $ R _{\nu\beta} g ^ {\nu\beta} = R  $.
+
+\end{document}
