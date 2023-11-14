@@ -1,6 +1,6 @@
 t,x = var('t x')
 
-# Creamos una variedad de dimension 2 con structura lorentziana
+# Creamos una variedad de dimension 2
 M = Manifold(2, 'M', structure='Lorentzian')
 print(M)
 
@@ -12,6 +12,7 @@ g = M.metric()
 g[0,0] = -1
 g[1,1] = 1 
 print(g[:])
+
 # Transformacion hacia psi,zeta
 psi,zeta = var('psi zeta')
 PZ.<psi,zeta> = M.chart('psi zeta')
