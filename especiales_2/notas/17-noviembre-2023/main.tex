@@ -1,0 +1,186 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Clase 25 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{Singularidades y polos }
+\subsection{Singularidad removible }
+$ z_0  $ es una singularidad removible de $ f  $ si la función puede redefinirse en $ z_0  $ para que $ f  $ sea analitica en $ z_0  $. 
+
+\textbf{Ejemplo } singularidad en $ z_0 = 0  $ 
+\begin{gather*}
+  f(z) = \frac{\sin{z }}{z } \\   
+  \text{Tenemos que: } \qquad \underset{z  \rightarrow 0 }{lim}f(z) = 1 \\
+  \text{Esta singularidad puede ser remobible ya que: }\\
+  \frac{\sin{z }}{z } = \frac{1}{z } \left(z - \frac{z ^3 }{3! } + \frac{z ^5 }{5! } \cdots \right) = 1 - \frac{z^2 }{3! } + \frac{z^4 }{5! } \cdots \\
+  f(z) = \begin{cases}
+    \frac{\sin{z }}{z } \qquad & z \neq 0 \\
+    1 \qquad & z = 0 
+  \end{cases}
+\end{gather*}
+
+\textbf{Ejemplo } $ z_0  $ es un polo de $ f  $ si $ \underset{z  \rightarrow z_0 }{lim}\left|f(z) \right|\rightarrow \infty $
+\begin{gather*}
+  f\left(z\right)= \frac{z }{z-i }\\
+  z_0 = i \quad \text{ es un polo }\quad \underset{z  \rightarrow i }{lim}\left|\frac{z }{z-i }\right| = \left|\frac{i }{i - i }\right| \rightarrow \infty
+\end{gather*}
+
+\textbf{Ejemplo } $ z_0  $ es una singularidad esencial de $ f  $ si no es polo ni es una singularidad removible 
+\begin{gather*}
+  f(z) = e ^ {\frac{1}{z }} \\
+  \underset{x  \rightarrow 0 ^ {+ }}{lim}f(z) = \underset{x  \rightarrow 0 ^ {+}}{lim}e ^ {\frac{1}{x }} \rightarrow \infty \\
+  \underset{x  \rightarrow 0 ^ {-  }}{lim}e ^ {\frac{1}{z }} = \underset{x  \rightarrow 0 ^ {+ }}{lim}e ^ {- \frac{1}{\left|x \right|}}\rightarrow 0 
+\end{gather*}
+
+\section{}
+Grado $ m  $ del polo de una función $ f(z)  $ 
+\begin{gather*}
+  f(z) = \frac{b(z) }{g(z) } \qquad \qquad g(z) = (z-z_0 ) ^ {m } g_1(z)  
+\end{gather*}
+$ g_1(z) $ y $ b(z)  $ son analiticas $ \Omega $
+\begin{gather*}
+  f(z) = \frac{b(z) }{g_1(z)(z-z_0)^m} = \frac{h (z) }{(z-z_0)^ {m }} \qquad \quad b(z_0), g_1(z_0), h(z_0) \neq 0 
+\end{gather*}
+haciendo taylor: 
+\begin{align*}
+  h(z) &= \displaystyle\sum_{n=0 }^{\infty} h_n (z-z_0 )^ {n } \\
+  f\left(z\right) &= \displaystyle\sum_{n=0 }^{\infty} h_n (z-z_0)^ {n-m } \qquad \qquad n-m \equiv k \\
+       &= \displaystyle\sum_{k = -m }^{\infty}h_k (z-z_0)^ {k }\\
+       &= \displaystyle\sum_{k = -m }^{-1 }c_k (z-z_0)^ {k } + \underset{f_a(z) \text{ parte principal o analitica} }{\displaystyle\sum_{k=0 }^{\infty}c_k (z-z_0)^ {k }}\\
+       &= \frac{h-m }{(z-z_0 )^ {m }} + \frac{h -m + 1 }{(z-z_0)^ {m-1 }} + f_a(z) 
+\end{align*}
+Entonces: 
+\begin{gather*}
+  \underset{z \rightarrow z_0 }{lim}(z-z_0)^ {m }f(z) = \alpha\neq 0  
+\end{gather*}
+\textbf{Ejemplo } encontrar $ m  $ en $ z= 0  $ de $ f(z) = \frac{2 }{z \sin{z }} $
+\begin{gather*}
+  \underset{z \rightarrow 0 }{lim}\ z ^ {m=2 } \frac{2 }{z \sin{z }} = 2
+\end{gather*}
+\textbf{Ejemplo } 
+\begin{align*}
+  \frac{e ^ {z ^ {2 }}- 1 }{z ^ {3 }}  &= \frac{1}{z^3 } \left(1 + \frac{z ^ {2 }}{1! } + \frac{z ^ {4 }}{2! } + \cdots - 1 \right) \\
+  &=
+\end{align*}
+
+\section{Teorema del residuo y aplicaciones }
+$ f(z)  $ tiene una expansion que vamos a separar en dos terminos: 
+\begin{gather*}
+  f(z) = \displaystyle\sum_{n= - \infty}^{-1 } a_n (z-z_0 )^ {n } + f_a(z)  
+\end{gather*}
+Si cogemos un camino $ \Gamma $ que contenga el punto $ z_0  $: 
+\begin{gather*}
+  \displaystyle\oint_{\Gamma}^{} f(z) dz = \displaystyle\int_{\Gamma }^{} f_a(z) dz + \displaystyle\oint_{\Gamma }^{} \frac{A _{-1 } }{(z-z_0)}dz + \displaystyle\oint_{\Gamma }^{} \frac{A _{-2 } }{(z-z_0)cub}dz + \displaystyle\oint_{\Gamma }^{} \frac{A _{-3 } }{(z-z_0)^ {3}}dz + \cdots
+\end{gather*}
+La primera integral nos da 0, la segunda $ 2\pi A _{-1 } $, la tercera nos da 0, la cuarta 0. La funcion solo depende del primer coeficiente de la serie de Laurent. 
+\begin{gather*}
+  \displaystyle\oint_{\Gamma }^{} f(z) dz = 2\pi i \underset{\text{Residuo en }z_0 }{A _{-1 }  }
+\end{gather*}
+
+Si tenemos varios polos (varias singularidades) por ejemplo $ z_1,z_2,z_m  $ y tenemos un camino $ \Omega  $ que los encierra a todos, al igual que siempre esta integral la podemos descomponer en 3 integrales que encierren a cada singularidad $ \Gamma_1, \Gamma_2, \Gamma_3  $.
+\caja{red}{}{
+\begin{gather*}
+  \displaystyle\int_{\Gamma }^{} f(z) dz = 2\pi i \displaystyle\sum_{n= 1 }^{N }Res(z_n ) = 2\pi i \displaystyle\sum_{}^{} \text{residuos}
+\end{gather*}
+}
+
+Si la singularidad es un polo de orden $ m  $ podemos encontrar una expresión para $ A _{-1 }  $. 
+\begin{gather*}
+  z - z_0 \quad \rightarrow \quad f(z) = \frac{A _{-1 }  }{z-z_0 } + f_a (z) \\
+  \underset{z  \rightarrow z_0 }{lim}\left[(z-z_0 ) f(z) = A _{-1 }  + (z -z_0 ) f_a(z) \right]\\
+  A _{-1 }  \equiv  Res (z_0 ) = \underset{z  \rightarrow z_0 }{lim}(z-z_0 )f(z) 
+\end{gather*}
+
+Con $ m= 2  $.
+\begin{gather*}
+  f(z) = \frac{A _{-2 } }{(z-z_0 )^2} + \frac{A _{-1 } }{z-z_0 } + f_a(z) \\
+  \rightarrow (z-z_0) ^2 f(z) = A _{-2 } + (z-z_0 ) A _{-1 }  + (z-z_0) ^2 f_a(z)\\
+  \frac{d  }{d z } \left[(z-z_0 ) ^2 f(z) \right] = A _{-1 } + \frac{d  }{d z } \left[(z-z_0 ) ^2 f_a(z) \right]\\
+  \underset{z  \rightarrow z_0 }{lim}\frac{d  }{d z } \left[(z-z_0) ^2 f(z) \right] = A _{-1 } 
+\end{gather*}
+
+Con $ m = 3  $
+\begin{gather*}
+  (z-z_0) ^ {3 } f(z) = A _{-3 }  + (z-z_0 ) A _{-2 } + (z-z_0 ) ^ {2 } A _{-1 } + (z-z_0) ^ {3 } f_a (z)  \\
+  \text{Debemos derivar dos veces }\\
+  \frac{d ^ {2 } }{d z ^ {2 }} \left[(z-z_0) ^ {3 } f(z) \right] = 2 A _{-1 } + \frac{d ^ {2 } }{d z ^ {2 }} \left[(z-z_0 )^ {3 } f_a(z) \right]\\
+  A _{-1 } = \frac{1}{2! } \underset{z  \rightarrow z_0 }{lim}\frac{d ^ {2 } }{d z ^ {2 }} \left[(z-z_0) ^ {3 } f(z) \right]
+\end{gather*}
+
+En general tenemos: 
+\caja{red}{}{
+  \begin{gather*}
+    A _{-1 } = Res(z_0) = \frac{1}{(m-1)! } \frac{d ^ {m-1 } }{d z ^ {m-1 }} \left[(z-z_0) ^ {m }f(z) \right] 
+  \end{gather*}
+  Esto es consistente con la formula integral de Cauchy.
+}
+
+\begin{itemize}
+  \item \textbf{Polo simple } Con singularidades en $ z_0 = 1, z_1 = -i $
+    \begin{gather*}
+      A _{-1 } = Res(z_0 ) = \underset{z  \rightarrow z_0 }{lim}(z-z_0 )f(z) \\
+    \end{gather*}
+    \begin{align*}
+      \displaystyle\oint_{\Gamma}^{} \frac{dz }{(z-1)(z+i)} &= 2\pi i \displaystyle\sum_{}^{}\text{residuos }\\
+      &= 2\pi i [Res(1)+Res(-i )]
+    \end{align*}
+    Calculamos los residuos: 
+    \begin{gather*}
+      Res(1) = \underset{z  \rightarrow 1 }{lim}(z-1) \frac{1}{(z-1)(z+i )} = \frac{1}{1 + i }\\
+      Res(-i) = \underset{z \rightarrow -i }{lim}(z+i) \frac{1}{(z-1)(z+i)} = \frac{1}{1+i }
+    \end{gather*}
+    Entocnes: 
+    \begin{gather*}
+       \displaystyle\oint_{\Gamma}^{} \frac{dz }{(z-1)(z+i)} = 2 \pi i \left[\frac{1}{1+i } - \frac{1}{1+i }\right] = 0 
+    \end{gather*}
+
+  \item Tenemos $ \oint \frac{4 dz }{z ^ {3 } - 1 } $ por el camino $ \Gamma: [z_1,z_2,z_3,z_1] = (-2,0,2i,-2+2i,-2) $
+\begin{gather*}
+  \oint \frac{4 dz }{(z - 1 )(z- e ^ {\frac{2\pi i }{3 }})(z - e ^ {\frac{4\pi i }{3 }})} = 2\pi i \underset{z  \rightarrow e ^ {\frac{2 i \pi}{3 }}}{lim}\frac{z - e ^ {\frac{2i\pi}{3 }}}{(z - 1 )(z- e ^ {\frac{2\pi i }{3 }})(z - e ^ {\frac{4\pi i }{3 }})} = -\frac{4\pi}{3}(\sqrt{3 } + i )
+\end{gather*}
+  \item Polo de orden mayor que 1 
+    \begin{gather*}
+      Res(z_0) = \frac{1}{(m-1)! } \frac{d  ^ {m-1 } }{d z ^ {m-1 }} \left[(z-z_0 )^m f(z) \right] \\
+      \displaystyle\oint_{C_2(1) }^{} \frac{z ^ {3 }}{(z-i)^2 }dz = 2\pi i \underset{z  \rightarrow i }{lim}\frac{d  }{d z } \left[(z-i)^2 \frac{z ^3 }{(z-i)^2 }\right] = -6 \pi i 
+    \end{gather*}
+
+  \item $ f(z) = \frac{p(z) }{q(z) } $ donde $ f(z)  $ tiene un polo simple en $ z_0  $ y $ p(z_0) \neq 0  $.
+    \begin{gather*}
+      q(z) \approx q (\underset{=0 }{z_0 }) + q'(z_0)(z-z_0) = q'(z_0)(z-z_0)\\
+      Res(z_0) = \underset{z  \rightarrow z_0 }{lim}(z-z_0) \frac{p(z) }{q'(z_0)(z-z_0)} = \frac{p(z_0 )}{q'(z_0 )}\\
+      \text{Analogo a L'Hopital}
+    \end{gather*}
+\end{itemize}
+
+\end{document}
