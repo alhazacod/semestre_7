@@ -1,0 +1,120 @@
+\documentclass{article}
+
+\usepackage[most]{tcolorbox}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry} % Controla los márgenes
+\usepackage{titling}
+
+\title{Parcial \#2 }
+\author{Manuel Garcia.}
+\date{\today}
+
+\renewcommand{\maketitlehooka}{%
+  \centering
+  \vspace*{0.05cm} % Espacio vertical antes del título
+}
+
+\renewcommand{\maketitlehookd}{%
+  \vspace*{2cm} % Espacio vertical después de la fecha
+}
+
+\newcommand{\caja}[3]{%
+  \begin{tcolorbox}[colback=#1!5!white,colframe=#1!25!black,title=#2]
+    #3
+  \end{tcolorbox}%
+}
+
+\begin{document}
+\maketitle
+
+\section{}
+\begin{gather}
+  U ^ {\mu} \partial _{\mu} \langle V, W \rangle = \langle U ^ {\mu} \grad _{\mu} V, W \rangle + \langle V, U ^ {\mu} \grad _{\mu}  W \rangle \\
+  U ^ {\mu } \partial _{\mu} (g _{\lambda \beta} V ^ {\alpha}W ^ {\beta}) = U ^ {\mu} (\partial _{\mu} g _{\lambda\beta} ) V ^ {\lambda} W ^ {\beta} + U ^ {\mu} g _{\lambda\beta} (\partial _{\mu} V ^ {x })W ^ {\beta} + U ^ {\mu} g _{\lambda\beta} (\partial _{\mu} W ^ {\beta})V ^ {\lambda} \\
+  \text{Tenemos que: }\\
+  \grad _{\mu} g _{\lambda\beta} - \Gamma _{\mu\lambda} ^ {\rho} g _{\rho\beta} - \Gamma _{\mu\beta} g _{\lambda \rho}  \qquad \qquad \grad _{\mu} T ^ {\lambda} = \partial _{\mu} T ^ {\lambda} + \Gamma _{\rho\mu} ^ {\lambda} T ^ {\rho}\\
+  \text{Entonces: }\\
+  = U ^ {\mu}(\grad _{\mu} g _{\lambda\beta} + \Gamma _{\mu\lambda} ^ {\rho} g _{\rho\beta} + \Gamma _{\mu\beta} g _{\lambda \rho})V ^ {\lambda}W ^ {\beta} + U ^ {\mu}g _{\lambda\beta} (\grad _{\mu} V ^ {\lambda} - \Gamma _{\rho\mu} V ^ {\rho})W ^ {\beta} + U ^ {\mu} g _{\lambda\beta} (\grad _{\mu} W ^ {\beta} - \Gamma _{\rho\mu} ^ {\beta} W ^ {\rho})V ^ {\lambda}\\
+  = U ^ {\mu} (g _{\lambda\beta} (\grad _{\mu } V ) ^ {\lambda}W ^ {\beta} + g _{\lambda\beta} V ^ {\lambda} (\grad _{\mu} W ^ {\beta})) \\
+  = \langle U ^ {\mu} \grad _{\mu}  V , W \rangle + \langle V, U ^ {\mu} \grad _{\mu} W \rangle
+\end{gather}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{}
+\begin{gather}
+  \omega = 4xydx + (x^2 - 5) dy \qquad \quad \beta = e ^ {2xy } dx - dy \\
+  x = 2 \frac{d  }{d x } + y \frac{d  }{d y }
+\end{gather}
+
+\begin{itemize}
+  \item 
+  \begin{align*}
+    d\omega &= d(4xy dx ) + d((x^2-5)dy)\\
+       &= (4ydx + 4x dy) \land dx + (2x dx)\land dy \\
+       &= (-4x + 2x ) (dx \land dy)
+  \end{align*}
+  \item 
+  \begin{align*}
+    d\beta &= d(e ^ {2y } dx ) + d(-dy)\\
+       &= (2x e ^ {2xy }dy + 2y e ^ {2xy }dx )\land dx \\
+       &= 2x e ^ {2xy } dy \land dx 
+  \end{align*}
+  \item 
+  \begin{align*}
+    \omega \land \beta &= (4xy dx + (x^2 - 5) dy ) \land (e ^ {2xy }dx - dy ) \\
+    &= 4xydx\land(e ^ {2xy }dx - dy ) + (x^2 - 5) dy \land (e ^ {2xy }dx - dy ) \\
+    &= - 4xy dx \land dy + (x^2 - 5) e ^ {2xy }dy\land dx \\
+    &= -(4xy + (x^2 - 5)e ^ {2xy })dx \land dy 
+  \end{align*}
+  \item 
+  \begin{align*}
+    i_x d\beta &= i _{x } (2x e ^ {2xy } dy \land dx) = 2x e ^ {2xy } (dy(y \frac{\partial  }{\partial y })\otimes dx - dx (2 \frac{\partial  }{\partial x }))\otimes dy \\
+          &= 2xy e ^ {2xy }dy - 4 x e ^ {2xy }dy 
+  \end{align*}
+  \item 
+  \begin{align*}
+    d\beta \land \omega &= (2x e ^ {2xy } dy \land dx ) \land (4xy dx + (x^2 - 5) dy ) \\
+    &= 2x e ^ {2xy }(x^2 - 5 )dy \land dx \land dy = 0 
+  \end{align*}
+  \item 
+  \begin{align*}
+    d\omega \land \beta = (-2x dx \land dy ) \land (e ^ {2xy } dx - dy ) = 0 
+  \end{align*}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{}
+\begin{align*}
+  \Delta \Gamma _{\beta\gamma} ^ {\alpha} &= \Gamma _{\beta\gamma} ^ {\alpha} - \bar \Gamma _{\beta\gamma} ^ {\alpha} \quad \in \mathcal{T}(M) \\
+  (\Delta \Gamma _{\beta\gamma}  ^ {\alpha} )' &= (\Gamma _{\beta\gamma}  ^ {\alpha})' - (\bar \Gamma _{\beta\gamma} ^ {\alpha})'\\
+  &= \left(\frac{ y ^ {\alpha} }{\partial x ^ {\beta}} \frac{\partial x ^ {\alpha} }{\partial y ^ {\nu}} \frac{\partial y ^ {\sigma} }{\partial y ^ {\mu}} \Gamma _{\alpha\sigma} ^ {\beta} - \frac{ y ^ {\alpha} }{\partial x ^ {\beta}} \frac{\partial x ^ {\alpha} }{\partial y ^ {\nu}} \frac{\partial y ^ {\sigma} }{\partial y ^ {\mu}} \bar\Gamma _{\alpha\sigma} ^ {\beta}\right) \\
+  &=\frac{ y ^ {\alpha} }{\partial x ^ {\beta}} \frac{\partial x ^ {\alpha} }{\partial y ^ {\nu}} \frac{\partial y ^ {\sigma} }{\partial y ^ {\mu}} (\Gamma _{\alpha\sigma}  ^ {\beta} - \bar \Gamma _{\alpha\sigma}  ^ {\beta})\\
+  &= \frac{ y ^ {\alpha} }{\partial x ^ {\beta}} \frac{\partial x ^ {\alpha} }{\partial y ^ {\nu}} \frac{\partial y ^ {\sigma} }{\partial y ^ {\mu}}\Delta \Gamma _{\alpha\sigma}  ^ {\beta}
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{}
+\begin{gather*}
+  R _{\mu\nu\alpha\beta}  = R _{\mu\alpha} g _{\nu\beta} - R _{\mu\beta} g _{\nu\alpha} + R _{\nu\beta} g _{\mu\alpha} - R _{\nu\alpha} g _{\mu\beta} + \frac{R }{2 } (g _{\mu\beta} g _{\nu\alpha } - g _{\mu\alpha} g _{\nu\beta} ) \\
+  g ^ {\nu\beta} R _{\mu\nu\alpha\beta}  = R _{\mu\alpha}  = R _{\mu\alpha} g _{\nu\beta} g ^ {\nu\beta} - R _{\mu\beta} g _{\nu\alpha} g ^ {\nu\beta} + R _{\nu\beta} g ^ {\nu\beta} g _{\mu\alpha} - R _{\nu\alpha} g ^ {\nu\beta} g _{\mu\alpha} + \frac{R }{2} ( g _{\mu\beta} g _{\nu\alpha} g ^ {\nu\beta}- g _{\mu\alpha}  g _{\nu\beta} g ^ {\nu\beta})\\
+  = R _{\mu\alpha}  g _\nu^\nu - R _{\mu\beta} g _\alpha^\beta + R g _{\mu\alpha} - R _{\nu\alpha}  g _\mu^\nu + \frac{R }{2} (g _{\mu\beta} g_\alpha^\beta - g _{\mu\alpha} g_\nu^\nu) = R _{\mu\alpha} 
+\end{gather*}
+
+\end{document}
