@@ -1,0 +1,1 @@
+{"cmd": "\nraw_data = pd.read_csv(\"datos_rlc.csv\")\n\nprint(raw_data)", "cmd_opts": " --cell_id=iM1cI3Iry8 -s", "import_complete": 0, "terminal": "kitty"}
