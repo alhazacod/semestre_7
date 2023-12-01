@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1701319148 "main.tex" "main.pdf" "main" 1701319150 0
+["pdflatex"] 1701376924 "main.tex" "main.pdf" "main" 1701376928 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1689853683 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1689853683 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1689853683 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -32,6 +32,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb" 1689853683 25168 33771b85f45c82138dd7745db7092d1c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1689853683 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1689853683 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1689853683 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1689853683 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1689853683 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1689853683 40635 c40361e206be584d448876bba8a64a3b ""
@@ -199,14 +200,14 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1689853683 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1689853683 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1689853683 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1693104858 4483110 adb1e1d04498b9576f1f17c4219c5e03 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1693104782 6768052 03d1532e4833c781cbb89b0aee12245c ""
-  "Logo-unal.png" 1701140682 18848 424a6dcec604d57fdfac8bb1b4ea2c35 ""
-  "main.aux" 1701319149 2372 17da32272a86cca66a76332c971fbc08 "pdflatex"
-  "main.nav" 1701319149 1295 ef040a83926d85743749b42a2275f515 "pdflatex"
-  "main.out" 1701319149 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1701319146 8105 6071d63256da2473167eac1ed2416cdd ""
-  "sage.png" 1701317953 41154 fdbbad71e7a935bb7fe9383a551cd5c8 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1691973582 4483110 adb1e1d04498b9576f1f17c4219c5e03 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1691973520 6768059 49b1501dd6b148d302fc58320d4281a5 ""
+  "Logo-unal.png" 1701196848 18848 424a6dcec604d57fdfac8bb1b4ea2c35 ""
+  "main.aux" 1701376927 2759 721fc3bd6330a65ad7cc82b484b90cee "pdflatex"
+  "main.nav" 1701376927 1574 f5abf7444d939a8c2cd188b6df8c9c87 "pdflatex"
+  "main.out" 1701376926 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1701376924 11355 ef307a411b87ba91d48b5a43258714e3 ""
+  "sage.png" 1701363195 41154 fdbbad71e7a935bb7fe9383a551cd5c8 ""
   (generated)
   "main.aux"
   "main.log"

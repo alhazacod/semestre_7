@@ -7,20 +7,20 @@
 
 %Information to be included in the title page:
 \title[Geodesica en Espacio de Minkowski] %optional
-{Geodesica Alrededor de una Particula con Masa en el Espacio de Minkowski}
+{Geodésica Alrededor de una Partícula con la Métrica de Schwarzschild}
 
-\author[] % (optional, for multiple authors)
+\author[Garcia, Raisuke] % (optional, for multiple authors)
 {Manuel Angel Garcia\inst{1} \and Carlos Andres Llanos\inst{1}}
 
 \institute[] % (optional)
 {
   \inst{1}%
-  Facultad de Fisica\\
+  Facultad de Física\\
   Universidad Nacional de Colombia
 }
 
 \date[2023] % (optional)
-{Clase de Metodos Geometricos}
+{Clase de Métodos Geométricos}
 
 \logo{\includegraphics[height=1cm]{Logo-unal}}
 
@@ -29,23 +29,23 @@
 \frame{\titlepage}
 
 \begin{frame}
-\frametitle{Metrica de Schwarzschild}
+\frametitle{Métrica de Schwarzschild}
 
-Partiendo de la metrica de Minkowski en esfericas: 
+Partiendo de la métrica de Minkowski en esféricas: 
 \begin{gather*}
   ds^2 _{\text{Minkowski }}  = - dt^2 + dr^2 + r^2 d \Omega^2
 \end{gather*}
 
-Necesitamos una metrical que mantenga la forma del angulo solido, así que podemos multiplicarlo por una funcion radial:
+Necesitamos una métrica que mantenga la forma del ángulo solido, así que podemos multiplicarlo por una función radial:
 \begin{gather*}
   ds^2 = - e ^ {2 \alpha (r) } dt^2 + e ^ {2 \beta(r) } dr^2 + e ^ {2\gamma(r)}r^2 d \Omega^2 
 \end{gather*}
 
-Aplicamos la siguiente transformacion: 
+Aplicamos la siguiente transformación: 
 \begin{gather*}
   \bar r = e ^ {\gamma(r)}r \qquad \qquad d\bar r = \left(1 + r \frac{d \gamma  }{d r }\right)e ^ {\gamma } dr 
 \end{gather*}
-La metrica nos queda: 
+La métrica nos queda: 
 \begin{gather*}
   ds^2 = - e ^ {2 \alpha(r)}dt^2 + \left(1 + r \frac{d \gamma  }{d r }\right)^ {-2 } e ^ {2 \beta (r) - 2 \gamma (r) }d \bar r ^2 + \bar r ^2 d \Omega^2 
 \end{gather*}
@@ -57,7 +57,7 @@ La metrica nos queda:
 
 
 \begin{frame}
-\frametitle{Metrica de Schwarzschild}
+\frametitle{Métrica de Schwarzschild}
 
 \begin{gather*}
   ds^2 = - e ^ {2 \alpha(r)}dt^2 + \left(1 + r \frac{d \gamma  }{d r }\right)^ {-2 } e ^ {2 \beta (r) - 2 \gamma (r) }d \bar r ^2 + \bar r ^2 d \Omega^2 
@@ -68,7 +68,7 @@ Haciendo $ \bar r \rightarrow r  $ obtenemos que: $ \left(1 + r \frac{d \gamma  
 
 \hfill 
 
-Por lo tanto podemos escribir la metrica como: 
+Por lo tanto podemos escribir la métrica como: 
 
 \begin{gather*}
   ds^2 = - e ^ {2\alpha(r)}dt^2 + e ^ {2 \beta (r) } dr^2 + r^2 d \Omega^2  
@@ -81,7 +81,7 @@ Por lo tanto podemos escribir la metrica como:
 
 
 \begin{frame}
-\frametitle{Metrica de Schwarzschild}
+\frametitle{Métrica de Schwarzschild}
 
 \begin{gather*}
   ds^2 = - e ^ {2\alpha(r)}dt^2 + e ^ {2 \beta (r) } dr^2 + r^2 d \Omega^2  
@@ -122,10 +122,10 @@ Con los simbolos de Christoffel podemos obtener el tensor de Riemann:
 \begin{frame}
 \frametitle{Metrica de Schwarzschild}
 
-Tomando la contraccion obtenemos el tensor de Ricci: 
+Tomando la contracción obtenemos el tensor de Ricci: 
 
 \begin{align*}
-  &R_{t t}=e^{2(\alpha-\theta)}\left[\partial_r^2 \alpha+\left(\partial_r \alpha\right)^2-\partial_r \alpha \partial_r \beta+\frac{2}{r} \partial_r \alpha\right] \\
+  &R_{t t}=e^{2(\alpha-\beta)}\left[\partial_r^2 \alpha+\left(\partial_r \alpha\right)^2-\partial_r \alpha \partial_r \beta+\frac{2}{r} \partial_r \alpha\right] \\
   &R_{r r}=-\partial_r^2 \alpha-\left(\partial_r \alpha\right)^2+\partial_r \alpha \partial_r \beta+\frac{2}{r} \partial_r \beta \\
   &R_{\theta \theta}=e^{-2 \beta}\left[r\left(\partial_r \beta-\partial_r \alpha\right)-1\right]+1 \\
   &R_{\phi \phi}=\sin ^2 \theta \ \ R_{\theta \phi}
@@ -139,8 +139,8 @@ Tomando la contraccion obtenemos el tensor de Ricci:
 
 
 \begin{frame}
-\frametitle{Metrica de Schwarzschild}
-Reemplazamos el tensor de Ricci en la ecuacion de campo de Einstein en el vacio para hallar $ \alpha  $ y $ \beta  $: 
+\frametitle{Métrica de Schwarzschild}
+Reemplazamos el tensor de Ricci en la ecuacion de campo de Einstein en el vacío y contrayendo con la métrica contravariante para hallar $ \alpha  $ y $ \beta  $: 
 \begin{gather*}
   R _{\mu \nu }  - \frac{1}{2} R g _{\mu \nu }  = 0  
 \end{gather*}
@@ -150,7 +150,7 @@ Obteniendo:
   &- \partial_r^2 \alpha - (\partial_r \alpha)^2 + \partial_r \alpha \partial_r \beta + \frac{2}{r} \partial_r \beta = 0 \\ 
   \Longrightarrow \frac{2 }{r } \partial_r \alpha + \frac{2 }{r } \partial_r \beta = 0 
 \end{align*}
-Para que se cumpla esta ecuacion necesitamos que $ \alpha = - \beta + c  $
+Para que se cumpla esta ecuación necesitamos que $ \alpha = - \beta + c  $
 \end{frame}
 
 
@@ -166,11 +166,11 @@ Reemplazando en $ R _{\theta \theta }  = 0  $:
 \begin{gather*}
   e ^ {2\alpha }(2r \partial_r \alpha + 1 ) = 1 \Longrightarrow \partial_r (r e ^ {2\alpha }) = 1 
 \end{gather*}
-Resolviendo esta ecuacion obtenemos: 
+Resolviendo esta ecuación obtenemos: 
 \begin{gather*}
   e ^ {2\alpha } = 1 - \frac{R_s }{r } 
 \end{gather*}
-De esta forma obtenemos que podemos escribir la metrica como: 
+De esta forma obtenemos que podemos escribir la métrica como: 
 \begin{gather*}
   ds^2 = - \left(1 - \frac{R_s }{r }\right)dt^2 + \left(1 - \frac{R_s }{r}\right) ^ {-1 } dr^2 + r^2 d \Omega^2  
 \end{gather*}
@@ -181,8 +181,20 @@ De esta forma obtenemos que podemos escribir la metrica como:
 
 
 \begin{frame}
-\frametitle{Metrica de Schwarzschild}
-EXPLICAR POR QUÉ EL RADIO DE Schwarzschild ES $R_S=2GM$
+\frametitle{Radio de Schwarzschild}
+De la ecuación de la geodésica: 
+\begin{gather*}
+  \frac{d ^2 x ^ {\mu } }{d \lambda^2 } + \Gamma _{\rho \sigma } ^ {\mu} \frac{d x^\rho  }{d \lambda} \frac{d x ^ {\sigma} }{d \lambda} = 0 
+\end{gather*}
+Como vamos a tratar el caso no relativista tenemos que $ \frac{d x ^ {i } }{d \tau } \ll \frac{d t  }{d \tau } $. Esto hace que solo sobreviva la componente $ \Gamma _{tt } ^ {\mu } $ por lo que podemos escribir la ecuación de las geodésicas como: 
+\begin{gather*}
+  \frac{d ^2 x ^ {\mu } }{d \tau^2 } + \Gamma _{tt } ^ {\mu } \left(\frac{d t  }{d \tau }\right)^2 = 0  
+\end{gather*}
+Como el campo es estático ($ \partial _0 g _{\mu \nu }  $), $ \Gamma _{tt } ^ {\mu } $ se simplifica como: 
+\begin{align*}
+  \Gamma _{tt } ^ {\mu } &= \frac{1}{2} g ^ {\mu \lambda} (\partial_t g _{\lambda t } + \partial_t g _{t \lambda} - \partial_\lambda g _{tt }  ) \\
+    &= - \frac{1}{2} g ^ {\mu\lambda} g ^{\mu\lambda} \partial_\lambda g _{tt} 
+\end{align*}
 \end{frame}
 
 
@@ -190,12 +202,51 @@ EXPLICAR POR QUÉ EL RADIO DE Schwarzschild ES $R_S=2GM$
 
 
 \begin{frame}
-\frametitle{Geodesicas de Schwarzschild}
+\frametitle{Radio de Schwarzschild}
+\begin{align*}
+  \Gamma _{tt } ^ {\mu } = - \frac{1}{2} g ^ {\mu\lambda} g ^{\mu\lambda} \partial_\lambda g _{tt} 
+\end{align*}
+Podemos aplicar una perturbación a la métrica: 
+\begin{gather*}
+  g _{\mu \nu} = \eta _{\mu\nu}  + h _{\mu\nu} \qquad \qquad g ^ {\mu\nu} = \eta ^ {\mu\nu} - h ^ {\mu\nu}
+\end{gather*}
+Reemplazando en el símbolo de Christoffel, la métrica nos queda: 
+\begin{gather*}
+  \Gamma _{tt } ^ {\mu} = - \frac{1}{2} \eta ^ {\mu\lambda} \partial _{\lambda} h _{tt } \quad \Longrightarrow \quad \frac{d ^2 x ^ {\mu} }{d \tau^2 } = \frac{1}{2} \eta ^ {\mu\lambda} \partial_\lambda h _{tt } \left(\frac{d t  }{d \tau }\right)^2  \\
+  \rotatebox[origin=c]{180}{$\Lsh$} \frac{d ^2 x ^ {\mu} }{d t^2 } = \frac{1}{2} \partial _{i }  h _{tt } 
+\end{gather*}
+Recordemos que para un potencial gravitacional $ \vec a = -\nabla  \phi $
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\begin{gather*}
+\frac{d ^2 x ^ {\mu} }{d t^2 } = \frac{1}{2} \partial _{i }  h _{tt }
+\end{gather*}
+Recordemos que para un potencial gravitacional $ \vec a = -\nabla  \phi $, comparando con la ecuación anterior: 
+\begin{gather*}
+  h _{tt } = -2\phi 
+\end{gather*}
+Como $ g _{tt } = \eta _{tt } + h _{tt }  $ y del potencial Newtoniano para un cuerpo gravitando $ \phi = - \frac{GM }{r } $ tenemos que: 
+\begin{gather*}
+  g _{tt } = - \left(1 - \frac{2GM }{r }\right) \quad \Longrightarrow \quad R_s = 2GM
+\end{gather*}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Geodésicas de Schwarzschild}
 \begin{gather*}
   ds^2 = - \left(1 - \frac{2GM }{r }\right)dt^2 + \left(1 - \frac{2GM }{r}\right) ^ {-1 } dr^2 + r^2 d \Omega^2  
 \end{gather*}
 
-Calculamos los simbolos de Christoffel
+Calculamos los símbolos de Christoffel
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.95\textwidth]{sage.png}
@@ -208,25 +259,43 @@ Calculamos los simbolos de Christoffel
 
 
 \begin{frame}
-\frametitle{Geodesicas de Schwarzschild}
-Simbolo de Christoffel para la metrica: 
+\frametitle{Geodésicas de Schwarzschild}
+Símbolo de Christoffel para la métrica: 
 \begin{gather*}
 \begin{array}{lcl} \Gamma_{ \phantom{\, t} \, t \, r }^{ \, t \phantom{\, t} \phantom{\, r} } & = & -\frac{M}{2 \, M r - r^{2}} \\ \Gamma_{ \phantom{\, r} \, t \, t }^{ \, r \phantom{\, t} \phantom{\, t} } & = & -\frac{2 \, M^{2} - M r}{r^{3}} \\ \Gamma_{ \phantom{\, r} \, r \, r }^{ \, r \phantom{\, r} \phantom{\, r} } & = & \frac{M}{2 \, M r - r^{2}} \\ \Gamma_{ \phantom{\, r} \, {\theta} \, {\theta} }^{ \, r \phantom{\, {\theta}} \phantom{\, {\theta}} } & = & 2 \, M - r \\ \Gamma_{ \phantom{\, r} \, {\phi} \, {\phi} }^{ \, r \phantom{\, {\phi}} \phantom{\, {\phi}} } & = & {\left(2 \, M - r\right)} \sin\left({\theta}\right)^{2} \\ \Gamma_{ \phantom{\, {\theta}} \, r \, {\theta} }^{ \, {\theta} \phantom{\, r} \phantom{\, {\theta}} } & = & \frac{1}{r} \\ \Gamma_{ \phantom{\, {\theta}} \, {\phi} \, {\phi} }^{ \, {\theta} \phantom{\, {\phi}} \phantom{\, {\phi}} } & = & -\cos\left({\theta}\right) \sin\left({\theta}\right) \\ \Gamma_{ \phantom{\, {\phi}} \, r \, {\phi} }^{ \, {\phi} \phantom{\, r} \phantom{\, {\phi}} } & = & \frac{1}{r} \\ \Gamma_{ \phantom{\, {\phi}} \, {\theta} \, {\phi} }^{ \, {\phi} \phantom{\, {\theta}} \phantom{\, {\phi}} } & = & \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)} \end{array}
 \end{gather*}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{frame}
-\frametitle{Geodesicas de Schwarzschild}
+\frametitle{Geodésicas de Schwarzschild}
 
-Reemplazando los simbolos de Christoffel en la ecuacion de la geodesica: 
+Reemplazando los símbolos de Christoffel en la ecuación de la geodésica: 
 \begin{gather*}
   \ddot t + \frac{2M}{r(r-2M)}\dot r \dot t = 0\\
   \ddot r + \frac{M}{r^3}(r-2M)\dot t^2 - \frac{M\dot r}{r(r-2M)}-(r-2M)\dot \phi^2=0 \\
   \ddot \phi + \frac{2}{r} \dot \phi \dot r = 0 
 \end{gather*}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Intervalo Luminoide}
+Como estamos en un intervalo luminoide podemos hacer $ ds^2 = 0  $ por lo que la métrica nos queda: 
+\begin{gather*}
+  - \left(1 - \frac{2GM }{r }\right)dt^2 + \left(1 - \frac{2GM }{r}\right) ^ {-1 } dr^2 + r^2 d \Omega^2 = 0 
+\end{gather*}
+Haciendo el reemplazo $ u = \frac{1}{r} $ nos queda: 
+\begin{gather*}
+  \left(\frac{d u  }{d \phi }\right)^2 = 2M u^3 - u^2 + \frac{1}{b^2 } 
+\end{gather*}
+A $ b  $ se le conoce como parámetro de impacto y nos determina la forma de la orbita. $ b = \sqrt{27 } M  \rightarrow $ orbitas de circunferencia inestable. $ b < \sqrt{27 } M  $ orbitas de caída en el centro.
 \end{frame}
 
 \end{document}

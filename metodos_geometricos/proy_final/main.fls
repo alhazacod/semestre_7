@@ -1,4 +1,4 @@
-PWD /home/alhazacod/Documents/uni/semestre_7/metodos_geometricos/proy_final
+PWD /home/alhazacod/Documents/semestre_7/metodos_geometricos/proy_final
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT main.tex
@@ -1321,11 +1321,20 @@ INPUT ./Logo-unal.png
 INPUT ./Logo-unal.png
 INPUT Logo-unal.png
 INPUT ./Logo-unal.png
+INPUT ./Logo-unal.png
+INPUT Logo-unal.png
+INPUT ./Logo-unal.png
+INPUT ./Logo-unal.png
+INPUT Logo-unal.png
+INPUT ./Logo-unal.png
 INPUT ./sage.png
 INPUT ./sage.png
 INPUT sage.png
 INPUT ./sage.png
 INPUT ./sage.png
+INPUT ./Logo-unal.png
+INPUT Logo-unal.png
+INPUT ./Logo-unal.png
 INPUT ./Logo-unal.png
 INPUT Logo-unal.png
 INPUT ./Logo-unal.png
@@ -1351,3 +1360,4 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
