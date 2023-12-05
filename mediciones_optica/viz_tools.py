@@ -109,7 +109,7 @@ def anim_2D(X, Y, L, pas_de_temps, pas_d_images, save = False, myzlim = (-0.15, 
         ax.set_xlabel("x [m]", fontname = "serif", fontsize = 14)
         ax.set_ylabel("y [m]", fontname = "serif", fontsize = 14)
         ax.set_zlabel("$u$ [m]", fontname = "serif", fontsize = 16)
-        ax.set_title("$u(x,y)$ à t = {} s".format(np.round(pas_d_images*num*pas_de_temps, 4)), fontname = "serif", fontsize = 16)
+        ax.set_title("$u(x,y)$ en t = {:.1} s".format(np.round(pas_d_images*num*pas_de_temps, 4)), fontname = "serif", fontsize = 16)
         ax.set_zlim(myzlim[0], myzlim[1])
         ax.set_ylim(0,5)
         ax.set_xlim(0,5)

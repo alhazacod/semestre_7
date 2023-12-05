@@ -68,27 +68,28 @@ def celer(x):
     Single space variable fonction that represent 
     the wave's velocity at a position x
     """
-    if x >= 0.4 and x <= 0.9: 
+    if x >= 0.4 and x <= 0.7: 
         return 0.5 
     else: 
         return 1
 
 def material(x):
     if x >= 0.4 and x <= 0.7: 
-        return 0.5 
+        return 0.005
     else: 
         return 0
+      
         
 loop_exec = 1  # Processing loop execution flag
 
 left_bound_cond = 2  #Boundary cond 1 : Dirichlet, 2 : Neumann, 3 Mur
 right_bound_cond = 3  #Boundary cond 1 : Dirichlet, 2 : Neumann, 3 Mur
 
-if left_bound_cond not in [1,2,3]:
+if left_bound_cond not in [2,3]:
     loop_exec = 0
     print("Please choose a correct left boundary condition")
 
-if right_bound_cond not in [1,2,3]:
+if right_bound_cond not in [2,3]:
     loop_exec = 0
     print("Please choose a correct right boundary condition")
 
@@ -115,7 +116,9 @@ c = np.zeros(N_x+1, float)
 for i in range(0,N_x+1):
     c[i] = celer(X[i])
 
-
+m = np.zeros(N_x+1, float)
+for i in range(0,N_x+1):
+    m[i] = material(X[i])
 
 
 ############## CALCULATION CONSTANTS ###############
@@ -126,8 +129,6 @@ C2 = (dt/dx)**2
 
 CFL_1 = c_1*(dt/dx)
 CFL_2 = c_2*(dt/dx)
-
-
 
 
 ############## PROCESSING LOOP ###############
@@ -147,10 +148,10 @@ if loop_exec:
     u_j[0:N_x+1] = I(X[0:N_x+1])
     U[:,0] = u_j.copy()
     
-    
+     
     #init cond - at t = 1
     #without boundary cond
-    u_jp1[1:N_x] =  u_j[1:N_x] + 0.5*C2*( 0.5*(q[1:N_x] + q[2:N_x+1])*(u_j[2:N_x+1] - u_j[1:N_x]) - 0.5*(q[0:N_x-1] + q[1:N_x])*(u_j[1:N_x] - u_j[0:N_x-1]))
+    u_jp1[1:N_x] = (u_j[1:N_x] + 0.5 * C2 * (0.5 * (q[1:N_x] + q[2:N_x+1]) * (u_j[2:N_x+1] - u_j[1:N_x]) - 0.5 * (q[0:N_x-1] + q[1:N_x]) * (u_j[1:N_x] - u_j[0:N_x-1])) )- m[1:N_x]* dt * u_j[1:N_x]
     
     
     #left boundary conditions
@@ -188,9 +189,10 @@ if loop_exec:
     
     #Process loop (on time mesh)
     for j in range(1, N_t):
+        #material_vector = material(N_x) 
         #calculation at step j+1
         #without boundary cond
-        u_jp1[1:N_x] = (-u_jm1[1:N_x] + 2*u_j[1:N_x] + C2*( 0.5*(q[1:N_x] + q[2:N_x+1])*(u_j[2:N_x+1] - u_j[1:N_x]) - 0.5*(q[0:N_x-1] + q[1:N_x])*(u_j[1:N_x] - u_j[0:N_x-1])) )
+        u_jp1[1:N_x] = (-u_jm1[1:N_x] + 2*u_j[1:N_x] + C2*( 0.5*(q[1:N_x] + q[2:N_x+1])*(u_j[2:N_x+1] - u_j[1:N_x]) - 0.5*(q[0:N_x-1] + q[1:N_x])*(u_j[1:N_x] - u_j[0:N_x-1])) )- m[1:N_x]* dt * u_j[1:N_x]
            
         
         if left_bound_cond == 2:
