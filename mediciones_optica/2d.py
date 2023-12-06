@@ -2,7 +2,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from scipy import meshgrid
 
 def anim_2D(X, Y, L, pas_de_temps, pas_d_images, save = False, myzlim = (-0.15, 0.15)):
     
@@ -51,9 +50,9 @@ def anim_2D(X, Y, L, pas_de_temps, pas_d_images, save = False, myzlim = (-0.15, 
     
     # Save the result
     if save:
-        writer = animation.FFMpegWriter(fps = 24, bitrate = 10000, codec = "libx264", extra_args = ["-pix_fmt", "yuv420p"])
-        #writer = animation.PillowWriter(fps=15, bitrate=1800)
-        anim.save('file.mp4',writer=writer)
+        #writer = animation.FFMpegWriter(fps = 24, bitrate = 10000, codec = "libx264", extra_args = ["-pix_fmt", "yuv420p"])
+        writer = animation.PillowWriter(fps=15, bitrate=1800)
+        anim.save('file.gif',writer=writer)
     
     return anim
 
